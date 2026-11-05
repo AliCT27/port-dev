@@ -185,7 +185,7 @@ function formatTime(t: number) {
       class="flex flex-1 flex-col gap-4"
       :class="portrait ? 'md:flex-row md:items-start' : ''"
     >
-      <div v-if="showVideo" dir="ltr" :class="portrait ? 'aspect-[9/16] w-full max-w-[13rem] self-center md:self-start' : 'aspect-video w-full'" class="group/player relative shrink-0 overflow-hidden rounded-xl bg-black">
+      <div v-if="showVideo" dir="ltr" :class="portrait ? 'aspect-[9/16] w-full max-w-[10rem] self-center md:self-start' : 'aspect-video w-full'" class="group/player relative shrink-0 overflow-hidden rounded-xl bg-black">
         <video
           ref="videoEl"
           :src="item.video"
@@ -238,7 +238,7 @@ function formatTime(t: number) {
       </div>
       <div
         v-else
-        class="flex aspect-[9/16] w-full max-w-[8rem] shrink-0 flex-col items-center justify-center gap-2 self-center rounded-xl p-3 text-center md:self-start border border-dashed border-white/15 bg-white/[0.02] text-white/40"
+        class="flex aspect-[9/16] w-full max-w-[10rem] shrink-0 flex-col items-center justify-center gap-2 self-center rounded-xl p-4 text-center md:self-start border border-dashed border-white/15 bg-white/[0.02] text-white/40"
       >
         <UIcon name="i-lucide-video" class="size-6" />
         <span class="text-xs font-bold leading-6">ویدیوی رضایت کارفرما<br>به‌زودی اضافه می‌شه</span>
