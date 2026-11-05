@@ -33,8 +33,14 @@ export default defineNuxtConfig({
     }
   },
 
+  // آیکن‌ها داخل خودِ سایت بسته‌بندی می‌شن و از سرور iconify.design (خارجی؛ توی ایران ممکنه کند یا فیلتر باشه) گرفته نمی‌شن
   icon: {
-    mode: 'svg'
+    mode: 'svg',
+    clientBundle: {
+      // composables هم اسکن بشن (آیکن‌های لوگوی تکنولوژی‌ها داخل useTechStack.ts نوشته شدن)
+      scan: { globInclude: ['app/**/*.{vue,ts}'] }
+    },
+    fallbackToApi: false
   },
 
   // فونت‌های سایت (یکان‌بخ و اراد) لوکال هستن؛ پس فراهم‌کننده‌های آنلاینِ فونت رو خاموش می‌کنیم تا ماژول fonts سراغ اینترنت (که ممکنه بسته یا کند باشه) نره
