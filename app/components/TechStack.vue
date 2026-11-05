@@ -12,7 +12,7 @@ const duration = `${items.length * SECONDS_PER_ITEM}s`
 </script>
 
 <template>
-  <section id="stacks" class="border-y border-black/10 bg-neutral-50 py-10 dark:border-white/10 dark:bg-white/[0.03]">
+  <section id="stacks" class="border-y py-10 border-white/10 bg-white/[0.03]">
     <div class="mx-auto max-w-6xl px-6">
       <div class="reveal mb-8 text-center">
         <h2 class="text-2xl font-bold sm:text-3xl">تکنولوژی‌هایی که سایت شما ازشون قدرت می‌گیرن</h2>
@@ -32,7 +32,7 @@ const duration = `${items.length * SECONDS_PER_ITEM}s`
           <div
             v-for="(tech, n) in items"
             :key="`${copy}-${n}`"
-            class="group relative flex aspect-square w-24 shrink-0 flex-col items-center justify-center gap-1.5 overflow-hidden rounded-xl border border-black/10 bg-white p-1.5 shadow-none transition-[transform,border-color,box-shadow] duration-700 ease-in-out hover:-translate-y-1 hover:border-brand hover:shadow-md sm:w-28 sm:p-3 dark:border-white/10 dark:bg-dark"
+            class="group relative flex aspect-square w-24 shrink-0 flex-col items-center justify-center gap-1.5 overflow-hidden rounded-xl border p-1.5 shadow-none transition-[transform,border-color,box-shadow] duration-700 ease-in-out hover:-translate-y-1 hover:border-brand hover:shadow-md sm:w-28 sm:p-3 border-white/10 bg-dark"
           >
             <UIcon
               :name="tech.icon"
@@ -41,7 +41,7 @@ const duration = `${items.length * SECONDS_PER_ITEM}s`
               :style="{ color: tech.color }"
             />
             <span
-              class="relative z-10 whitespace-nowrap text-center font-semibold text-black/85 dark:text-white/85"
+              class="relative z-10 whitespace-nowrap text-center font-semibold text-white/85"
               :class="tech.name.length > 10 ? 'text-[11px] sm:text-sm' : 'text-sm'"
             >{{ tech.name }}</span>
           </div>

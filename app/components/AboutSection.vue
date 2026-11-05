@@ -80,10 +80,9 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <section id="about" class="border-y border-black/10 bg-neutral-50 pb-16 pt-10 sm:py-16 dark:border-white/10 dark:bg-white/[0.03]">
+  <section id="about" class="border-y pb-16 pt-10 sm:py-16 border-white/10 bg-white/[0.03]">
     <div class="mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 md:grid-cols-[1fr_1.7fr] md:gap-14">
       <div ref="aboutHeading" class="reveal reveal-delay-4 md:sticky md:top-28 md:self-start">
-        <p class="mb-3 text-sm font-bold tracking-wide text-brand">درباره ما</p>
         <h2 class="text-2xl font-bold sm:text-3xl">ارزش ما برای شما چیه؟</h2>
       </div>
 
@@ -104,12 +103,12 @@ onBeforeUnmount(() => {
           </div>
 
           <div
-            class="min-w-0 flex-1 rounded-2xl border border-black/10 bg-white p-5 transition-colors duration-500 ease-in-out md:hover:border-brand dark:border-white/10 dark:bg-dark"
+            class="min-w-0 flex-1 rounded-2xl border p-5 transition-colors duration-500 ease-in-out md:hover:border-brand border-white/10 bg-dark"
           >
             <span class="mb-1.5 inline-block text-sm font-bold text-brand">{{ item.label }}</span>
             <h3 class="mb-2 text-base font-bold sm:text-lg">{{ item.title }}</h3>
             <p
-              class="text-sm leading-loose text-black dark:text-white sm:text-base"
+              class="text-sm leading-loose text-white sm:text-base"
               :style="{ opacity: 0.68 + 0.27 * (levels[i] ?? 0) }"
             >{{ item.description }}</p>
           </div>

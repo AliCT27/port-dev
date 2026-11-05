@@ -23,7 +23,7 @@ onMounted(() => {
     >
       <div class="text-center md:text-start">
         <p
-          class="reveal mb-5 inline-flex items-center gap-2.5 rounded-lg border border-brand/40 bg-brand/10 px-4 py-2 text-sm font-bold text-black/80 sm:mb-6 dark:text-white/90"
+          class="reveal mb-5 inline-flex items-center gap-2.5 rounded-lg border border-brand/40 bg-brand/10 px-4 py-2 text-sm font-bold sm:mb-6 text-white/90"
         >
           <span class="relative flex size-2.5">
             <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand opacity-70" />
@@ -40,7 +40,7 @@ onMounted(() => {
         </h1>
         <div
           dir="ltr"
-          class="reveal reveal-delay-2 mb-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm font-semibold text-black/70 sm:mb-8 sm:gap-x-5 sm:text-base md:justify-end dark:text-white/70"
+          class="reveal reveal-delay-2 mb-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm font-semibold sm:mb-8 sm:gap-x-5 sm:text-base md:justify-end text-white/70"
         >
           <span class="inline-flex items-center gap-1.5">
             Laravel
@@ -116,17 +116,17 @@ onMounted(() => {
         >
           <div>
             <p class="text-xl font-bold sm:text-2xl">+۴</p>
-            <p class="text-sm text-black/60 dark:text-white/60">سال تجربه</p>
+            <p class="text-sm text-white/60">سال تجربه</p>
           </div>
           <div>
             <p class="text-xl font-bold sm:text-2xl">+۶۵۰</p>
-            <p class="text-sm text-black/60 dark:text-white/60">
+            <p class="text-sm text-white/60">
               کسب‌وکار همکار
             </p>
           </div>
           <div>
             <p class="text-xl font-bold sm:text-2xl">۲۴/۷</p>
-            <p class="text-sm text-black/60 dark:text-white/60">
+            <p class="text-sm text-white/60">
               پشتیبانی و پاسخگویی
             </p>
           </div>
@@ -139,7 +139,7 @@ onMounted(() => {
             class="absolute -inset-3 rounded-full bg-brand opacity-30 blur-2xl transition-opacity duration-700 ease-in-out group-hover:opacity-60"
           />
           <div
-            class="relative h-44 w-44 overflow-hidden rounded-full border-4 border-black bg-white shadow-2xl ring-1 ring-black/10 transition-transform duration-700 ease-in-out group-hover:scale-105 sm:h-56 sm:w-56 md:h-64 md:w-64 dark:border-white dark:bg-dark dark:ring-white/10"
+            class="relative h-44 w-44 overflow-hidden rounded-full border-4 shadow-2xl ring-1 transition-transform duration-700 ease-in-out group-hover:scale-105 sm:h-56 sm:w-56 md:h-64 md:w-64 border-white bg-dark ring-white/10"
           >
             <img
               v-if="!profileFailed"
@@ -151,7 +151,7 @@ onMounted(() => {
             />
             <div
               v-else
-              class="flex h-full w-full flex-col items-center justify-center gap-2 bg-neutral-100 text-center text-black/45 dark:bg-neutral-900 dark:text-white/45"
+              class="flex h-full w-full flex-col items-center justify-center gap-2 text-center bg-neutral-900 text-white/45"
             >
               <UIcon name="i-lucide-user-round" class="size-14" />
               <span class="text-xs font-bold leading-6">تصویر<br />به‌زودی اضافه می‌شه</span>

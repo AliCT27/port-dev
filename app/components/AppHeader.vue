@@ -126,7 +126,7 @@ onBeforeUnmount(() => {
 <template>
   <div class="fixed inset-x-0 top-3 z-50 mx-auto w-fit sm:top-5">
     <nav
-      class="flex max-w-[94vw] items-center gap-0 overflow-x-auto rounded-xl border border-black/10 bg-white/80 px-1.5 py-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden shadow-lg shadow-black/5 backdrop-blur-md sm:gap-1 sm:px-3 sm:py-1 dark:border-white/10 dark:bg-dark/80 dark:shadow-black/20"
+      class="flex max-w-[94vw] items-center gap-0 overflow-x-auto rounded-xl border px-1.5 py-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden shadow-lg backdrop-blur-md sm:gap-1 sm:px-3 sm:py-1 border-white/10 bg-dark/80 shadow-black/20"
     >
       <a
         v-for="item in navItems"
@@ -135,8 +135,8 @@ onBeforeUnmount(() => {
         @click.prevent.stop="goToSection(item.href)"
         class="whitespace-nowrap rounded-lg px-2 py-2 text-[11px] font-semibold min-[400px]:px-2.5 min-[400px]:text-xs transition-all duration-500 ease-in-out sm:px-3 sm:py-2 sm:text-sm"
         :class="activeId === item.href.split('#')[1]
-          ? 'bg-black/10 text-black shadow-sm dark:bg-white/15 dark:text-white'
-          : 'text-black/70 hover:bg-black/10 hover:text-black hover:shadow-sm dark:text-white/70 dark:hover:bg-white/15 dark:hover:text-white'"
+          ? 'shadow-sm bg-white/15 text-white'
+          : 'hover:shadow-sm text-white/70 hover:bg-white/15 hover:text-white'"
       >
         <template v-if="item.short">
           <span class="sm:hidden">{{ item.short }}</span>
@@ -152,7 +152,7 @@ onBeforeUnmount(() => {
     <button
       v-if="scrolled"
       type="button"
-      class="fixed bottom-6 right-6 z-40 flex h-12 w-12 items-center justify-center rounded-xl border border-black bg-black text-white shadow-2xl transition-all duration-500 ease-in-out hover:-translate-y-1 dark:border-white dark:bg-white dark:text-black"
+      class="fixed bottom-6 right-6 z-40 flex h-12 w-12 items-center justify-center rounded-xl border shadow-2xl transition-all duration-500 ease-in-out hover:-translate-y-1 border-white bg-white text-black"
       aria-label="برو بالا"
       @click="scrollToTop"
     >
