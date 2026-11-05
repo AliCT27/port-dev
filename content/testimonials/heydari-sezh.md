@@ -1,7 +1,6 @@
 ---
 company: کافه سژ ارومیه
 name: سروش حیدری
-rating: 5
 role: مدیرعامل
 video: /videos/testimonials/s-heydari.mp4
 avatar: /images/testimonials/s-heydari.webp

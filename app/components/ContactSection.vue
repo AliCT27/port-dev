@@ -16,7 +16,7 @@ useScrollReveal('.reveal')
         <h2 class="mb-4 text-2xl font-bold sm:text-3xl">
           آماده‌اید <span class="text-brand">فروشگاه آنلاین‌تون</span> رو راه بندازیم؟
         </h2>
-        <p class="mb-6 text-sm leading-loose text-black/65 sm:text-base dark:text-white/65">
+        <p class="mb-6 text-sm leading-loose sm:text-base text-white/65">
           ایده‌تون هرچقدر هم کلی باشه، توی جلسه‌ی مشاوره کاملاً شفاف بررسیش می‌کنیم و مسیر تبدیلش به یک سایت
           فروشگاهی ایده‌آل و پرسرعت رو روشن می‌کنیم. فقط کافیه شروع کنید؛ از هر کدوم از راه‌های زیر که براتون
           راحت‌تره، همین الان باهامون در ارتباط باشید.
@@ -47,7 +47,7 @@ useScrollReveal('.reveal')
           :href="link.href"
           :target="link.href.startsWith('tel:') ? undefined : '_blank'"
           :rel="link.href.startsWith('tel:') ? undefined : 'noopener'"
-          class="group inline-flex items-center gap-2 rounded-xl border border-black/15 bg-transparent px-5 py-2.5 text-sm font-bold text-black transition-all duration-500 ease-in-out hover:-translate-y-0.5 hover:border-brand hover:text-brand dark:border-white/15 dark:text-white dark:hover:border-brand dark:hover:text-brand"
+          class="group inline-flex items-center gap-2 rounded-xl border bg-transparent px-5 py-2.5 text-sm font-bold transition-all duration-500 ease-in-out hover:-translate-y-0.5 border-white/15 text-white hover:border-brand hover:text-brand"
         >
           {{ link.label }}
           <UIcon :name="link.icon" class="size-4" />

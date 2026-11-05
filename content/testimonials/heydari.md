@@ -1,7 +1,6 @@
 ---
 company: گالری زیورآلات آلفاسیلور
 name: امید حیدری
-rating: 4
 role: مدیرعامل
 #video: /videos/testimonials/heydari.mp4
 avatar: /images/testimonials/heydari.webp

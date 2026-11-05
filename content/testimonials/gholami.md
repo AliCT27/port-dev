@@ -1,7 +1,6 @@
 ---
 company: داروخانه دکتر دهشهری
 name: نیما غلامی
-rating: 5
 role: مسئول فنی
 #video: /videos/testimonials/gholami.mp4
 avatar: /images/testimonials/gholami.webp

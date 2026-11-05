@@ -1,7 +1,6 @@
 ---
 company: سرویس خواب گالری رمانتیک
 name: پوریا بادزهره
-rating: 5
 role: مدیرعامل
 video: /videos/testimonials/badzohreh.mp4
 avatar: /images/testimonials/badzohreh.webp

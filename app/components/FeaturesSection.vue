@@ -59,7 +59,7 @@ const tech = [
         <h2 class="mb-4 text-balance text-2xl font-bold sm:text-3xl">
           به یک سایت فروشگاهی معمولی قانع نباشید!
         </h2>
-        <p class="text-sm leading-loose text-black/70 sm:text-base dark:text-white/70">
+        <p class="text-sm leading-loose sm:text-base text-white/70">
           سیستم فروشگاهی حرفه‌ای با قابلیت تک‌فروشندگی و چندفروشندگی، با کدنویسی کاملاً اختصاصی از صفر تا ۱۰۰؛
           همه‌ی چیزهایی که یک کسب‌وکار ایرانی برای فروش آنلاین لازم داره.
         </p>
@@ -69,7 +69,7 @@ const tech = [
           <span
             v-for="t in tech"
             :key="t"
-            class="rounded-md border border-black/15 bg-white/60 px-3.5 py-1.5 text-xs font-bold sm:text-sm dark:border-white/15 dark:bg-white/5"
+            class="rounded-md border px-3.5 py-1.5 text-xs font-bold sm:text-sm border-white/15 bg-white/5"
           >
             {{ t }}
           </span>
@@ -80,14 +80,14 @@ const tech = [
         <!-- reveal روی لایه‌ی بیرونی؛ transition هاور روی کارت داخلی (تا با هم تداخل نکنن) -->
         <div v-for="g in groups" :key="g.title" class="reveal">
           <div
-            class="h-full rounded-2xl border border-black/10 bg-white p-5 transition-colors duration-500 ease-in-out md:hover:border-brand sm:p-6 dark:border-white/10 dark:bg-white/[0.03]"
+            class="h-full rounded-2xl border p-5 transition-colors duration-500 ease-in-out md:hover:border-brand sm:p-6 border-white/10 bg-white/[0.03]"
           >
             <!-- تصویر گروه؛ اگر نبود جای خالی با همان نسبت نمایش داده می‌شود -->
             <div
               class="mb-5 aspect-[16/9] overflow-hidden rounded-xl border"
               :class="failed[g.title]
-                ? 'border-dashed border-black/20 bg-neutral-50 text-black/45 dark:border-white/15 dark:bg-white/[0.02] dark:text-white/40'
-                : 'border-black/10 bg-neutral-100 dark:border-white/10 dark:bg-neutral-900'"
+                ? 'border-dashed border-white/15 bg-white/[0.02] text-white/40'
+                : 'border-white/10 bg-neutral-900'"
             >
               <img
                 v-if="!failed[g.title]"
@@ -111,7 +111,7 @@ const tech = [
               </span>
               <h3 class="text-base font-bold sm:text-lg">{{ g.title }}</h3>
             </div>
-            <ul class="grid gap-x-4 gap-y-2.5 text-sm text-black/75 sm:text-[0.95rem] dark:text-white/75">
+            <ul class="grid gap-x-4 gap-y-2.5 text-sm sm:text-[0.95rem] text-white/75">
               <li v-for="it in g.items" :key="it" class="flex items-start gap-2">
                 <UIcon name="i-lucide-check" class="mt-1 size-4 shrink-0 text-brand" />
                 <span>{{ it }}</span>
@@ -131,7 +131,7 @@ const tech = [
           </span>
           <div>
             <h3 class="mb-1 text-base font-bold sm:text-lg">سایت ووکامرسی دارید؟ راحت به سایت جدید منتقل می‌شید</h3>
-            <p class="mb-3 text-sm leading-loose text-black/70 dark:text-white/70">
+            <p class="mb-3 text-sm leading-loose text-white/70">
               اطلاعات فروشگاه فعلی‌تون از بین نمی‌ره. ما این موارد رو برای شما منتقل می‌کنیم و لازم نیست چیزی رو دوباره وارد کنید:
             </p>
             <ul class="flex flex-wrap gap-x-5 gap-y-2 text-sm font-bold">
