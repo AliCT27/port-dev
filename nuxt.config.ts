@@ -11,7 +11,7 @@ export default defineNuxtConfig({
   site: {
     url: 'https://mohandesinsite.ir',
     name: 'مهندسین سایت | طراحی سایت فروشگاهی با لاراول',
-    description: 'پورتفولیو یک توسعه‌دهنده فول‌استک — تخصص در لاراول، ووجی‌اس، اینرشیا و ناکست.',
+    description: 'طراحی سایت فروشگاهی سریع و مدرن با لاراول و ووجی‌اس. تیم مهندسین سایت؛ انتقال از ووکامرس، پنل مدیریت ساده، درگاه پرداخت و پشتیبانی. مشاوره رایگان.',
     defaultLocale: 'fa',
 
     // برای اجازه‌دادن به گوگل و بقیه‌ی ربات‌ها برای ایندکس‌کردن سایت: true
@@ -69,7 +69,7 @@ export default defineNuxtConfig({
         lang: 'fa',
         dir: 'rtl'
       },
-      titleTemplate: '%s · مهندسین سایت | طراحی سایت فروشگاهی با لاراول',
+      titleTemplate: '%s · مهندسین سایت',
       link: [
         { rel: 'icon', type: 'image/webp', href: '/favicon.webp' }
       ]
