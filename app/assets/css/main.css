@@ -1,0 +1,121 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-brand: #00DC82;
+  --color-dark: #0A0A0A; /* neutral-950 مثل nuxt.com */
+
+  /* فونت پیش‌فرضِ Tailwind و Nuxt UI رو فونت محلی سایت می‌کنیم؛ وگرنه Nuxt UI به‌صورت پیش‌فرض Public Sans می‌خواد و ماژول fonts می‌ره از اینترنت دنبالش */
+  /* ↓↓ برای سوییچ فونت فقط همین خط: 'YekanBakh' یا 'Arad' */
+  --font-sans: 'Arad', Tahoma, sans-serif;
+
+  /* گردیِ گوشه‌ها: ملایم و پله‌ای (عناصر کوچک‌تر کمتر، کارت‌های بزرگ‌تر کمی بیشتر). دایره‌ها و آواتارها rounded-full می‌مونن */
+  --radius-lg: 8px;
+  --radius-xl: 10px;
+  --radius-2xl: 12px;
+}
+
+/* دو فونت تعریف شده؛ مرورگر فقط فونتی که در --font-sans انتخاب شده را دانلود می‌کند */
+@font-face {
+  font-family: 'YekanBakh';
+  src: url('/fonts/yekanbakh/YekanBakhFaNum-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'YekanBakh';
+  src: url('/fonts/yekanbakh/YekanBakhFaNum-SemiBold.woff2') format('woff2');
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'YekanBakh';
+  src: url('/fonts/yekanbakh/YekanBakhFaNum-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Arad';
+  src: url('/fonts/arad/AradFD-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Arad';
+  src: url('/fonts/arad/AradFD-SemiBold.woff2') format('woff2');
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Arad';
+  src: url('/fonts/arad/AradFD-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+.grid-bg {
+  background-image:
+    linear-gradient(to right, rgb(0 0 0 / 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(0 0 0 / 0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+.dark .grid-bg {
+  background-image:
+    linear-gradient(to right, rgb(255 255 255 / 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.06) 1px, transparent 1px);
+}
+
+.text-gradient-mono {
+  background-image: linear-gradient(to left, #000, #525252, #000);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.dark .text-gradient-mono {
+  background-image: linear-gradient(to left, #fff, #a3a3a3, #fff);
+}
+
+.reveal {
+  opacity: 0;
+  transition: opacity 1s ease-out;
+}
+.reveal.revealed {
+  opacity: 1;
+}
+.reveal-delay-1 { transition-delay: 0.05s; }
+.reveal-delay-2 { transition-delay: 0.1s; }
+.reveal-delay-3 { transition-delay: 0.15s; }
+.reveal-delay-4 { transition-delay: 0.2s; }
+.reveal-delay-5 { transition-delay: 0.25s; }
+
+@keyframes spin-glow {
+  to { transform: rotate(360deg); }
+}
+.animate-spin-glow {
+  animation: spin-glow 3s linear infinite;
+}
+
+@keyframes phone-ring {
+  0%, 8%, 100% { transform: rotate(0deg); }
+  10% { transform: rotate(-18deg); }
+  16% { transform: rotate(16deg); }
+  22% { transform: rotate(-14deg); }
+  28% { transform: rotate(10deg); }
+  34% { transform: rotate(-6deg); }
+  40% { transform: rotate(0deg); }
+}
+.animate-phone-ring {
+  transform-origin: 50% 20%;
+  animation: phone-ring 1.8s ease-in-out infinite;
+}
