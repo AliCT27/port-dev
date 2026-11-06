@@ -191,7 +191,7 @@ function formatTime(t: number) {
           :src="item.video"
           preload="metadata"
           playsinline
-          class="h-full w-full cursor-pointer object-cover"
+          class="h-full w-full cursor-pointer object-cover [&:fullscreen]:bg-black [&:fullscreen]:object-contain"
           @click="togglePlay"
           @play="playing = true"
           @pause="playing = false"
