@@ -106,6 +106,33 @@ html {
   animation: spin-glow 3s linear infinite;
 }
 
+/* هاله‌ی زنده‌ی دور عکس پروفایل: یک قوس سبزِ کم‌رنگ خیلی آروم دور عکس می‌چرخه و هاله‌ی پایه کمی نفس می‌کشه */
+.profile-glow-spin {
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    color-mix(in srgb, var(--color-brand) 55%, transparent) 22%,
+    transparent 48%,
+    color-mix(in srgb, var(--color-brand) 25%, transparent) 72%,
+    transparent 100%
+  );
+  animation: profile-glow-spin 16s linear infinite;
+}
+@keyframes profile-glow-spin {
+  to { transform: rotate(360deg); }
+}
+.profile-glow-breathe {
+  animation: profile-glow-breathe 7s ease-in-out infinite;
+}
+@keyframes profile-glow-breathe {
+  0%, 100% { opacity: 0.12; }
+  50% { opacity: 0.22; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .profile-glow-spin,
+  .profile-glow-breathe { animation: none; }
+}
+
 @keyframes phone-ring {
   0%, 8%, 100% { transform: rotate(0deg); }
   10% { transform: rotate(-18deg); }
