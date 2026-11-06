@@ -136,7 +136,10 @@ onMounted(() => {
       <div class="reveal reveal-delay-1 mx-auto md:mx-0">
         <div class="group relative">
           <div
-            class="absolute -inset-1 rounded-full bg-brand opacity-15 blur-xl transition-opacity duration-700 ease-in-out group-hover:opacity-25"
+            class="profile-glow-breathe absolute -inset-1 rounded-full bg-brand blur-xl"
+          />
+          <div
+            class="profile-glow-spin absolute -inset-2 rounded-full opacity-70 blur-lg"
           />
           <div
             class="relative h-44 w-44 overflow-hidden rounded-full border-4 shadow-2xl ring-1 transition-transform duration-700 ease-in-out group-hover:scale-105 sm:h-56 sm:w-56 md:h-64 md:w-64 border-white bg-dark ring-white/10"
