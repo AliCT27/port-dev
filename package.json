@@ -10,7 +10,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@iconify-json/lucide": "1.2.151",
+    "@iconify-json/lucide": "1.2.152",
     "@iconify-json/simple-icons": "1.2.101",
     "@nuxt/content": "3.16.2",
     "@nuxt/fonts": "1.2.0",
@@ -22,6 +22,6 @@
     "vue-router": "5.4.0"
   },
   "devDependencies": {
-    "serve": "14.2.6"
+    "serve": "14.2.7"
   }
 }
