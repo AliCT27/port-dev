@@ -1,5 +1,4 @@
 <script setup lang="ts">
-useScrollReveal(".reveal");
 const { goToSection } = useSectionScroll();
 
 // اگه عکس پروفایل پیدا نشد (یا هنوز نگذاشتید)، به‌جاش جای خالی «به‌زودی» نمایش داده میشه
@@ -23,7 +22,7 @@ onMounted(() => {
     >
       <div class="text-center md:text-start">
         <p
-          class="reveal mb-5 inline-flex items-center gap-2.5 rounded-lg border border-brand/40 bg-brand/10 px-4 py-2 text-sm font-bold sm:mb-6 text-white/90"
+          class="hero-in mb-5 inline-flex items-center gap-2.5 rounded-lg border border-brand/40 bg-brand/10 px-4 py-2 text-sm font-bold sm:mb-6 text-white/90"
         >
           <span class="relative flex size-2.5">
             <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand opacity-70" />
@@ -32,7 +31,7 @@ onMounted(() => {
           آماده‌ی همکاری روی پروژه‌های جدید
         </p>
         <h1
-          class="reveal reveal-delay-1 mb-5 text-balance text-3xl font-bold leading-snug tracking-tight sm:mb-6 sm:text-4xl"
+          class="hero-in reveal-delay-1 mb-5 text-balance text-3xl font-bold leading-snug tracking-tight sm:mb-6 sm:text-4xl"
         >
           <span class="text-gradient-mono"
             >سلام، ما توسعه‌دهنده سایت‌های فروشگاهی با لاراول هستیم</span
@@ -40,7 +39,7 @@ onMounted(() => {
         </h1>
         <div
           dir="ltr"
-          class="reveal reveal-delay-2 mb-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm font-semibold sm:mb-8 sm:gap-x-5 sm:text-base md:justify-end text-white/70"
+          class="hero-in reveal-delay-2 mb-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm font-semibold sm:mb-8 sm:gap-x-5 sm:text-base md:justify-end text-white/70"
         >
           <span class="inline-flex items-center gap-1.5">
             Laravel
@@ -85,7 +84,7 @@ onMounted(() => {
         </div>
 
         <div
-          class="reveal reveal-delay-3 flex flex-wrap items-center justify-center gap-4 md:justify-start"
+          class="hero-in reveal-delay-3 flex flex-wrap items-center justify-center gap-4 md:justify-start"
         >
           <a
             href="#testimonials"
@@ -112,7 +111,7 @@ onMounted(() => {
         </div>
 
         <div
-          class="reveal reveal-delay-4 mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-center md:justify-start"
+          class="hero-in reveal-delay-4 mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-center md:justify-start"
         >
           <div>
             <p class="text-xl font-bold sm:text-2xl">+۴</p>
@@ -133,7 +132,7 @@ onMounted(() => {
         </div>
       </div>
 
-      <div class="reveal reveal-delay-1 mx-auto md:mx-0">
+      <div class="hero-in reveal-delay-1 mx-auto md:mx-0">
         <div class="group relative">
           <div
             class="profile-glow-breathe absolute -inset-1 rounded-full bg-brand blur-xl"
