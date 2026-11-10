@@ -8,11 +8,12 @@ useSeoMeta({
   ogLocale: 'fa_IR'
 })
 
-// معرفی تیم به گوگل (Organization)؛ بعد از داشتن لوگوی مربعی، فیلد logo هم اینجا اضافه بشه
+// معرفی تیم به گوگل (Organization) همراه با لوگوی مربعی ۵۱۲×۵۱۲
 useSchemaOrg([
   defineOrganization({
     name: 'مهندسین سایت',
     url: 'https://mohandesinsite.ir',
+    logo: 'https://mohandesinsite.ir/images/logo.webp',
     description: 'تیم طراحی و توسعه سایت‌های فروشگاهی سریع و مدرن با لاراول و ووجی‌اس',
     sameAs: [
       'https://www.instagram.com/mohandesin.site',
