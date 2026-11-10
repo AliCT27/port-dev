@@ -88,16 +88,34 @@ html {
 
 .reveal {
   opacity: 0;
-  transition: opacity 1s ease-out;
+  transition: opacity 0.7s ease-out;
 }
 .reveal.revealed {
   opacity: 1;
 }
-.reveal-delay-1 { transition-delay: 0.05s; }
-.reveal-delay-2 { transition-delay: 0.1s; }
-.reveal-delay-3 { transition-delay: 0.15s; }
-.reveal-delay-4 { transition-delay: 0.2s; }
-.reveal-delay-5 { transition-delay: 0.25s; }
+.reveal-delay-1 { transition-delay: 0.05s; animation-delay: 0.05s; }
+.reveal-delay-2 { transition-delay: 0.1s; animation-delay: 0.1s; }
+.reveal-delay-3 { transition-delay: 0.15s; animation-delay: 0.15s; }
+.reveal-delay-4 { transition-delay: 0.2s; animation-delay: 0.2s; }
+.reveal-delay-5 { transition-delay: 0.25s; animation-delay: 0.25s; }
+
+/* بخش بالای صفحه با خودِ CSS ظاهر می‌شه (بدون صبر برای JS)، تا اولین چیزی که کاربر می‌بینه دیر نیاد */
+.hero-in {
+  animation: reveal-fade 0.7s ease-out both;
+}
+@keyframes reveal-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* اگه JS خاموش باشه یا کاربر انیمیشن کم رو انتخاب کرده باشه، همه‌چیز از اول دیده می‌شه */
+@media (scripting: none) {
+  .reveal { opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transition: none; }
+  .hero-in { animation: none; }
+}
 
 @keyframes spin-glow {
   to { transform: rotate(360deg); }
