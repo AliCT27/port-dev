@@ -27,7 +27,7 @@ function handleError() {
 
 <template>
   <div class="flex min-h-screen items-center justify-center px-6 bg-dark text-white">
-    <div class="relative w-full max-w-lg overflow-hidden text-center">
+    <div class="relative w-full max-w-lg text-center">
       <div class="grid-bg absolute inset-0 opacity-40 [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_70%)]" />
 
       <div class="relative">
