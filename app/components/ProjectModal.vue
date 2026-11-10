@@ -204,6 +204,9 @@ onBeforeUnmount(() => {
             <div
               ref="bodyEl"
               data-lenis-prevent
+              role="region"
+              aria-label="تصاویر سایت"
+              tabindex="0"
               dir="ltr"
               class="min-h-0 flex-1 touch-pan-y overflow-x-hidden overflow-y-auto overscroll-contain bg-black"
               :class="dragging ? 'cursor-grabbing' : total > 1 ? 'cursor-grab' : ''"

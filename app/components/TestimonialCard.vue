@@ -217,7 +217,7 @@ function formatTime(t: number) {
         </button>
 
         <div class="absolute inset-x-0 bottom-0 flex items-center gap-2 bg-gradient-to-t from-black/85 via-black/40 to-transparent px-3 pb-2 pt-6">
-          <button type="button" class="text-white/90 transition-colors hover:text-brand" @click.stop="togglePlay">
+          <button type="button" :aria-label="playing ? 'توقف ویدیو' : 'پخش ویدیو'" class="text-white/90 transition-colors hover:text-brand" @click.stop="togglePlay">
             <UIcon :name="playing ? 'i-lucide-pause' : 'i-lucide-play'" class="size-4" />
           </button>
 
@@ -227,11 +227,11 @@ function formatTime(t: number) {
 
           <span class="w-9 shrink-0 text-[10px] tabular-nums text-white/80">{{ formatTime(currentTime) }}</span>
 
-          <button type="button" class="text-white/90 transition-colors hover:text-brand" @click.stop="toggleMute">
+          <button type="button" :aria-label="muted ? 'پخش صدا' : 'بی‌صدا کردن'" class="text-white/90 transition-colors hover:text-brand" @click.stop="toggleMute">
             <UIcon :name="muted ? 'i-lucide-volume-x' : 'i-lucide-volume-2'" class="size-4" />
           </button>
 
-          <button type="button" class="text-white/90 transition-colors hover:text-brand" @click.stop="toggleFullscreen">
+          <button type="button" aria-label="تمام‌صفحه" class="text-white/90 transition-colors hover:text-brand" @click.stop="toggleFullscreen">
             <UIcon name="i-lucide-maximize" class="size-4" />
           </button>
         </div>
@@ -246,7 +246,7 @@ function formatTime(t: number) {
       <div class="flex min-w-0 flex-1 flex-col">
         <div class="mb-2.5 flex items-center gap-3">
           <div class="flex h-11 w-11 items-center justify-center overflow-hidden rounded-full border-2 text-sm font-bold border-white bg-neutral-900">
-            <img v-if="item.avatar" :src="item.avatar" :alt="item.name" class="h-full w-full object-cover">
+            <img v-if="item.avatar" :src="item.avatar" :alt="item.name" width="400" height="400" class="h-full w-full object-cover">
             <span v-else>{{ item.name.charAt(0) }}</span>
           </div>
           <div>

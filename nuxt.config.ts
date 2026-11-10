@@ -19,6 +19,9 @@ export default defineNuxtConfig({
     indexable: false
   },
 
+  // Service Worker و polling نسخه برای سایت استاتیک لازم نیست (روی هاست معمولی فقط ۴۰۴ می‌گیرفت)
+  skewProtection: false,
+
   ssr: true,
   nitro: {
     prerender: {

@@ -148,6 +148,8 @@ onMounted(() => {
               ref="profileImg"
               src="/images/profile.webp"
               alt="Profile"
+              width="600"
+              height="600"
               class="h-full w-full object-cover"
               @error="profileFailed = true"
             />

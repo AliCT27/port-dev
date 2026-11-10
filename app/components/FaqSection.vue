@@ -33,6 +33,8 @@ useScrollReveal('.reveal')
           <button
             type="button"
             class="flex w-full items-center justify-between gap-3 p-4 text-start text-sm font-bold sm:gap-4 sm:p-5 sm:text-base"
+            :aria-expanded="openIndex === i"
+            :aria-controls="`faq-answer-${i}`"
             @click="toggle(i)"
           >
             <span class="flex items-center gap-3">
@@ -55,7 +57,8 @@ useScrollReveal('.reveal')
             class="grid transition-[grid-template-rows] duration-500 ease-in-out"
             :class="openIndex === i ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'"
           >
-            <div class="overflow-hidden">
+            <!-- inert: وقتی بسته‌ست، محتوای مخفی با Tab قابل رسیدن نباشه -->
+            <div :id="`faq-answer-${i}`" class="overflow-hidden" :inert="openIndex !== i">
               <ContentRenderer
                 :value="item"
                 class="prose max-w-none px-5 pb-5 text-sm sm:text-base prose-invert text-white/70"
