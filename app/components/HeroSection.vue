@@ -65,6 +65,8 @@ onMounted(() => {
               style="color: #4fc08d"
             />
           </span>
+          <!-- زیر ۸۶۰ پیکسل ردیف به شکل ۳ + ۲ بشکنه تا یک آیتم تنها نیفته -->
+          <span aria-hidden="true" class="h-0 basis-full min-[860px]:hidden" />
           <span class="inline-flex items-center gap-1.5">
             Nuxt
             <UIcon
