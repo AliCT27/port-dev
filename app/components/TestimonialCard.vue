@@ -151,6 +151,10 @@ const progress = computed(() => (duration.value ? (currentTime.value / duration.
 // هم حجم اولیه‌ی صفحه کمتر میشه، هم افزونه‌هایی مثل IDM با باز شدنِ صفحه پنل دانلود نشون نمیدن
 const videoLoaded = ref(false)
 
+// تصویر پیش‌نمایش (فریم اول) کنار خود ویدیو با همان اسم و پسوند .webp؛
+// مثلاً badzohreh.mp4 ← badzohreh.webp. موقع عوض کردن ویدیو، این عکس رو هم عوض کنید
+const poster = computed(() => props.item.video?.replace(/\.mp4$/i, '.webp'))
+
 async function togglePlay() {
   if (!videoEl.value) return
   if (!videoLoaded.value) {
@@ -206,6 +210,7 @@ function formatTime(t: number) {
           ref="videoEl"
           :src="videoLoaded ? item.video : undefined"
           preload="none"
+          :poster="poster"
           playsinline
           class="h-full w-full cursor-pointer object-cover [&:fullscreen]:bg-black [&:fullscreen]:object-contain"
           @click="togglePlay"
