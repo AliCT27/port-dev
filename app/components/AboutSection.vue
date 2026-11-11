@@ -91,11 +91,11 @@ onBeforeUnmount(() => {
           v-for="(item, i) in milestones"
           :key="item.title"
           data-node
-          class="flex items-stretch gap-2 pb-4 last:pb-0 sm:gap-6"
+          class="flex items-stretch gap-2 pb-4 last:pb-0 sm:gap-3"
           :class="i > preActiveUpTo ? ['reveal', `reveal-delay-${(i % 5) + 1}`] : ''"
         >
           <!-- ستون شماره -->
-          <div class="flex w-9 shrink-0 flex-col items-center sm:w-16">
+          <div class="flex w-9 shrink-0 flex-col items-center sm:w-12">
             <span
               class="mt-4 select-none text-3xl font-bold leading-none text-brand sm:text-4xl"
             dir="rtl"
