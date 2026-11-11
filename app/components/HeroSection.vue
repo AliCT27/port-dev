@@ -113,21 +113,21 @@ onMounted(() => {
         </div>
 
         <div
-          class="hero-in reveal-delay-4 mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-center md:justify-start"
+          class="hero-in reveal-delay-4 mt-8 grid grid-cols-3 gap-x-2 text-center sm:flex sm:flex-wrap sm:items-center sm:justify-center sm:gap-x-8 sm:gap-y-3 md:justify-start"
         >
           <div>
             <p class="text-xl font-bold sm:text-2xl">+۴</p>
-            <p class="text-sm text-white/60">سال تجربه</p>
+            <p class="text-xs text-white/60 sm:text-sm">سال تجربه</p>
           </div>
           <div>
             <p class="text-xl font-bold sm:text-2xl">+۶۵۰</p>
-            <p class="text-sm text-white/60">
+            <p class="text-xs text-white/60 sm:text-sm">
               کسب‌وکار همکار
             </p>
           </div>
           <div>
             <p class="text-xl font-bold sm:text-2xl">۲۴/۷</p>
-            <p class="text-sm text-white/60">
+            <p class="text-xs text-white/60 sm:text-sm">
               پشتیبانی و پاسخگویی
             </p>
           </div>
