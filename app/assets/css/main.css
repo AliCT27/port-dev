@@ -164,3 +164,17 @@ html {
   transform-origin: 50% 20%;
   animation: phone-ring 1.8s ease-in-out infinite;
 }
+
+/* صفحه‌ی ۴۰۴: باکسِ صفر آروم بالا و پایین میره */
+@keyframes not-found-bob {
+  0%, 100% { transform: translateY(-8%); }
+  50% { transform: translateY(8%); }
+}
+
+.not-found-bob {
+  animation: not-found-bob 2.6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .not-found-bob { animation: none; }
+}
