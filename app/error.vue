@@ -6,12 +6,12 @@ const props = defineProps<{
 const isNotFound = computed(() => props.error?.statusCode === 404)
 
 const title = computed(() =>
-  isNotFound.value ? 'صفحه پیدا نشد' : 'یه مشکلی پیش اومد'
+  isNotFound.value ? 'صفحه یافت نشد' : 'یه مشکلی پیش اومد'
 )
 
 const description = computed(() =>
   isNotFound.value
-    ? 'صفحه‌ای که دنبالش می‌گردید وجود نداره یا جابه‌جا شده.'
+    ? 'با عرض پوزش از شما، چنین صفحه‌ای در سایت وجود ندارد'
     : 'در بارگذاری این صفحه خطایی رخ داد. لطفاً دوباره تلاش کنید.'
 )
 
@@ -31,8 +31,24 @@ function handleError() {
       <div class="grid-bg absolute inset-0 opacity-40 [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_70%)]" />
 
       <div class="relative">
-        <p class="mb-4 text-7xl font-bold tracking-tight text-brand sm:text-8xl">
-          {{ error?.statusCode ?? 404 }}
+        <!-- ۴۰۴: صفرِ وسط یه باکسه که بالا و پایین میره -->
+        <p
+          v-if="isNotFound"
+          class="mb-6 flex items-center justify-center gap-3 text-8xl font-bold leading-none text-white/25 sm:gap-4 sm:text-9xl"
+          dir="ltr"
+          aria-label="خطای ۴۰۴"
+        >
+          <span aria-hidden="true">۴</span>
+          <span
+            aria-hidden="true"
+            class="not-found-bob flex size-[0.82em] items-center justify-center rounded-2xl bg-brand shadow-xl shadow-brand/20 sm:rounded-3xl"
+          >
+            <span class="size-[0.4em] rounded-full border-[0.1em] border-dark" />
+          </span>
+          <span aria-hidden="true">۴</span>
+        </p>
+        <p v-else class="mb-4 text-7xl font-bold tracking-tight text-brand sm:text-8xl">
+          {{ error?.statusCode ?? 500 }}
         </p>
         <h1 class="mb-3 text-2xl font-bold tracking-tight sm:text-3xl">
           {{ title }}
