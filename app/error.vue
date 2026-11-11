@@ -34,7 +34,7 @@ function handleError() {
         <!-- ۴۰۴: صفرِ وسط یه باکسه که بالا و پایین میره -->
         <p
           v-if="isNotFound"
-          class="mb-6 flex items-center justify-center gap-3 text-8xl font-bold leading-none text-white/25 sm:gap-4 sm:text-9xl"
+          class="mb-6 flex items-center justify-center gap-3 text-8xl font-bold leading-none text-white sm:gap-4 sm:text-9xl"
           dir="ltr"
           aria-label="خطای ۴۰۴"
         >
