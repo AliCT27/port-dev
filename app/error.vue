@@ -41,9 +41,9 @@ function handleError() {
           <span aria-hidden="true">۴</span>
           <span
             aria-hidden="true"
-            class="not-found-bob flex size-[0.82em] items-center justify-center rounded-2xl bg-brand shadow-xl shadow-brand/20 sm:rounded-3xl"
+            class="not-found-bob flex size-[0.66em] items-center justify-center rounded-2xl bg-brand shadow-xl shadow-brand/20 sm:rounded-3xl"
           >
-            <span class="size-[0.4em] rounded-full border-[0.1em] border-dark" />
+            <span class="size-[0.32em] rounded-full border-[0.08em] border-dark" />
           </span>
           <span aria-hidden="true">۴</span>
         </p>
@@ -59,7 +59,7 @@ function handleError() {
 
         <button
           type="button"
-          class="inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3 text-sm font-bold text-black transition-all duration-500 ease-in-out hover:-translate-y-1 hover:shadow-2xl hover:shadow-brand/30"
+          class="inline-flex items-center gap-2 rounded-xl bg-brand px-6 py-3 text-sm font-bold text-black transition-all duration-500 ease-in-out hover:-translate-y-1 hover:shadow-2xl hover:shadow-brand/30 active:translate-y-0"
           @click="handleError"
         >
           بازگشت به خانه
