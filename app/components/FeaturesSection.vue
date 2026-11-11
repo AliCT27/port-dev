@@ -123,10 +123,12 @@ const tech = [
         </div>
       </div>
 
+      <!-- دو کارت پایین بخش امکانات؛ توی دسکتاپ کنار هم، توی موبایل زیر هم -->
+      <div class="mt-4 grid gap-4 md:grid-cols-2">
       <!-- قابلیت‌های دیگه که در جلسه‌ی مشاوره بررسی می‌شن -->
-      <div class="reveal mt-4">
+      <div class="reveal">
         <div
-          class="flex flex-col items-center gap-2 rounded-2xl border border-dashed px-5 py-6 text-center sm:px-8 border-white/15 bg-white/[0.02]"
+          class="flex h-full flex-col items-center justify-center gap-2 rounded-2xl border border-dashed px-5 py-6 text-center sm:px-8 border-white/15 bg-white/[0.02]"
         >
           <span class="flex size-10 items-center justify-center rounded-xl bg-brand/15 text-brand">
             <UIcon name="i-lucide-sparkles" class="size-5" />
@@ -140,9 +142,9 @@ const tech = [
       </div>
 
       <!-- مهاجرت از ووکامرس -->
-      <div class="reveal mt-4">
+      <div class="reveal">
         <div
-          class="flex flex-col items-start gap-3 rounded-2xl border border-brand/40 bg-brand/10 p-5 sm:flex-row sm:items-center sm:gap-5 sm:p-6"
+          class="flex h-full flex-col items-start justify-center gap-3 rounded-2xl border border-brand/40 bg-brand/10 p-5 lg:flex-row lg:items-center lg:gap-5 sm:p-6"
         >
           <span class="flex size-12 shrink-0 items-center justify-center rounded-xl bg-brand text-black">
             <UIcon name="i-lucide-refresh-cw" class="size-6" />
@@ -160,6 +162,7 @@ const tech = [
             </ul>
           </div>
         </div>
+      </div>
       </div>
     </div>
   </section>
