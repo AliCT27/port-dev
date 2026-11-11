@@ -167,12 +167,12 @@ html {
 
 /* صفحه‌ی ۴۰۴: باکسِ صفر آروم بالا و پایین میره */
 @keyframes not-found-bob {
-  0%, 100% { transform: translateY(-8%); }
-  50% { transform: translateY(8%); }
+  0%, 100% { transform: translateY(-5%); }
+  50% { transform: translateY(5%); }
 }
 
 .not-found-bob {
-  animation: not-found-bob 2.6s ease-in-out infinite;
+  animation: not-found-bob 4.2s ease-in-out infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
