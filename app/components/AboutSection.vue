@@ -83,7 +83,7 @@ onBeforeUnmount(() => {
   <section id="about" class="border-y pb-16 pt-10 sm:py-16 border-white/10 bg-white/[0.03]">
     <div class="mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 md:grid-cols-[1fr_1.7fr] md:gap-14">
       <div ref="aboutHeading" class="reveal reveal-delay-4 md:sticky md:top-28 md:self-start">
-        <h2 class="text-2xl font-bold sm:text-3xl">ارزش ما برای شما چیه؟</h2>
+        <h2 class="text-2xl font-bold sm:text-3xl">چرا مهندسین سایت؟</h2>
       </div>
 
       <div ref="trackEl">
