@@ -147,19 +147,9 @@ const currentTime = ref(0)
 const duration = ref(0)
 const progress = computed(() => (duration.value ? (currentTime.value / duration.value) * 100 : 0))
 
-// فایل ویدیو تا وقتی کاربر دکمه‌ی پخش رو نزده اصلاً درخواست نمیشه؛
-// هم حجم اولیه‌ی صفحه کمتر میشه، هم افزونه‌هایی مثل IDM با باز شدنِ صفحه پنل دانلود نشون نمیدن
-const videoLoaded = ref(false)
-
-async function togglePlay() {
+function togglePlay() {
   if (!videoEl.value) return
-  if (!videoLoaded.value) {
-    videoLoaded.value = true
-    await nextTick()
-  }
-  const v = videoEl.value
-  if (!v) return
-  v.paused ? v.play().catch(() => {}) : v.pause()
+  videoEl.value.paused ? videoEl.value.play() : videoEl.value.pause()
 }
 function onTimeUpdate() {
   if (!videoEl.value) return
@@ -204,8 +194,8 @@ function formatTime(t: number) {
       <div v-if="showVideo" dir="ltr" :class="portrait ? 'aspect-[9/16] w-full max-w-[10rem] self-center md:self-start' : 'aspect-video w-full'" class="group/player relative shrink-0 overflow-hidden rounded-xl bg-black">
         <video
           ref="videoEl"
-          :src="videoLoaded ? item.video : undefined"
-          preload="none"
+          :src="item.video"
+          preload="metadata"
           playsinline
           class="h-full w-full cursor-pointer object-cover [&:fullscreen]:bg-black [&:fullscreen]:object-contain"
           @click="togglePlay"
