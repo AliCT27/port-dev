@@ -28,7 +28,6 @@ const RESET_MAX_S = 6
 
 const shotBox = ref<HTMLElement | null>(null)
 const shotImg = ref<HTMLImageElement | null>(null)
-const shotStyle = ref<Record<string, string>>({})
 
 // تصویر همین الان چقدر (به پیکسل) به سمت بالا رفته؛ حتی وسطِ انیمیشن
 function currentOffset() {
@@ -37,6 +36,21 @@ function currentOffset() {
   const t = getComputedStyle(img).transform
   if (!t || t === 'none') return 0
   return Math.abs(new DOMMatrix(t).m42)
+}
+
+// حرکت تصویر به offset دلخواه با مدت و منحنی مشخص.
+// اول تصویر رو روی نقطه‌ی فعلی «ثابت» می‌کنیم؛ وگرنه وقتی ترنزیشن نیمه‌کاره برعکس بشه،
+// مرورگر مدت رو به اندازه‌ی مسیر طی‌شده کوتاه می‌کنه و برگشتِ جزئی خیلی سریع‌تر از برگشتِ کامل میشه
+function panTo(targetPx: number, seconds: number, easing: string) {
+  const img = shotImg.value
+  if (!img) return
+  const now = currentOffset()
+  img.style.transitionDuration = '0s'
+  img.style.transform = `translateY(-${now}px)`
+  void img.offsetHeight // اجبار به اعمال استایل ثابت قبل از شروع حرکت جدید
+  img.style.transitionTimingFunction = easing
+  img.style.transitionDuration = `${seconds}s`
+  img.style.transform = `translateY(-${targetPx}px)`
 }
 
 function panStart() {
@@ -52,26 +66,18 @@ function panStart() {
   // مدت رو از فاصله‌ی باقی‌مونده حساب می‌کنیم (اگه وسط برگشت دوباره موس اومد)
   const remaining = Math.max(0, overflow - currentOffset())
   const seconds = Math.min(PAN_MAX_S, Math.max(PAN_MIN_S, remaining / PAN_PX_PER_S))
-  shotStyle.value = {
-    transform: `translateY(-${overflow}px)`,
-    transitionDuration: `${seconds}s`,
-    transitionTimingFunction: 'ease-in-out'
-  }
+  panTo(overflow, seconds, 'ease-in-out')
 }
 
 function panReset() {
   const offset = currentOffset()
   if (offset < 1) {
-    shotStyle.value = { transform: 'translateY(0)', transitionDuration: '0.3s', transitionTimingFunction: 'ease-out' }
+    panTo(0, 0.3, 'ease-out')
     return
   }
 
   const seconds = Math.min(RESET_MAX_S, Math.max(RESET_MIN_S, offset / RESET_PX_PER_S))
-  shotStyle.value = {
-    transform: 'translateY(0)',
-    transitionDuration: `${seconds}s`,
-    transitionTimingFunction: 'ease-in-out'
-  }
+  panTo(0, seconds, 'ease-in-out')
 }
 
 // ---- لمس (موبایل): نگه‌داشتن انگشت روی تصویر = همون پیمایشِ هاور؛ برداشتن انگشت = برگشت به بالا ----
@@ -284,7 +290,6 @@ function formatTime(t: number) {
           :alt="`تصویر سایت ${item.company ?? item.name}`"
           class="pointer-events-none block min-h-full w-full select-none object-cover object-top transition-transform will-change-transform [-webkit-touch-callout:none]"
           draggable="false"
-          :style="shotStyle"
           loading="lazy"
           decoding="async"
           @error="shotFailed = true"
