@@ -128,7 +128,7 @@ const tech = [
       <!-- قابلیت‌های دیگه که در جلسه‌ی مشاوره بررسی می‌شن -->
       <div class="reveal">
         <div
-          class="flex h-full flex-col items-center justify-center gap-2 rounded-2xl border border-dashed px-5 py-6 text-center sm:px-8 border-white/15 bg-white/[0.02]"
+          class="flex h-full flex-col items-start justify-center gap-2 rounded-2xl border border-dashed px-5 py-6 text-start sm:px-8 border-white/15 bg-white/[0.02]"
         >
           <span class="flex size-10 items-center justify-center rounded-xl bg-brand/15 text-brand">
             <UIcon name="i-lucide-sparkles" class="size-5" />
