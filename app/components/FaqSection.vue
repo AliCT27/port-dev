@@ -28,7 +28,8 @@ useScrollReveal('.reveal')
              پس جدا شد تا استروک هاور نرم تغییر کند -->
         <div v-for="(item, i) in faqs" :key="item.path" class="reveal">
         <div
-          class="rounded-2xl border transition-colors duration-500 ease-in-out md:hover:border-brand border-brand md:border-white/10 bg-dark"
+          class="rounded-2xl border transition-colors duration-500 ease-in-out md:hover:border-brand bg-dark"
+          :class="openIndex === i ? 'border-brand' : 'border-white/10'"
         >
           <button
             type="button"
