@@ -172,7 +172,7 @@ html {
 }
 
 .not-found-bob {
-  animation: not-found-bob 5.5s ease-in-out infinite;
+  animation: not-found-bob 3.2s ease-in-out infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
