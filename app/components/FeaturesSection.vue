@@ -40,6 +40,17 @@ onMounted(() => {
   })
 })
 
+// درگاه‌های پرداخت و پنل‌های پیامکی پشتیبانی‌شده. برای اضافه کردن، یک مورد به آرایه بدید:
+//   { name: 'زرین‌پال', logo: '/images/gateways/zarinpal.webp' }
+// لوگو مربع (ترجیحاً ۲۵۶×۲۵۶ با زمینه‌ی شفاف، WebP/PNG/SVG) توی public/images/gateways/
+// تا وقتی آرایه خالیه، جای‌نگهدار «به‌زودی» نمایش داده میشه.
+interface Gateway { name: string, logo?: string }
+
+const gatewayGroups: { title: string, items: Gateway[] }[] = [
+  { title: 'درگاه‌های پرداخت', items: [] },
+  { title: 'پنل‌های پیامکی', items: [] },
+]
+
 // مواردی که از ووکامرس منتقل می‌شن
 const migrate = ['دسته‌بندی‌ها', 'محصولات', 'تصاویر محصولات', 'مقالات سایت']
 
@@ -73,6 +84,47 @@ const tech = [
           >
             {{ t }}
           </span>
+        </div>
+      </div>
+
+      <!-- درگاه‌های پرداخت و پنل‌های پیامکی پشتیبانی‌شده -->
+      <div class="mx-auto mb-12 max-w-4xl sm:mb-14">
+        <div class="reveal mb-6 text-center">
+          <h3 class="mb-2 text-xl font-bold sm:text-2xl">درگاه‌ها و پنل‌های پشتیبانی‌شده</h3>
+          <p class="text-sm leading-loose sm:text-base text-white/70">
+            درگاه‌های پرداخت و پنل‌های پیامکی که سایت شما بهشون وصل می‌شه
+          </p>
+        </div>
+
+        <div class="space-y-4">
+          <div v-for="gg in gatewayGroups" :key="gg.title" class="reveal">
+            <div class="rounded-2xl border border-dashed p-5 sm:p-8 border-white/15 bg-white/[0.02]">
+              <h4 class="mb-6 text-center text-sm font-bold sm:text-base">{{ gg.title }}</h4>
+
+              <ul v-if="gg.items.length" class="flex flex-wrap justify-center gap-x-3 gap-y-5 sm:gap-x-5">
+                <li v-for="g in gg.items" :key="g.name" class="flex w-20 flex-col items-center gap-2 text-center sm:w-24">
+                  <span class="flex size-16 items-center justify-center rounded-xl bg-white p-2.5 sm:size-[4.5rem]">
+                    <img
+                      v-if="g.logo && !failed['gw:' + g.name]"
+                      :src="g.logo"
+                      :alt="g.name"
+                      width="72"
+                      height="72"
+                      loading="lazy"
+                      decoding="async"
+                      class="size-full object-contain"
+                      @error="failed['gw:' + g.name] = true"
+                    >
+                    <UIcon v-else name="i-lucide-image" class="size-6 text-black/30" />
+                  </span>
+                  <span class="text-xs leading-5 text-white/70">{{ g.name }}</span>
+                </li>
+              </ul>
+              <p v-else class="text-center text-sm leading-loose text-white/40">
+                لیست این بخش به‌زودی اضافه می‌شه.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
