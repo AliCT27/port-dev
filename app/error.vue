@@ -63,7 +63,7 @@ function handleError() {
           @click="handleError"
         >
           بازگشت به خانه
-          <UIcon name="i-lucide-arrow-left" class="size-4" />
+          <UIcon name="i-lucide-arrow-left" class="not-found-arrow size-4" />
         </button>
       </div>
     </div>
