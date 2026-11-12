@@ -100,8 +100,7 @@ onMounted(() => {
             />
           </a>
           <a
-            href="#contact"
-            @click.prevent.stop="goToSection('contact')"
+            href="tel:+989019837586"
             class="inline-flex items-center gap-2 rounded-xl bg-[#2F7DFF] px-6 py-3 text-sm font-bold text-white transition-all duration-500 ease-in-out hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#2F7DFF]/30"
           >
             تماس با ما
