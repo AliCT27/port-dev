@@ -31,11 +31,11 @@ const groups = [
 
 // عکسی که پیدا نشود (یا هنوز نگذاشته باشید) → جای خالی «به‌زودی» نمایش داده می‌شود
 const failed = ref<Record<string, boolean>>({})
-const gallery = ref<HTMLElement | null>(null)
+const root = ref<HTMLElement | null>(null)
 
 onMounted(() => {
   // اگر عکس قبل از hydration خطا داده بود، دوباره بررسی می‌کنیم
-  gallery.value?.querySelectorAll<HTMLImageElement>('img[data-feature]').forEach((img) => {
+  root.value?.querySelectorAll<HTMLImageElement>('img[data-feature]').forEach((img) => {
     if (img.complete && img.naturalWidth === 0) failed.value[img.dataset.feature!] = true
   })
 })
@@ -47,8 +47,43 @@ onMounted(() => {
 interface Gateway { name: string, logo?: string }
 
 const gatewayGroups: { title: string, items: Gateway[] }[] = [
-  { title: 'درگاه‌های پرداخت', items: [] },
-  { title: 'پنل‌های پیامکی', items: [] },
+  {
+    title: 'درگاه‌های پرداخت',
+    items: [
+      { name: 'زرین‌پال', logo: '/images/gateways/zarinpal.webp' },
+      { name: 'ترب‌پی', logo: '/images/gateways/torobpay.webp' },
+      { name: 'دیجی‌پی', logo: '/images/gateways/digipay.webp' },
+      { name: 'اسنپ‌پی', logo: '/images/gateways/snapppay.webp' },
+      { name: 'به‌پرداخت', logo: '/images/gateways/behpardakht.webp' },
+      { name: 'نکست‌پی', logo: '/images/gateways/nextpay.webp' },
+      { name: 'آسان‌پرداخت', logo: '/images/gateways/asanpardakht.webp' },
+      { name: 'پارسیان', logo: '/images/gateways/parsian.webp' },
+      { name: 'سداد - ملی', logo: '/images/gateways/sadad.webp' },
+      { name: 'سامان', logo: '/images/gateways/saman.webp' },
+      { name: 'پاسارگاد', logo: '/images/gateways/pasargad.webp' },
+      { name: 'سپهر - صادرات', logo: '/images/gateways/sepehr.webp' },
+      { name: 'پارس‌پال', logo: '/images/gateways/parspal.webp' },
+      { name: 'زیبال', logo: '/images/gateways/zibal.webp' },
+      { name: 'آقای پرداخت', logo: '/images/gateways/aghayepardakht.webp' },
+      { name: 'تومن', logo: '/images/gateways/toman.webp' },
+      { name: 'ازکی‌وام', logo: '/images/gateways/azkivam.webp' },
+      { name: 'شپا', logo: '/images/gateways/shepa.webp' },
+      { name: 'وندار', logo: '/images/gateways/vandar.webp' },
+      { name: 'پی‌پینگ (نقدی)', logo: '/images/gateways/payping.webp' },
+      { name: 'کارت به کارت', logo: '/images/gateways/card-to-card.webp' },
+    ],
+  },
+  {
+    title: 'پنل‌های پیامکی',
+    items: [
+      { name: 'کاوه‌نگار', logo: '/images/gateways/kavenegar.webp' },
+      { name: 'قاصدک', logo: '/images/gateways/ghasedak.webp' },
+      { name: 'ملی پیامک', logo: '/images/gateways/melipayamak.webp' },
+      { name: 'مدیانا', logo: '/images/gateways/mediana.webp' },
+      { name: 'ippanel', logo: '/images/gateways/ippanel.webp' },
+      { name: 'ایده‌پردازان (sms.ir)', logo: '/images/gateways/sms-ir.webp' },
+    ],
+  },
 ]
 
 // مواردی که از ووکامرس منتقل می‌شن
@@ -64,7 +99,7 @@ const tech = [
 </script>
 
 <template>
-  <section id="features" class="py-12 sm:py-16">
+  <section id="features" ref="root" class="py-12 sm:py-16">
     <div class="mx-auto max-w-6xl px-6">
       <div class="reveal mx-auto mb-10 max-w-2xl text-center">
         <h2 class="mb-4 text-balance text-2xl font-bold sm:text-3xl">
@@ -108,6 +143,7 @@ const tech = [
                       v-if="g.logo && !failed['gw:' + g.name]"
                       :src="g.logo"
                       :alt="g.name"
+                      :data-feature="'gw:' + g.name"
                       width="72"
                       height="72"
                       loading="lazy"
@@ -128,7 +164,7 @@ const tech = [
         </div>
       </div>
 
-      <div ref="gallery" class="grid gap-4 sm:grid-cols-2">
+      <div class="grid gap-4 sm:grid-cols-2">
         <!-- reveal روی لایه‌ی بیرونی؛ transition هاور روی کارت داخلی (تا با هم تداخل نکنن) -->
         <div v-for="g in groups" :key="g.title" class="reveal">
           <div
