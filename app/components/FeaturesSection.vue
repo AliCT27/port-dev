@@ -60,7 +60,7 @@ const gatewayGroups: { title: string, items: Gateway[] }[] = [
 
 // قابلیت‌ها. برای اضافه/حذف کردن فقط همین آرایه را ویرایش کنید.
 // image اختیاریه (فایل توی public/images/features/)؛ بدون عکس فقط متن نمایش داده می‌شه.
-interface Feature { title: string, subtitle: string, text: string, image?: string }
+interface Feature { title: string, subtitle: string, text: string, image?: string, imageSize?: [number, number] }
 
 const features: Feature[] = [
   {
@@ -116,6 +116,7 @@ const features: Feature[] = [
     subtitle: 'با المان های مختلف که دایما اضافه می‌شوند',
     text: 'با صفحه ساز اختصاصی سیستم ما، به راحتی چیدمان قالب خود را بصورت اختصاصی بچینید و از المان های مختلف بهره ببرید. دارای انواع مختلفی هدر و فوتر و اسلایدر و بنر و ویجت های خدمات و لیست های موضوعی و محصولی و برند ها و ...',
     image: '/images/features/page-builder.webp',
+    imageSize: [1045, 516],
   },
   {
     title: 'کیف پول و تراکنشات',
@@ -302,8 +303,8 @@ const migrate = ['دسته‌بندی‌ها', 'محصولات', 'تصاویر �
                 v-if="f.image"
                 :src="f.image"
                 :alt="f.title"
-                width="1045"
-                height="399"
+                :width="f.imageSize?.[0] ?? 1045"
+                :height="f.imageSize?.[1] ?? 399"
                 loading="lazy"
                 decoding="async"
                 class="mt-5 h-auto w-full max-w-md rounded-xl"
