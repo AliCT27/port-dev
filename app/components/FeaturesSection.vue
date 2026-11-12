@@ -2,62 +2,30 @@
 useScrollReveal('.reveal')
 
 // گروه‌بندی امکانات. برای اضافه/حذف کردن فقط همین آرایه را ویرایش کنید.
-// هر امکان یک ردیف زیگزاگی می‌سازه. description و image اختیاری‌اند؛ تا وقتی ننوشته باشید
-// جای‌نگهدار «به‌زودی» نمایش داده میشه. مثال:
-//   { title: 'کیف پول کاربران', description: 'توضیح کوتاه...', image: '/images/features/wallet.webp' }
-// (عکس‌ها ۱۶:۹ و ترجیحاً ۱۲۰۰×۶۷۵ با فرمت WebP)
-interface Feature { title: string, description?: string, image?: string }
-
-const groups: { title: string, image: string, icon: string, items: Feature[] }[] = [
+const groups = [
   {
     title: 'فروش و مالی',
     image: '/images/features/sales.webp',
     icon: 'i-lucide-wallet',
-    items: [
-      { title: 'محاسبه سود فروش' },
-      { title: 'همکاری در فروش و پورسانت' },
-      { title: 'کیف پول کاربران' },
-      { title: 'مدیریت تراکنش‌ها' },
-      { title: 'فاکتور و پیش‌فاکتور' },
-    ],
+    items: ['محاسبه سود فروش', 'همکاری در فروش و پورسانت', 'کیف پول کاربران', 'مدیریت تراکنش‌ها', 'فاکتور و پیش‌فاکتور'],
   },
   {
     title: 'سفارش و ارسال',
     image: '/images/features/orders.webp',
     icon: 'i-lucide-truck',
-    items: [
-      { title: 'مدیریت حرفه‌ای سفارشات' },
-      { title: 'سیستم حمل‌ونقل و رهگیری' },
-      { title: 'اعلان داخلی و پیامکی' },
-      { title: 'سبد خرید رهاشده' },
-      { title: 'اتصال به ترب' },
-    ],
+    items: ['مدیریت حرفه‌ای سفارشات', 'سیستم حمل‌ونقل و رهگیری', 'اعلان داخلی و پیامکی', 'سبد خرید رهاشده', 'اتصال به ترب'],
   },
   {
     title: 'تجربه‌ی مشتری',
     image: '/images/features/customer.webp',
     icon: 'i-lucide-heart-handshake',
-    items: [
-      { title: 'باشگاه مشتریان' },
-      { title: 'جستجو و فیلتر پیشرفته' },
-      { title: 'علاقمندی‌ها و بازدیدهای اخیر' },
-      { title: 'نقد و بررسی و امتیازدهی' },
-      { title: 'گالری تصاویر خریداران' },
-      { title: 'استوری مشابه اینستاگرام' },
-      { title: 'حالت شب و روز' },
-    ],
+    items: ['باشگاه مشتریان', 'جستجو و فیلتر پیشرفته', 'علاقمندی‌ها و بازدیدهای اخیر', 'نقد و بررسی و امتیازدهی', 'گالری تصاویر خریداران', 'استوری مشابه اینستاگرام', 'حالت شب و روز'],
   },
   {
     title: 'محتوا و مدیریت',
     image: '/images/features/admin.webp',
     icon: 'i-lucide-layout-dashboard',
-    items: [
-      { title: 'گزارش‌ها و نمودارهای حرفه‌ای' },
-      { title: 'مجله و منشن محصولات' },
-      { title: 'صفحه‌ساز اختصاصی' },
-      { title: 'فرم‌ساز و نظرسنجی' },
-      { title: 'مدیریت سطح دسترسی (ACL)' },
-    ],
+    items: ['گزارش‌ها و نمودارهای حرفه‌ای', 'مجله و منشن محصولات', 'صفحه‌ساز اختصاصی', 'فرم‌ساز و نظرسنجی', 'مدیریت سطح دسترسی (ACL)'],
   },
 ]
 
@@ -108,21 +76,15 @@ const tech = [
         </div>
       </div>
 
-      <!-- هر گروه: عنوان + عکس گروه + ردیف‌های زیگزاگی امکانات -->
-      <div ref="gallery" class="space-y-16 sm:space-y-20">
-        <div v-for="g in groups" :key="g.title">
-          <div class="reveal mb-8 flex items-center gap-3">
-            <span class="flex size-10 shrink-0 items-center justify-center rounded-xl bg-brand/15 text-brand">
-              <UIcon :name="g.icon" class="size-5" />
-            </span>
-            <h3 class="text-xl font-bold sm:text-2xl">{{ g.title }}</h3>
-            <span class="h-px flex-1 bg-white/10" />
-          </div>
-
-          <!-- تصویر گروه؛ اگر نبود جای خالی با همان نسبت نمایش داده می‌شود -->
-          <div class="reveal mx-auto mb-8 max-w-2xl">
+      <div ref="gallery" class="grid gap-4 sm:grid-cols-2">
+        <!-- reveal روی لایه‌ی بیرونی؛ transition هاور روی کارت داخلی (تا با هم تداخل نکنن) -->
+        <div v-for="g in groups" :key="g.title" class="reveal">
+          <div
+            class="h-full rounded-2xl border p-5 transition-colors duration-500 ease-in-out md:hover:border-brand sm:p-6 border-white/10 bg-white/[0.03]"
+          >
+            <!-- تصویر گروه؛ اگر نبود جای خالی با همان نسبت نمایش داده می‌شود -->
             <div
-              class="aspect-[16/9] overflow-hidden rounded-xl border"
+              class="mb-5 aspect-[16/9] overflow-hidden rounded-xl border"
               :class="failed[g.title]
                 ? 'border-dashed border-white/15 bg-white/[0.02] text-white/40'
                 : 'border-white/10 bg-neutral-900'"
@@ -144,63 +106,25 @@ const tech = [
                 <span class="text-xs font-bold leading-6">تصویر این بخش<br>به‌زودی اضافه می‌شه</span>
               </div>
             </div>
-          </div>
 
-          <div class="space-y-8 sm:space-y-10">
-            <!-- reveal روی لایه‌ی بیرونی؛ چیدمان و استایل روی لایه‌ی داخلی (تا با هم تداخل نکنن) -->
-            <div v-for="(f, i) in g.items" :key="f.title" class="reveal">
-              <div
-                class="flex flex-col gap-5 md:items-center md:gap-12"
-                :class="i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'"
-              >
-                <div class="md:w-5/12">
-                  <div
-                    class="aspect-[16/9] overflow-hidden rounded-xl border"
-                    :class="f.image && !failed[f.title]
-                      ? 'border-white/10 bg-neutral-900'
-                      : 'border-dashed border-white/15 bg-white/[0.02] text-white/40'"
-                  >
-                    <img
-                      v-if="f.image && !failed[f.title]"
-                      :src="f.image"
-                      :alt="f.title"
-                      :data-feature="f.title"
-                      width="1200"
-                      height="675"
-                      loading="lazy"
-                      decoding="async"
-                      class="h-full w-full object-cover object-top"
-                      @error="failed[f.title] = true"
-                    >
-                    <div v-else class="flex h-full w-full flex-col items-center justify-center gap-2 p-4 text-center">
-                      <UIcon name="i-lucide-image" class="size-8" />
-                      <span class="text-xs font-bold leading-6">تصویر این امکان<br>به‌زودی اضافه می‌شه</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="md:w-7/12">
-                  <h4 class="mb-2 flex items-center gap-2 text-base font-bold sm:text-lg">
-                    <span class="flex size-6 shrink-0 items-center justify-center rounded-md bg-brand/15 text-brand">
-                      <UIcon name="i-lucide-check" class="size-4" />
-                    </span>
-                    {{ f.title }}
-                  </h4>
-                  <p v-if="f.description" class="text-sm leading-loose sm:text-base text-white/70">
-                    {{ f.description }}
-                  </p>
-                  <p v-else class="text-sm leading-loose text-white/40">
-                    توضیح این امکان به‌زودی اضافه می‌شه.
-                  </p>
-                </div>
-              </div>
+            <div class="mb-4 flex items-center gap-3">
+              <span class="flex size-10 items-center justify-center rounded-xl bg-brand/15 text-brand">
+                <UIcon :name="g.icon" class="size-5" />
+              </span>
+              <h3 class="text-base font-bold sm:text-lg">{{ g.title }}</h3>
             </div>
+            <ul class="grid gap-x-4 gap-y-2.5 text-sm sm:text-[0.95rem] text-white/75">
+              <li v-for="it in g.items" :key="it" class="flex items-start gap-2">
+                <UIcon name="i-lucide-check" class="mt-1 size-4 shrink-0 text-brand" />
+                <span>{{ it }}</span>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
 
       <!-- دو کارت پایین بخش امکانات؛ توی دسکتاپ کنار هم، توی موبایل زیر هم -->
-      <div class="mt-16 grid gap-4 sm:mt-20 md:grid-cols-2">
+      <div class="mt-4 grid gap-4 md:grid-cols-2">
       <!-- قابلیت‌های دیگه که در جلسه‌ی مشاوره بررسی می‌شن -->
       <div class="reveal">
         <div
