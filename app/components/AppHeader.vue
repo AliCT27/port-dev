@@ -19,8 +19,7 @@ let navTimer: ReturnType<typeof setTimeout> | null = null
 
 const navItems = [
   { href: '/#hero', label: 'خانه' },
-  { href: '/#about', label: 'درباره ما' },
-  // short: متنِ کوتاه‌تر برای موبایل، تا شش آیتم بدون اسکرول افقی جا بشن
+  // short: متنِ کوتاه‌تر برای موبایل، تا همه‌ی آیتم‌ها بدون اسکرول افقی جا بشن
   { href: '/#testimonials', label: 'نمونه‌کار و نظرات', short: 'نظرات' },
   { href: '/#features', label: 'امکانات' },
   { href: '/#faq', label: 'سوالات' },
