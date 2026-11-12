@@ -178,3 +178,17 @@ html {
 @media (prefers-reduced-motion: reduce) {
   .not-found-bob { animation: none; }
 }
+
+/* دکمه‌ی صفحه‌ی ۴۰۴: فلش آروم عقب و جلو میره */
+@keyframes not-found-arrow {
+  0%, 100% { transform: translateX(2px); }
+  50% { transform: translateX(-4px); }
+}
+
+.not-found-arrow {
+  animation: not-found-arrow 1.6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .not-found-arrow { animation: none; }
+}
