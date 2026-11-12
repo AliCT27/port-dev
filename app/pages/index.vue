@@ -34,7 +34,6 @@ useSchemaOrg([
 <template>
   <div>
     <HeroSection />
-    <AboutSection />
     <TestimonialsSection />
     <FeaturesSection />
     <TechStack />
