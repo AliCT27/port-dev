@@ -425,7 +425,7 @@ const migrate = ['دسته‌بندی‌ها', 'محصولات', 'تصاویر �
           <div v-for="(f, i) in features" :key="f.title" class="reveal">
             <article class="md:px-10">
               <div class="mb-3 flex items-center gap-3" :class="i % 2 ? 'md:-ms-10 md:flex-row-reverse' : 'md:-me-10'">
-                <UIcon :name="i % 2 ? 'i-lucide-arrow-left' : 'i-lucide-arrow-right'" class="size-5 shrink-0 text-brand" :class="i % 2 ? 'max-md:rotate-180' : ''" />
+                <UIcon :name="i % 2 ? 'i-lucide-arrow-right' : 'i-lucide-arrow-left'" class="size-5 shrink-0 text-brand" :class="i % 2 ? 'max-md:rotate-180' : ''" />
                 <h3 class="text-base font-bold sm:text-lg">{{ f.title }}</h3>
                 <span class="hidden h-px flex-1 bg-white/10 md:block" aria-hidden="true" />
               </div>
