@@ -186,7 +186,7 @@ html {
 }
 
 .not-found-arrow {
-  animation: not-found-arrow 1.6s ease-in-out infinite;
+  animation: not-found-arrow 2.6s ease-in-out infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
