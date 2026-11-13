@@ -53,7 +53,7 @@ useScrollReveal('.reveal')
           class="group inline-flex items-center gap-2 rounded-xl border bg-transparent px-5 py-2.5 text-sm font-bold transition-all duration-500 ease-in-out hover:-translate-y-0.5 border-white/15 text-white hover:border-brand hover:text-brand"
         >
           {{ link.label }}
-          <span v-if="link.number" dir="ltr" class="text-white/60 group-hover:text-brand">{{ link.number }}</span>
+          <span v-if="link.number" dir="ltr" class="text-white/60 transition-colors duration-500 ease-in-out group-hover:text-brand">{{ link.number }}</span>
           <UIcon :name="link.icon" class="size-4" />
         </a>
       </div>
