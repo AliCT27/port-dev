@@ -26,7 +26,7 @@ function handleError() {
 </script>
 
 <template>
-  <div class="flex min-h-screen items-center justify-center px-6 bg-dark text-white">
+  <div class="flex min-h-screen items-center justify-center px-6 bg-page text-fg">
     <div class="relative w-full max-w-lg text-center">
       <div class="grid-bg absolute inset-0 opacity-40 [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_70%)]" />
 
@@ -34,7 +34,7 @@ function handleError() {
         <!-- ۴۰۴: صفرِ وسط یه باکسه که بالا و پایین میره -->
         <p
           v-if="isNotFound"
-          class="mb-6 flex items-center justify-center gap-3 text-8xl font-bold leading-none text-white sm:gap-4 sm:text-9xl"
+          class="mb-6 flex items-center justify-center gap-3 text-8xl font-bold leading-none text-fg sm:gap-4 sm:text-9xl"
           dir="ltr"
           aria-label="خطای ۴۰۴"
         >
@@ -47,13 +47,13 @@ function handleError() {
           </span>
           <span aria-hidden="true">۴</span>
         </p>
-        <p v-else class="mb-4 text-7xl font-bold tracking-tight text-brand sm:text-8xl">
+        <p v-else class="mb-4 text-7xl font-bold tracking-tight text-brand-ink sm:text-8xl">
           {{ error?.statusCode ?? 500 }}
         </p>
         <h1 class="mb-3 text-2xl font-bold tracking-tight sm:text-3xl">
           {{ title }}
         </h1>
-        <p class="mb-8 text-white/65">
+        <p class="mb-8 text-fg/65">
           {{ description }}
         </p>
 

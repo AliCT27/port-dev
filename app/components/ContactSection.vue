@@ -13,14 +13,14 @@ useScrollReveal('.reveal')
 
     <div class="relative mx-auto max-w-3xl px-6 text-center">
       <div class="reveal">
-        <p class="mb-4 inline-flex items-center gap-2 text-sm font-bold text-brand">
+        <p class="mb-4 inline-flex items-center gap-2 text-sm font-bold text-brand-ink">
           <UIcon name="i-lucide-users" class="size-5" />
           یک تیم ۶ نفره، کنار شما
         </p>
         <h2 class="mb-4 text-2xl font-bold sm:text-3xl">
-          آماده‌اید <span class="text-brand">فروشگاه آنلاین‌تون</span> رو راه بندازیم؟
+          آماده‌اید <span class="text-brand-ink">فروشگاه آنلاین‌تون</span> رو راه بندازیم؟
         </h2>
-        <p class="mb-6 text-sm leading-loose sm:text-base text-white/65">
+        <p class="mb-6 text-sm leading-loose sm:text-base text-fg/65">
           آماده‌ایم شما رو از صفر تا رسیدن به درآمد ایده‌آل همراهی کنیم. ایده‌تون هرچقدر هم کلی باشه، توی جلسه‌ی
           مشاوره باهم بررسیش می‌کنیم و راه‌اندازی سایت رو برای فروش بهتر شما و راحتی بیشتر مشتری‌هاتون شروع می‌کنیم.
         </p>
@@ -50,15 +50,15 @@ useScrollReveal('.reveal')
           :href="link.href"
           :target="link.href.startsWith('tel:') ? undefined : '_blank'"
           :rel="link.href.startsWith('tel:') ? undefined : 'noopener'"
-          class="group inline-flex items-center gap-2 rounded-xl border bg-transparent px-5 py-2.5 text-sm font-bold transition-all duration-500 ease-in-out hover:-translate-y-0.5 border-white/15 text-white hover:border-brand hover:text-brand"
+          class="group inline-flex items-center gap-2 rounded-xl border bg-transparent px-5 py-2.5 text-sm font-bold transition-all duration-500 ease-in-out hover:-translate-y-0.5 border-fg/15 text-fg hover:border-brand hover:text-brand-ink"
         >
           {{ link.label }}
-          <span v-if="link.number" dir="ltr" class="text-white/60 transition-colors duration-500 ease-in-out group-hover:text-brand">{{ link.number }}</span>
+          <span v-if="link.number" dir="ltr" class="text-fg/60 transition-colors duration-500 ease-in-out group-hover:text-brand-ink">{{ link.number }}</span>
           <UIcon :name="link.icon" class="size-4" />
         </a>
       </div>
 
-      <p class="reveal reveal-delay-3 mt-5 inline-flex items-center gap-1.5 text-xs text-white/50 sm:text-sm">
+      <p class="reveal reveal-delay-3 mt-5 inline-flex items-center gap-1.5 text-xs text-fg/50 sm:text-sm">
         <UIcon name="i-lucide-headset" class="size-4" />
         پشتیبانی و پاسخگویی ۲۴/۷
       </p>

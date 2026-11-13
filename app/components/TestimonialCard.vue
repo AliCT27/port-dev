@@ -186,7 +186,7 @@ function formatTime(t: number) {
 </script>
 
 <template>
-  <article class="group flex h-full flex-col rounded-2xl border p-5 transition-colors duration-500 ease-in-out md:hover:border-brand border-white/10 bg-white/[0.03]">
+  <article class="group flex h-full flex-col rounded-2xl border p-5 transition-colors duration-500 ease-in-out md:hover:border-brand border-fg/10 bg-card">
     <div
       class="flex flex-1 flex-col gap-4"
       :class="portrait ? 'md:flex-row md:items-start' : ''"
@@ -244,24 +244,24 @@ function formatTime(t: number) {
       </div>
       <div
         v-else
-        class="flex aspect-[9/16] w-full max-w-[10rem] shrink-0 flex-col items-center justify-center gap-2 self-center rounded-xl p-4 text-center md:self-start border border-dashed border-white/15 bg-white/[0.02] text-white/40"
+        class="flex aspect-[9/16] w-full max-w-[10rem] shrink-0 flex-col items-center justify-center gap-2 self-center rounded-xl p-4 text-center md:self-start border border-dashed border-fg/15 bg-card text-fg/40"
       >
         <UIcon name="i-lucide-video" class="size-6" />
         <span class="text-xs font-bold leading-6">ویدیوی رضایت کارفرما<br>به‌زودی اضافه می‌شه</span>
       </div>
       <div class="flex min-w-0 flex-1 flex-col">
         <div class="mb-2.5 flex items-center gap-3">
-          <div class="flex h-11 w-11 items-center justify-center overflow-hidden rounded-full border-2 text-sm font-bold border-white bg-neutral-900">
+          <div class="flex h-11 w-11 items-center justify-center overflow-hidden rounded-full border-2 text-sm font-bold border-fg bg-panel">
             <img v-if="item.avatar" :src="item.avatar" :alt="item.name" width="400" height="400" class="h-full w-full object-cover">
             <span v-else>{{ item.name.charAt(0) }}</span>
           </div>
           <div>
             <p class="font-bold">{{ item.name }}</p>
-            <p v-if="subtitle" class="text-sm text-white/65">{{ subtitle }}</p>
+            <p v-if="subtitle" class="text-sm text-fg/65">{{ subtitle }}</p>
           </div>
         </div>
-        <ContentRenderer v-if="hasText" :value="item" class="prose prose-sm prose-invert max-w-none flex-1 leading-7 text-white/80" />
-        <p v-else class="rounded-xl p-4 text-sm leading-7 border border-dashed border-white/15 bg-white/[0.02] text-white/40">نظر کارفرما به‌زودی اضافه می‌شه.</p>
+        <ContentRenderer v-if="hasText" :value="item" class="prose prose-sm dark:prose-invert max-w-none flex-1 leading-7 text-fg/80" />
+        <p v-else class="rounded-xl p-4 text-sm leading-7 border border-dashed border-fg/15 bg-card text-fg/40">نظر کارفرما به‌زودی اضافه می‌شه.</p>
 
       </div>
     </div>
@@ -269,7 +269,7 @@ function formatTime(t: number) {
     <button
       v-if="showShot"
       type="button"
-      class="group/shot mt-4 block w-full overflow-hidden rounded-xl border text-start transition-colors duration-500 ease-in-out hover:border-brand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand border-white/10 bg-neutral-900"
+      class="group/shot mt-4 block w-full overflow-hidden rounded-xl border text-start transition-colors duration-500 ease-in-out hover:border-brand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand border-fg/10 bg-panel"
       :aria-label="`مشاهده تصاویر سایت ${item.company ?? item.name}`"
       @click="onShotClick"
       @contextmenu.prevent
@@ -302,15 +302,15 @@ function formatTime(t: number) {
           {{ fa(item.images.length) }} تصویر
         </span>
       </span>
-      <span class="flex items-center justify-between gap-2 border-t px-3 py-2 text-sm font-bold border-white/10 bg-dark">
+      <span class="flex items-center justify-between gap-2 border-t px-3 py-2 text-sm font-bold border-fg/10 bg-page">
         مشاهده تصاویر سایت
-        <UIcon name="i-lucide-zoom-in" class="size-4 text-brand" />
+        <UIcon name="i-lucide-zoom-in" class="size-4 text-brand-ink" />
       </span>
     </button>
     <!-- کادرِ «به‌زودی»: نه نوارِ پایین داره نه ذره‌بین؛ ولی ارتفاعش دقیقاً هم‌اندازه‌ی کارتِ تصویره (نوارِ نامرئی فقط ارتفاع رو نگه می‌داره) تا کارت‌ها یکدست بمونن -->
     <div
       v-else
-      class="relative mt-4 block w-full select-none overflow-hidden rounded-xl border border-dashed border-white/15 bg-white/[0.02] text-white/40"
+      class="relative mt-4 block w-full select-none overflow-hidden rounded-xl border border-dashed border-fg/15 bg-card text-fg/40"
     >
       <span class="block aspect-[16/9]" aria-hidden="true" />
       <span class="invisible flex items-center border-t px-3 py-2 text-sm font-bold" aria-hidden="true">&nbsp;<UIcon name="i-lucide-zoom-in" class="size-4" /></span>
@@ -325,7 +325,7 @@ function formatTime(t: number) {
       :href="item.website"
       target="_blank"
       rel="noopener"
-      class="mt-3 inline-flex items-center gap-1.5 text-sm font-bold text-brand"
+      class="mt-3 inline-flex items-center gap-1.5 text-sm font-bold text-brand-ink"
     >
       <UIcon name="i-lucide-external-link" class="size-3.5" />
       مشاهده سایت کارفرمای عزیز

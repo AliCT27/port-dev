@@ -164,14 +164,14 @@ onBeforeUnmount(() => {
         :aria-label="current.title"
         @click.self="emit('close')"
       >
-        <div class="modal-panel relative flex max-h-[92dvh] w-full max-w-5xl flex-col overflow-hidden rounded-2xl border border-white/10 bg-dark text-white shadow-2xl">
-          <div class="flex shrink-0 items-center justify-between gap-3 border-b border-white/10 px-4 py-3 sm:px-5">
+        <div class="modal-panel relative flex max-h-[92dvh] w-full max-w-5xl flex-col overflow-hidden rounded-2xl border border-fg/10 bg-page text-fg shadow-2xl">
+          <div class="flex shrink-0 items-center justify-between gap-3 border-b border-fg/10 px-4 py-3 sm:px-5">
             <div class="flex min-w-0 items-center gap-3">
               <h3 class="truncate text-sm font-bold sm:text-base">{{ current.title }}</h3>
               <span
                 v-if="total > 1"
                 dir="ltr"
-                class="shrink-0 rounded-md bg-white/10 px-2.5 py-0.5 text-xs tabular-nums text-white/70"
+                class="shrink-0 rounded-md bg-fg/10 px-2.5 py-0.5 text-xs tabular-nums text-fg/70"
               >
                 {{ fa(index + 1) }} / {{ fa(total) }}
               </span>
@@ -192,7 +192,7 @@ onBeforeUnmount(() => {
                 ref="closeBtn"
                 type="button"
                 aria-label="بستن"
-                class="flex size-8 items-center justify-center rounded-full text-white/70 transition-colors duration-300 hover:bg-white/10 hover:text-white"
+                class="flex size-8 items-center justify-center rounded-full text-fg/70 transition-colors duration-300 hover:bg-fg/10 hover:text-fg"
                 @click="emit('close')"
               >
                 <UIcon name="i-lucide-x" class="size-5" />
@@ -261,7 +261,7 @@ onBeforeUnmount(() => {
             v-if="total > 1"
             data-lenis-prevent
             dir="ltr"
-            class="flex shrink-0 gap-2 overflow-x-auto overflow-y-hidden border-t border-white/10 p-3"
+            class="flex shrink-0 gap-2 overflow-x-auto overflow-y-hidden border-t border-fg/10 p-3"
           >
             <button
               v-for="(img, i) in current.images"
@@ -269,7 +269,7 @@ onBeforeUnmount(() => {
               type="button"
               :aria-label="`تصویر ${fa(i + 1)}`"
               class="size-14 shrink-0 overflow-hidden rounded-lg border-2 transition-all duration-300"
-              :class="i === index ? 'border-brand' : 'border-white/10 opacity-60 hover:opacity-100'"
+              :class="i === index ? 'border-brand' : 'border-fg/10 opacity-60 hover:opacity-100'"
               @click="index = i"
             >
               <img :src="img" alt="" class="h-full w-full object-cover object-top" loading="lazy" decoding="async">
