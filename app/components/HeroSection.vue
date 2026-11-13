@@ -12,7 +12,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <section id="hero" class="relative overflow-hidden pt-10 sm:pt-14">
+  <section id="hero" class="relative overflow-hidden pt-14 sm:pt-14">
     <div
       class="grid-bg absolute inset-0 opacity-60 [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_70%)]"
     />
