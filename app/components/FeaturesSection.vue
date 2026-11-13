@@ -336,13 +336,13 @@ const migrate = ['دسته‌بندی‌ها', 'محصولات', 'تصاویر �
       <!-- مهاجرت از ووکامرس -->
       <div class="reveal">
         <div
-          class="flex h-full flex-col items-start justify-start gap-2 rounded-2xl border border-brand/40 bg-brand/10 px-5 py-6 sm:px-8"
+          class="flex h-full flex-col items-start justify-start gap-2 rounded-2xl border border-dashed px-5 py-6 text-start sm:px-8 border-white/15 bg-white/[0.02]"
         >
-          <span class="flex size-10 shrink-0 items-center justify-center rounded-xl bg-brand text-black">
+          <span class="flex size-10 shrink-0 items-center justify-center rounded-xl bg-brand/15 text-brand">
             <UIcon name="i-lucide-refresh-cw" class="size-5" />
           </span>
           <div class="flex flex-col items-start gap-2">
-            <h3 class="text-base font-bold sm:text-lg">سایت ووکامرسی دارید؟ راحت به سایت جدید منتقل می‌شید</h3>
+            <h3 class="text-base font-bold sm:text-lg">سایت ووکامرسی دارید؟ بی‌دردسر به سایت جدید منتقلش می‌کنیم</h3>
             <p class="text-sm leading-loose text-white/70 sm:text-base">
               اطلاعات فروشگاه فعلی‌تون از بین نمی‌ره. ما این موارد رو برای شما منتقل می‌کنیم و لازم نیست چیزی رو دوباره وارد کنید:
             </p>
