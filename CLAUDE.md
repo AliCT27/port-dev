@@ -16,7 +16,7 @@ Portfolio / landing site for **مهندسین سایت** (a Laravel + Vue web te
 - If the dev server or build behaves strangely after pulling or switching branches: `pnpm nuxt cleanup`, then retry. A stale `.nuxt` directory has caused fake errors before.
 
 ## Layout
-- `app/components/`: one component per page section (`HeroSection`, `FeaturesSection`, `TestimonialsSection`, `TechStack`, `FaqSection`, `TeamBanner`, `ContactSection`) plus `AppHeader`, `AppFooter`, `TestimonialCard`, `ProjectModal`
+- `app/components/`: one component per page section (`HeroSection`, `FeaturesSection`, `TestimonialsSection`, `TechStack`, `FaqSection`, `ContactSection`) plus `AppHeader`, `AppFooter`, `TestimonialCard`, `ProjectModal`
 - `app/composables/`: `useScrollReveal`, `useSectionScroll` (smooth-scroll + the click-pause switch), `useTechStack` (tech logos)
 - `app/pages/index.vue`: the only page; page-level SEO lives here
 - `content/faq/*.md` and `content/testimonials/*.md`: content collections (schemas in `content.config.ts`)
