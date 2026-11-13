@@ -38,7 +38,7 @@ onMounted(() => {
           >
         </h1>
         <p class="hero-in reveal-delay-1 mb-5 text-balance text-sm leading-loose sm:mb-6 sm:text-base text-white/70">
-          سایتی برای <span class="font-bold text-brand">احساس فروش بهتر و راحتی بیشتر</span> مشتری‌هاتون
+          سایتی برای <span class="font-bold text-brand">فروش بهتر</span> شما و <span class="font-bold text-brand">راحتی بیشتر</span> مشتری‌هاتون
         </p>
         <div
           dir="ltr"
