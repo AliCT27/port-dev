@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const links = [
-  { label: 'اینستاگرام', icon: 'i-simple-icons-instagram', href: 'https://www.instagram.com/mohandesin.site' },
+  { label: 'پیج اینستاگرام', icon: 'i-simple-icons-instagram', href: 'https://www.instagram.com/mohandesin.site' },
   { label: 'تماس تلفنی', icon: 'i-lucide-phone-call', href: 'tel:+989019837586', number: '۰۹۰۱ ۹۸۳ ۷۵۸۶' }
 ]
 
