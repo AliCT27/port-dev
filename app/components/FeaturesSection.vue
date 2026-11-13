@@ -240,14 +240,14 @@ const migrate = ['دسته‌بندی‌ها', 'محصولات', 'تصاویر �
       <div class="mx-auto mb-12 max-w-4xl sm:mb-14">
         <div class="reveal mb-6 text-center">
           <h3 class="mb-2 text-xl font-bold sm:text-2xl">درگاه‌ها و پنل‌های پشتیبانی‌شده</h3>
-          <p class="text-sm leading-loose sm:text-base text-white/70">
+          <p class="text-sm leading-loose sm:text-base text-fg/70">
             درگاه‌های پرداخت و پنل‌های پیامکی که سایت شما بهشون وصل می‌شه
           </p>
         </div>
 
         <div class="space-y-4">
           <div v-for="gg in gatewayGroups" :key="gg.title" class="reveal">
-            <div class="rounded-2xl border border-dashed p-5 sm:p-8 border-white/15 bg-white/[0.02]">
+            <div class="rounded-2xl border border-dashed p-5 sm:p-8 border-fg/15 bg-card">
               <h4 class="mb-6 text-center text-sm font-bold sm:text-base">{{ gg.title }}</h4>
 
               <ul v-if="gg.items.length" class="flex flex-wrap justify-center gap-x-3 gap-y-5 sm:gap-x-5">
@@ -267,10 +267,10 @@ const migrate = ['دسته‌بندی‌ها', 'محصولات', 'تصاویر �
                     >
                     <UIcon v-else name="i-lucide-image" class="size-6 text-black/30" />
                   </span>
-                  <span class="text-xs leading-5 text-white/70">{{ g.name }}</span>
+                  <span class="text-xs leading-5 text-fg/70">{{ g.name }}</span>
                 </li>
               </ul>
-              <p v-else class="text-center text-sm leading-loose text-white/40">
+              <p v-else class="text-center text-sm leading-loose text-fg/40">
                 لیست این بخش به‌زودی اضافه می‌شه.
               </p>
             </div>
@@ -282,24 +282,24 @@ const migrate = ['دسته‌بندی‌ها', 'محصولات', 'تصاویر �
       <div class="mb-12 sm:mb-14">
         <div class="reveal mb-10 text-center">
           <h2 class="mb-2 text-2xl font-bold sm:text-3xl">امکانات و قابلیت‌ها</h2>
-          <p class="text-sm leading-loose sm:text-base text-white/70">
+          <p class="text-sm leading-loose sm:text-base text-fg/70">
             بخشی از امکانات مهم سیستم فروشگاهی ما
           </p>
         </div>
 
         <div class="relative grid gap-y-12 md:grid-cols-2 md:gap-y-16">
           <!-- خط وسط -->
-          <div class="pointer-events-none absolute inset-y-0 start-1/2 hidden w-px bg-white/10 md:block" aria-hidden="true" />
+          <div class="pointer-events-none absolute inset-y-0 start-1/2 hidden w-px bg-fg/10 md:block" aria-hidden="true" />
 
           <div v-for="(f, i) in features" :key="f.title" class="reveal">
             <article class="md:px-10">
               <div class="mb-3 flex items-center gap-3" :class="i % 2 ? 'md:-ms-10 md:flex-row-reverse' : 'md:-me-10'">
-                <UIcon :name="i % 2 ? 'i-lucide-arrow-right' : 'i-lucide-arrow-left'" class="size-5 shrink-0 text-brand" :class="i % 2 ? 'max-md:rotate-180' : ''" />
+                <UIcon :name="i % 2 ? 'i-lucide-arrow-right' : 'i-lucide-arrow-left'" class="size-5 shrink-0 text-brand-ink" :class="i % 2 ? 'max-md:rotate-180' : ''" />
                 <h3 class="text-base font-bold sm:text-lg">{{ f.title }}</h3>
-                <span class="hidden h-px flex-1 bg-white/10 md:block" aria-hidden="true" />
+                <span class="hidden h-px flex-1 bg-fg/10 md:block" aria-hidden="true" />
               </div>
-              <p class="mb-3 text-xs text-white/50 sm:text-sm">{{ f.subtitle }}</p>
-              <p class="text-sm leading-8 text-white/70 sm:text-[0.95rem]">{{ f.text }}</p>
+              <p class="mb-3 text-xs text-fg/50 sm:text-sm">{{ f.subtitle }}</p>
+              <p class="text-sm leading-8 text-fg/70 sm:text-[0.95rem]">{{ f.text }}</p>
               <img
                 v-if="f.image"
                 :src="f.image"
@@ -320,13 +320,13 @@ const migrate = ['دسته‌بندی‌ها', 'محصولات', 'تصاویر �
       <!-- قابلیت‌های دیگه که در جلسه‌ی مشاوره بررسی می‌شن -->
       <div class="reveal">
         <div
-          class="flex h-full flex-col items-start justify-start gap-2 rounded-2xl border border-dashed px-5 py-6 text-start sm:px-8 border-white/15 bg-white/[0.02]"
+          class="flex h-full flex-col items-start justify-start gap-2 rounded-2xl border border-dashed px-5 py-6 text-start sm:px-8 border-fg/15 bg-card"
         >
-          <span class="flex size-10 items-center justify-center rounded-xl bg-brand/15 text-brand">
+          <span class="flex size-10 items-center justify-center rounded-xl bg-brand/15 text-brand-ink">
             <UIcon name="i-lucide-sparkles" class="size-5" />
           </span>
           <h3 class="text-base font-bold sm:text-lg">این فقط بخشی از ماجراست</h3>
-          <p class="max-w-2xl text-sm leading-loose sm:text-base text-white/70">
+          <p class="max-w-2xl text-sm leading-loose sm:text-base text-fg/70">
             +۱۰۰ قابلیت دیگه داریم که به‌صورت اختصاصی و با توجه به نیاز آنلاین شاپ‌های ایرانی کدنویسی شده و جا نیست همه‌شون رو اینجا با عکس و ویدیو نشون بدیم.
             توی جلسه‌ی مشاوره همه‌ی امکانات موردنیاز شما رو با هم بررسی می‌کنیم.
           </p>
@@ -336,19 +336,19 @@ const migrate = ['دسته‌بندی‌ها', 'محصولات', 'تصاویر �
       <!-- مهاجرت از ووکامرس -->
       <div class="reveal">
         <div
-          class="flex h-full flex-col items-start justify-start gap-2 rounded-2xl border border-dashed px-5 py-6 text-start sm:px-8 border-white/15 bg-white/[0.02]"
+          class="flex h-full flex-col items-start justify-start gap-2 rounded-2xl border border-dashed px-5 py-6 text-start sm:px-8 border-fg/15 bg-card"
         >
-          <span class="flex size-10 shrink-0 items-center justify-center rounded-xl bg-brand/15 text-brand">
+          <span class="flex size-10 shrink-0 items-center justify-center rounded-xl bg-brand/15 text-brand-ink">
             <UIcon name="i-lucide-refresh-cw" class="size-5" />
           </span>
           <div class="flex flex-col items-start gap-2">
             <h3 class="text-base font-bold sm:text-lg">سایت ووکامرسی دارید؟ بی‌دردسر به سایت جدید منتقلش می‌کنیم</h3>
-            <p class="text-sm leading-loose text-white/70 sm:text-base">
+            <p class="text-sm leading-loose text-fg/70 sm:text-base">
               اطلاعات فروشگاه فعلی‌تون از بین نمی‌ره. ما این موارد رو برای شما منتقل می‌کنیم و لازم نیست چیزی رو دوباره وارد کنید:
             </p>
             <ul class="flex flex-wrap gap-x-5 gap-y-2 text-sm font-bold">
               <li v-for="m in migrate" :key="m" class="flex items-center gap-1.5">
-                <UIcon name="i-lucide-check" class="size-4 shrink-0 text-brand" />
+                <UIcon name="i-lucide-check" class="size-4 shrink-0 text-brand-ink" />
                 {{ m }}
               </li>
             </ul>

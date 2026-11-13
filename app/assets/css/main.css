@@ -7,6 +7,13 @@
   --color-brand: #00DC82;
   --color-dark: #0A0A0A; /* neutral-950 مثل nuxt.com */
 
+  /* رنگ‌های معنایی: مقدارِ پیش‌فرض (حالت روز) از پالت ویماشاپ گرفته شده؛ حالت شب پایین‌تر با .dark جایگزین می‌شه */
+  --color-page: #ecf2ff;      /* پس‌زمینه‌ی صفحه */
+  --color-fg: #1c1c25;        /* متن و بوردرها (با /10، /70 و ... کم‌رنگ می‌شن) */
+  --color-card: #ffffff;      /* کارت و بخش‌های کمی جداشده */
+  --color-panel: #ffffff;     /* جای خالیِ عکس‌ها و آواتارها */
+  --color-brand-ink: #00804d; /* سبزِ برند وقتی به‌عنوان رنگِ متن روی پس‌زمینه‌ی روشن می‌شینه */
+
   /* فونت پیش‌فرضِ Tailwind و Nuxt UI رو فونت محلی سایت می‌کنیم؛ وگرنه Nuxt UI به‌صورت پیش‌فرض Public Sans می‌خواد و ماژول fonts می‌ره از اینترنت دنبالش */
   /* ↓↓ برای سوییچ فونت فقط همین خط: 'YekanBakh' یا 'Arad' */
   --font-sans: 'Arad', Tahoma, sans-serif;
@@ -15,6 +22,15 @@
   --radius-lg: 8px;
   --radius-xl: 10px;
   --radius-2xl: 12px;
+}
+
+/* حالت شب: همون رنگ‌های معنایی با مقدارهای تیره */
+.dark {
+  --color-page: #0a0a0a;
+  --color-fg: #ffffff;
+  --color-card: rgb(255 255 255 / 0.03);
+  --color-panel: #171717;
+  --color-brand-ink: #00dc82;
 }
 
 /* عکس‌ها با کلیک و کشیدن از صفحه جدا نشن (فقط جلوی درگ‌کردن رو می‌گیره؛ ذخیره با راست‌کلیک هنوز ممکنه) */
@@ -83,7 +99,7 @@ html {
 }
 
 .text-gradient-mono {
-  background-image: linear-gradient(to left, #000, #525252, #000);
+  background-image: linear-gradient(to left, #1c1c25, #4a5464, #1c1c25);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-Portfolio / landing site for **مهندسین سایت** (a Laravel + Vue web team) that sells e-commerce websites to store owners. Persian (RTL), dark-only, fully static.
+Portfolio / landing site for **مهندسین سایت** (a Laravel + Vue web team) that sells e-commerce websites to store owners. Persian (RTL), night (default) and day themes with a toggle, fully static.
 
 ## Stack
 - Nuxt 4 (`app/` directory), SSG via `pnpm generate`
@@ -25,7 +25,7 @@ Portfolio / landing site for **مهندسین سایت** (a Laravel + Vue web te
 
 ## Conventions
 - **Language:** all user-facing text is Persian, in a friendly, direct tone (the voice is "we", a team, not a single developer). Code comments in this repo are Persian too. Commit messages and PR text are **English**.
-- **Dark-only:** the site is forced dark. Write plain dark colors; do not add `dark:` variants or light-theme classes.
+- **Night/day themes:** night (dark) is the default; the header toggle switches to day (palette taken from Vimashop: page `#ecf2ff`, text `#1c1c25`, white cards) and the choice is stored in `localStorage`. Never hard-code `text-white`, `bg-white/..`, `border-white/..` or `bg-dark` for page UI. Use the semantic tokens from `main.css`: `bg-page`, `text-fg` (`/70` etc. for muted text and borders), `bg-card`, `bg-panel`, `text-brand-ink` (brand green used as text). `dark:` is only for the rare case a token does not fit. Fixed-dark surfaces (video player overlays, the image modal backdrop) and colored buttons (`bg-brand text-black`, the blue button) stay as they are in both themes. Do not name a theme color `base` (it collides with `text-base`).
 - **Brand color** is `#00DC82` (`brand`). Neutral base is `#0A0A0A` (`dark`). Radii are intentionally soft and small (`rounded-lg` / `rounded-xl`), not pill-shaped everywhere.
 - **Fonts:** `--font-sans` in `main.css` selects Arad or YekanBakh (one-line switch). Both `@font-face` groups are local. Do not add online font providers.
 - **Persian numerals** come from `toFa()`. In RTL, a number followed by a dot is rendered in a `dir="rtl"` span so the dot sits to the left of the digits. Do not use `tabular-nums` with Arad (its `tnum` makes digits uneven).
@@ -33,7 +33,7 @@ Portfolio / landing site for **مهندسین سایت** (a Laravel + Vue web te
 - **Icons** are bundled locally (`icon.clientBundle` scans `app/**/*.{vue,ts}`) and `fallbackToApi` is off. Use full literal names like `i-lucide-phone` so the scanner finds them. Never rely on the Iconify API at runtime.
 - **Placeholders:** missing media (profile photo, feature images, testimonial videos) shows a dashed "coming soon" box. Keep placeholders the same size as the real media so the layout does not jump.
 - **Hosting:** Netafraz Linux PHP shared hosting (Apache/LiteSpeed). Upload the contents of `.output/public` to `public_html`. `public/.htaccess` carries the security headers (including a CSP), caching, compression and the 404 page; it is copied into the build automatically. If a new third-party script, font or embed is ever added, its domain must be added to the CSP in that file.
-- No Nuxt Studio, no light/dark toggle, no `og-image` module (the OG image is the static `/images/og-image.webp`).
+- No Nuxt Studio, no `og-image` module (the OG image is the static `/images/og-image.webp`).
 
 ## Working agreements
 - Make **only** the change that was asked for. Earlier large redesigns were rejected; if a request could be read as a big redesign, ask first.

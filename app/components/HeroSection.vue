@@ -22,7 +22,7 @@ onMounted(() => {
     >
       <div class="text-center md:text-start">
         <p
-          class="hero-in mb-5 inline-flex items-center gap-2.5 rounded-lg border border-brand/40 bg-brand/10 px-4 py-2 text-sm font-bold sm:mb-6 text-white/90"
+          class="hero-in mb-5 inline-flex items-center gap-2.5 rounded-lg border border-brand/40 bg-brand/10 px-4 py-2 text-sm font-bold sm:mb-6 text-fg/90"
         >
           <span class="relative flex size-2.5">
             <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand opacity-70" />
@@ -37,12 +37,12 @@ onMounted(() => {
             >سلام، ما توسعه‌دهنده سایت‌های فروشگاهی با لاراول هستیم</span
           >
         </h1>
-        <p class="hero-in reveal-delay-1 mb-5 text-balance text-sm leading-loose sm:mb-6 sm:text-base text-white/70">
-          سایتی برای <span class="font-bold text-brand">فروش بهتر</span> شما و <span class="font-bold text-brand">راحتی بیشتر</span> مشتری‌هاتون
+        <p class="hero-in reveal-delay-1 mb-5 text-balance text-sm leading-loose sm:mb-6 sm:text-base text-fg/70">
+          سایتی برای <span class="font-bold text-brand-ink">فروش بهتر</span> شما و <span class="font-bold text-brand-ink">راحتی بیشتر</span> مشتری‌هاتون
         </p>
         <div
           dir="ltr"
-          class="hero-in reveal-delay-2 mb-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm font-semibold sm:mb-8 sm:gap-x-5 sm:text-base md:justify-end text-white/70"
+          class="hero-in reveal-delay-2 mb-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm font-semibold sm:mb-8 sm:gap-x-5 sm:text-base md:justify-end text-fg/70"
         >
           <span class="inline-flex items-center gap-1.5">
             Laravel
@@ -119,13 +119,13 @@ onMounted(() => {
         >
           <div>
             <p class="text-xl font-bold sm:text-2xl">+۶۵۰</p>
-            <p class="text-xs text-white/60 sm:text-sm">
+            <p class="text-xs text-fg/60 sm:text-sm">
               فروشگاه فعال
             </p>
           </div>
           <div>
             <p class="text-xl font-bold sm:text-2xl">۲۴/۷</p>
-            <p class="text-xs text-white/60 sm:text-sm">
+            <p class="text-xs text-fg/60 sm:text-sm">
               پشتیبانی و پاسخگویی
             </p>
           </div>
@@ -141,7 +141,7 @@ onMounted(() => {
             class="profile-glow-spin absolute -inset-2 rounded-full opacity-70 blur-lg"
           />
           <div
-            class="relative h-44 w-44 overflow-hidden rounded-full border-4 shadow-2xl ring-1 transition-transform duration-700 ease-in-out group-hover:scale-105 sm:h-56 sm:w-56 md:h-64 md:w-64 border-white bg-dark ring-white/10"
+            class="relative h-44 w-44 overflow-hidden rounded-full border-4 shadow-2xl ring-1 transition-transform duration-700 ease-in-out group-hover:scale-105 sm:h-56 sm:w-56 md:h-64 md:w-64 border-fg bg-page ring-fg/10"
           >
             <img
               v-if="!profileFailed"
@@ -155,7 +155,7 @@ onMounted(() => {
             />
             <div
               v-else
-              class="flex h-full w-full flex-col items-center justify-center gap-2 text-center bg-neutral-900 text-white/45"
+              class="flex h-full w-full flex-col items-center justify-center gap-2 text-center bg-panel text-fg/45"
             >
               <UIcon name="i-lucide-user-round" class="size-14" />
               <span class="text-xs font-bold leading-6">تصویر<br />به‌زودی اضافه می‌شه</span>

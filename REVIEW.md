@@ -14,7 +14,7 @@
 - Media paths in `content/` match real files in `public/` (check the exact file name and extension).
 
 ## Layout and design
-- Dark-only: no `dark:` variants, no light-theme classes.
+- Themes: colors come from the semantic tokens (`bg-page`, `text-fg`, `bg-card`, `text-brand-ink`), not hard-coded white/black; both night and day must look right.
 - Looks right at 360, 768 and 1440 px: no horizontal scroll, no clipped text, no overlapping elements, header fits on small phones.
 - Radii and colors follow the existing scale (`rounded-lg` / `rounded-xl`, `brand`, `dark`). No new glows, gradients or decorative effects unless requested.
 - Placeholders have the same size as the real media, so adding the real file does not move the layout.
@@ -32,7 +32,7 @@
 
 ## Accessibility
 - Interactive elements are real buttons or links, reachable by keyboard, with visible focus.
-- Text contrast on the dark background stays readable (avoid going below roughly `text-white/60` for body text).
+- Text contrast on the dark background stays readable (avoid going below roughly `text-fg/60` for body text, in both themes).
 - Motion has a reduced-motion fallback where it is more than a small fade.
 
 ## Safety

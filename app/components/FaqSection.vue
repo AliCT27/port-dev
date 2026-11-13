@@ -17,7 +17,7 @@ useScrollReveal('.reveal')
 </script>
 
 <template>
-  <section id="faq" class="border-y py-12 border-white/10 bg-dark">
+  <section id="faq" class="border-y py-12 border-fg/10 bg-page">
     <div class="mx-auto grid max-w-6xl gap-8 px-6 md:grid-cols-[1fr_1.7fr] md:gap-14">
       <div class="reveal md:sticky md:top-28 md:self-start">
         <h2 class="text-2xl font-bold sm:text-3xl">پرتکرارترین سوال‌هایی که شما عزیزان از ما پرسیدید</h2>
@@ -28,8 +28,8 @@ useScrollReveal('.reveal')
              پس جدا شد تا استروک هاور نرم تغییر کند -->
         <div v-for="(item, i) in faqs" :key="item.path" class="reveal">
         <div
-          class="rounded-2xl border transition-colors duration-500 ease-in-out md:hover:border-brand bg-dark"
-          :class="openIndex === i ? 'border-brand' : 'border-white/10'"
+          class="rounded-2xl border transition-colors duration-500 ease-in-out md:hover:border-brand bg-page"
+          :class="openIndex === i ? 'border-brand' : 'border-fg/10'"
         >
           <button
             type="button"
@@ -41,7 +41,7 @@ useScrollReveal('.reveal')
             <span class="flex items-center gap-3">
               <span
                 class="shrink-0 text-xs font-bold transition-colors duration-500 sm:text-sm"
-                :class="openIndex === i ? 'text-brand' : 'text-white/35'"
+                :class="openIndex === i ? 'text-brand-ink' : 'text-fg/35'"
                 aria-hidden="true"
               dir="rtl"
               >{{ toFa(i + 1) }}<span class="ms-[0.15em]">.</span></span>
@@ -62,7 +62,7 @@ useScrollReveal('.reveal')
             <div :id="`faq-answer-${i}`" class="overflow-hidden" :inert="openIndex !== i">
               <ContentRenderer
                 :value="item"
-                class="prose max-w-none px-5 pb-5 text-sm sm:text-base prose-invert text-white/70"
+                class="prose max-w-none px-5 pb-5 text-sm sm:text-base dark:prose-invert text-fg/70"
               />
             </div>
           </div>

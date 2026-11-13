@@ -1,6 +1,12 @@
 <script setup lang="ts">
 const scrolled = ref(false)
 
+// تغییر حالت شب/روز؛ انتخاب کاربر توی مرورگرش ذخیره می‌شه (پیش‌فرض: شب)
+const colorMode = useColorMode()
+function toggleColorMode() {
+  colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark'
+}
+
 // مکثِ کوتاه بعد از کلیک و قبل از شروعِ اسکرول: تنظیمش (روشن/خاموش و مدت) توی composables/useSectionScroll.ts هست
 // و برای هدر و بقیه‌ی دکمه‌های صفحه مشترکه
 // مدتِ حرکتِ اسکرول دکمه‌های هدر متناسب با فاصله حساب میشه (با easeInOutCubic):
@@ -125,7 +131,7 @@ onBeforeUnmount(() => {
 <template>
   <div class="fixed inset-x-0 top-3 z-50 mx-auto w-fit sm:top-5">
     <nav
-      class="flex max-w-[94vw] items-center gap-0 overflow-x-auto rounded-xl border px-2 py-1.5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden shadow-lg backdrop-blur-md sm:gap-1 sm:px-3 sm:py-1 border-white/10 bg-dark/80 shadow-black/20"
+      class="flex max-w-[94vw] items-center gap-0 overflow-x-auto rounded-xl border px-2 py-1.5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden shadow-lg backdrop-blur-md sm:gap-1 sm:px-3 sm:py-1 border-fg/10 bg-page/80 shadow-black/20"
     >
       <a
         v-for="item in navItems"
@@ -134,8 +140,8 @@ onBeforeUnmount(() => {
         @click.prevent.stop="goToSection(item.href)"
         class="whitespace-nowrap rounded-lg px-2.5 py-2.5 text-xs font-semibold min-[400px]:px-3 min-[400px]:text-[13px] transition-all duration-500 ease-in-out sm:px-3 sm:py-2 sm:text-sm"
         :class="activeId === item.href.split('#')[1]
-          ? 'shadow-sm bg-white/15 text-white'
-          : 'hover:shadow-sm text-white/70 hover:bg-white/15 hover:text-white'"
+          ? 'shadow-sm bg-fg/15 text-fg'
+          : 'hover:shadow-sm text-fg/70 hover:bg-fg/15 hover:text-fg'"
       >
         <template v-if="item.short">
           <span class="sm:hidden">{{ item.short }}</span>
@@ -144,6 +150,16 @@ onBeforeUnmount(() => {
         <template v-else>{{ item.label }}</template>
       </a>
 
+      <!-- دکمه‌ی شب/روز: هر دو آیکن توی HTML هستن و با کلاس .dark یکی‌شون دیده می‌شه، پس بین SSG و کلاینت اختلافی (hydration) پیش نمیاد -->
+      <button
+        type="button"
+        class="ms-1 flex size-9 shrink-0 items-center justify-center rounded-lg text-fg/70 transition-all duration-500 ease-in-out hover:bg-fg/15 hover:text-fg"
+        aria-label="تغییر حالت شب و روز"
+        @click="toggleColorMode"
+      >
+        <UIcon name="i-lucide-sun" class="hidden size-[18px] dark:block" />
+        <UIcon name="i-lucide-moon" class="size-[18px] dark:hidden" />
+      </button>
     </nav>
   </div>
 
@@ -151,7 +167,7 @@ onBeforeUnmount(() => {
     <button
       v-if="scrolled"
       type="button"
-      class="fixed bottom-6 right-6 z-40 flex h-12 w-12 items-center justify-center rounded-xl border shadow-2xl transition-all duration-500 ease-in-out hover:-translate-y-1 border-white bg-white text-black"
+      class="fixed bottom-6 right-6 z-40 flex h-12 w-12 items-center justify-center rounded-xl border shadow-2xl transition-all duration-500 ease-in-out hover:-translate-y-1 border-fg bg-fg text-page"
       aria-label="برو بالا"
       @click="scrollToTop"
     >
