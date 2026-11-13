@@ -92,11 +92,11 @@ onMounted(() => {
           class="hero-in reveal-delay-3 flex flex-wrap items-center justify-center gap-4 md:justify-start"
         >
           <a
-            href="#testimonials"
-            @click.prevent.stop="goToSection('testimonials')"
+            href="#features"
+            @click.prevent.stop="goToSection('features')"
             class="group inline-flex items-center gap-2 rounded-xl bg-brand px-6 py-3 text-sm font-bold text-black transition-all duration-500 ease-in-out hover:-translate-y-1 hover:shadow-2xl hover:shadow-brand/30 active:translate-y-0"
           >
-            نمونه‌کار و نظرات
+            امکانات سایت
             <UIcon
               name="i-lucide-arrow-left"
               class="size-4 transition-transform duration-500 ease-in-out group-hover:-translate-x-1"
