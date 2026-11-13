@@ -120,7 +120,7 @@ onMounted(() => {
           <div>
             <p class="text-xl font-bold sm:text-2xl">+۶۵۰</p>
             <p class="text-xs text-white/60 sm:text-sm">
-              کسب‌وکار همکار
+              فروشگاه فعال
             </p>
           </div>
           <div>
