@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const links = [
   { label: 'اینستاگرام', icon: 'i-simple-icons-instagram', href: 'https://www.instagram.com/mohandesin.site' },
-  { label: 'تماس تلفنی', icon: 'i-lucide-phone-call', href: 'tel:+989019837586' }
+  { label: 'تماس تلفنی', icon: 'i-lucide-phone-call', href: 'tel:+989019837586', number: '۰۹۰۱ ۹۸۳ ۷۵۸۶' }
 ]
 
 useScrollReveal('.reveal')
@@ -13,13 +13,16 @@ useScrollReveal('.reveal')
 
     <div class="relative mx-auto max-w-3xl px-6 text-center">
       <div class="reveal">
+        <p class="mb-4 inline-flex items-center gap-2 text-sm font-bold text-brand">
+          <UIcon name="i-lucide-users" class="size-5" />
+          یک تیم ۶ نفره، کنار شما
+        </p>
         <h2 class="mb-4 text-2xl font-bold sm:text-3xl">
           آماده‌اید <span class="text-brand">فروشگاه آنلاین‌تون</span> رو راه بندازیم؟
         </h2>
         <p class="mb-6 text-sm leading-loose sm:text-base text-white/65">
-          ایده‌تون هرچقدر هم کلی باشه، توی جلسه‌ی مشاوره کاملاً شفاف بررسیش می‌کنیم و مسیر تبدیلش به یک سایت
-          فروشگاهی ایده‌آل و پرسرعت رو روشن می‌کنیم. فقط کافیه شروع کنید تا با احساس بهتر و راحتی بیشتر فروشگاه‌تون رو راه بندازید؛
-          از هر کدوم از راه‌های زیر که براتون راحت‌تره، همین الان باهامون در ارتباط باشید.
+          آماده‌ایم شما رو از صفر تا رسیدن به درآمد ایده‌آل همراهی کنیم. ایده‌تون هرچقدر هم کلی باشه، توی جلسه‌ی
+          مشاوره روشنش می‌کنیم؛ با احساس بهتر و راحتی بیشتر.
         </p>
       </div>
 
@@ -34,7 +37,7 @@ useScrollReveal('.reveal')
             rel="noopener"
             class="relative z-10 inline-flex items-center gap-2 rounded-xl bg-brand px-5 py-2.5 text-sm font-bold text-black shadow-2xl transition-shadow duration-1000 ease-in-out group-hover:shadow-brand/30"
           >
-            شروع مشاوره در تلگرام
+            شروع مشاوره‌ی رایگان در تلگرام
             <UIcon name="i-lucide-arrow-left" class="size-4 transition-transform duration-700 ease-in-out group-hover:-translate-x-1" />
           </a>
         </div>
@@ -50,9 +53,15 @@ useScrollReveal('.reveal')
           class="group inline-flex items-center gap-2 rounded-xl border bg-transparent px-5 py-2.5 text-sm font-bold transition-all duration-500 ease-in-out hover:-translate-y-0.5 border-white/15 text-white hover:border-brand hover:text-brand"
         >
           {{ link.label }}
+          <span v-if="link.number" dir="ltr" class="text-white/60 group-hover:text-brand">{{ link.number }}</span>
           <UIcon :name="link.icon" class="size-4" />
         </a>
       </div>
+
+      <p class="reveal reveal-delay-3 mt-5 inline-flex items-center gap-1.5 text-xs text-white/50 sm:text-sm">
+        <UIcon name="i-lucide-headset" class="size-4" />
+        پشتیبانی و پاسخگویی ۲۴/۷
+      </p>
     </div>
   </section>
 </template>

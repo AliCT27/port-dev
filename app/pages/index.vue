@@ -38,7 +38,6 @@ useSchemaOrg([
     <FeaturesSection />
     <TechStack />
     <FaqSection />
-    <TeamBanner />
     <ContactSection />
   </div>
 </template>
