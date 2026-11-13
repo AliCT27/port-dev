@@ -31,12 +31,15 @@ onMounted(() => {
           آماده‌ی همکاری روی پروژه‌های جدید
         </p>
         <h1
-          class="hero-in reveal-delay-1 mb-5 text-balance text-3xl font-bold leading-snug tracking-tight sm:mb-6 sm:text-4xl"
+          class="hero-in reveal-delay-1 mb-3 text-balance text-3xl font-bold leading-snug tracking-tight sm:mb-4 sm:text-4xl"
         >
           <span class="text-gradient-mono"
             >سلام، ما توسعه‌دهنده سایت‌های فروشگاهی با لاراول هستیم</span
           >
         </h1>
+        <p class="hero-in reveal-delay-1 mb-5 text-balance text-sm leading-loose sm:mb-6 sm:text-base text-white/70">
+          تجربه‌ای با <span class="font-bold text-brand">احساس بهتر و راحتی بیشتر</span>، هم برای شما هم برای مشتری‌هاتون
+        </p>
         <div
           dir="ltr"
           class="hero-in reveal-delay-2 mb-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm font-semibold sm:mb-8 sm:gap-x-5 sm:text-base md:justify-end text-white/70"
