@@ -322,7 +322,7 @@ const lastFeature = features.length % 2 ? features[features.length - 1] : null
                   decoding="async"
                   class="h-auto w-full rounded-xl"
                 >
-                <span class="absolute bottom-2 left-2 flex size-8 items-center justify-center rounded-lg bg-black/55 text-white opacity-80 transition-opacity duration-500 group-hover:opacity-100">
+                <span class="absolute left-1/2 top-1/2 flex size-9 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-black/55 text-white opacity-80 transition-opacity duration-500 group-hover:opacity-100">
                   <UIcon name="i-lucide-zoom-in" class="size-4" />
                 </span>
               </button>
@@ -358,7 +358,7 @@ const lastFeature = features.length % 2 ? features[features.length - 1] : null
                 decoding="async"
                 class="h-auto w-full rounded-xl"
               >
-              <span class="absolute bottom-2 left-2 flex size-8 items-center justify-center rounded-lg bg-black/55 text-white opacity-80 transition-opacity duration-500 group-hover:opacity-100">
+              <span class="absolute left-1/2 top-1/2 flex size-9 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-black/55 text-white opacity-80 transition-opacity duration-500 group-hover:opacity-100">
                 <UIcon name="i-lucide-zoom-in" class="size-4" />
               </span>
             </button>
