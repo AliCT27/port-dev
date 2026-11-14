@@ -131,7 +131,7 @@ onBeforeUnmount(() => {
 <template>
   <div class="fixed inset-x-0 top-3 z-50 mx-auto w-fit sm:top-5">
     <nav
-      class="flex max-w-[94vw] items-center gap-0 overflow-x-auto rounded-xl border px-2 py-1.5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden shadow-lg backdrop-blur-md sm:gap-1 sm:px-3 sm:py-1 border-fg/10 bg-page/80 shadow-black/20"
+      class="flex max-w-[94vw] items-center gap-0 overflow-x-auto rounded-xl border px-2 py-1.5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden shadow-md backdrop-blur-md dark:shadow-lg sm:gap-1 sm:px-3 sm:py-1 border-fg/10 bg-page/80 shadow-black/10 dark:shadow-black/20"
     >
       <a
         v-for="item in navItems"
