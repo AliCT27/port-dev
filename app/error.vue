@@ -53,7 +53,10 @@ function handleError() {
         <h1 class="mb-3 text-2xl font-bold tracking-tight sm:text-3xl">
           {{ title }}
         </h1>
-        <p class="mb-8 text-fg/65">
+        <p
+          class="mb-8 text-fg/65"
+          :class="isNotFound ? 'whitespace-nowrap text-[clamp(11.5px,3.6vw,16px)]' : ''"
+        >
           {{ description }}
         </p>
 
