@@ -24,7 +24,7 @@ useScrollReveal('.reveal')
   <section id="testimonials" class="py-12">
     <div class="mx-auto max-w-6xl px-6">
       <div class="reveal mb-10 text-center">
-        <h2 class="text-2xl font-bold sm:text-3xl">سایت‌هایی که ساختیم، از زبان کارفرمایان‌ عزیز</h2>
+        <h2 class="text-2xl font-bold sm:text-3xl">ببینید کارفرماهامون از همکاری با ما چی می‌گن</h2>
       </div>
 
       <div class="flex flex-wrap justify-center gap-5">
