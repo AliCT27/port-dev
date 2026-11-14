@@ -47,6 +47,20 @@
 :root:not(.dark) .hover\:text-fg:hover { color: var(--color-fg); }
 :root:not(.dark) body { font-weight: 500; }
 
+/* موج دایره‌ای تغییر حالت شب/روز (View Transitions): عکسِ قدیمی زیره و عکسِ جدید با clip-path از جای دکمه باز می‌شه (حرکتش توی AppHeader.vue هست) */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+::view-transition-old(root) { z-index: 1; }
+::view-transition-new(root) { z-index: 2; }
+html.theme-switching *:not(.theme-icon),
+html.theme-switching *:not(.theme-icon)::before,
+html.theme-switching *:not(.theme-icon)::after {
+  transition: none !important;
+}
+
 /* عکس‌ها با کلیک و کشیدن از صفحه جدا نشن (فقط جلوی درگ‌کردن رو می‌گیره؛ ذخیره با راست‌کلیک هنوز ممکنه) */
 img {
   -webkit-user-drag: none;
