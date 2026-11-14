@@ -234,6 +234,8 @@ const migrate = ['دسته‌بندی‌ها', 'محصولات', 'تصاویر �
 
 // اگه تعداد امکانات فرد باشه، آخری وسط جدول و زیر خط وسط نشون داده می‌شه
 const pairedFeatures = features.length % 2 ? features.slice(0, -1) : features
+// تصویری که توی لایت‌باکس باز شده (null = بسته)
+const lightbox = ref<{ src: string; alt: string } | null>(null)
 const lastFeature = features.length % 2 ? features[features.length - 1] : null
 </script>
 
@@ -304,16 +306,26 @@ const lastFeature = features.length % 2 ? features[features.length - 1] : null
               </div>
               <p class="mb-3 text-xs text-fg/50 sm:text-sm">{{ f.subtitle }}</p>
               <p class="text-sm leading-8 text-fg/70 sm:text-[0.95rem]">{{ f.text }}</p>
-              <img
+              <button
                 v-if="f.image"
-                :src="f.image"
-                :alt="f.title"
-                :width="f.imageSize?.[0] ?? 1045"
-                :height="f.imageSize?.[1] ?? 399"
-                loading="lazy"
-                decoding="async"
-                class="mt-5 h-auto w-full max-w-md rounded-xl"
+                type="button"
+                class="group relative mt-5 block w-full max-w-md cursor-zoom-in rounded-xl"
+                :aria-label="`بزرگ‌نمایی تصویر ${f.title}`"
+                @click="lightbox = { src: f.image, alt: f.title }"
               >
+                <img
+                  :src="f.image"
+                  :alt="f.title"
+                  :width="f.imageSize?.[0] ?? 1045"
+                  :height="f.imageSize?.[1] ?? 399"
+                  loading="lazy"
+                  decoding="async"
+                  class="h-auto w-full rounded-xl"
+                >
+                <span class="absolute bottom-2 left-2 flex size-8 items-center justify-center rounded-lg bg-black/55 text-white opacity-80 transition-opacity duration-500 group-hover:opacity-100">
+                  <UIcon name="i-lucide-zoom-in" class="size-4" />
+                </span>
+              </button>
             </article>
           </div>
         </div>
@@ -330,16 +342,26 @@ const lastFeature = features.length % 2 ? features[features.length - 1] : null
             </div>
             <p class="mb-3 text-xs text-fg/50 sm:text-sm">{{ lastFeature.subtitle }}</p>
             <p class="text-sm leading-8 text-fg/70 sm:text-[0.95rem]">{{ lastFeature.text }}</p>
-            <img
+            <button
               v-if="lastFeature.image"
-              :src="lastFeature.image"
-              :alt="lastFeature.title"
-              :width="lastFeature.imageSize?.[0] ?? 1045"
-              :height="lastFeature.imageSize?.[1] ?? 399"
-              loading="lazy"
-              decoding="async"
-              class="mt-5 h-auto w-full max-w-md rounded-xl md:mx-auto"
+              type="button"
+              class="group relative mt-5 block w-full max-w-md cursor-zoom-in rounded-xl md:mx-auto"
+              :aria-label="`بزرگ‌نمایی تصویر ${lastFeature.title}`"
+              @click="lightbox = { src: lastFeature.image, alt: lastFeature.title }"
             >
+              <img
+                :src="lastFeature.image"
+                :alt="lastFeature.title"
+                :width="lastFeature.imageSize?.[0] ?? 1045"
+                :height="lastFeature.imageSize?.[1] ?? 399"
+                loading="lazy"
+                decoding="async"
+                class="h-auto w-full rounded-xl"
+              >
+              <span class="absolute bottom-2 left-2 flex size-8 items-center justify-center rounded-lg bg-black/55 text-white opacity-80 transition-opacity duration-500 group-hover:opacity-100">
+                <UIcon name="i-lucide-zoom-in" class="size-4" />
+              </span>
+            </button>
           </article>
         </div>
       </div>
@@ -386,5 +408,7 @@ const lastFeature = features.length % 2 ? features[features.length - 1] : null
       </div>
       </div>
     </div>
+
+    <ImageLightbox :src="lightbox?.src ?? null" :alt="lightbox?.alt" @close="lightbox = null" />
   </section>
 </template>
