@@ -34,7 +34,7 @@ onMounted(() => {
           class="hero-in reveal-delay-1 mb-3 text-balance text-3xl font-bold leading-snug tracking-tight sm:mb-4 sm:text-4xl"
         >
           <span class="text-gradient-mono"
-            >سلام، ما توسعه‌دهنده سایت‌های فروشگاهی با لاراول هستیم</span
+            >سلام، ما سایت فروشگاهی اختصاصی شما رو با لاراول می‌سازیم</span
           >
         </h1>
         <p class="hero-in reveal-delay-1 mb-5 text-balance text-sm leading-loose sm:mb-6 sm:text-base text-fg/70">
