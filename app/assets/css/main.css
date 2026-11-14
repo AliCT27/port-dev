@@ -33,6 +33,20 @@
   --color-brand-ink: #00dc82;
 }
 
+/* حالت روز: متن کم‌رنگِ نیمه‌شفاف روی پس‌زمینه‌ی روشن کم‌جان و نازک دیده می‌شد؛ اینجا به رنگ‌های جامدِ پالت ویما (#4a5464 و #728197) می‌رسه */
+:root:not(.dark) {
+  --muted-1: #6b778a;
+  --muted-2: #556073;
+  --muted-3: #3f4858;
+  --muted-4: #2b3240;
+}
+:root:not(.dark) :is(.text-fg\/35, .text-fg\/40, .text-fg\/45, .text-fg\/50) { color: var(--muted-1); }
+:root:not(.dark) :is(.text-fg\/60, .text-fg\/65) { color: var(--muted-2); }
+:root:not(.dark) :is(.text-fg\/70) { color: var(--muted-3); }
+:root:not(.dark) :is(.text-fg\/80, .text-fg\/85, .text-fg\/90) { color: var(--muted-4); }
+:root:not(.dark) .hover\:text-fg:hover { color: var(--color-fg); }
+:root:not(.dark) body { font-weight: 500; }
+
 /* عکس‌ها با کلیک و کشیدن از صفحه جدا نشن (فقط جلوی درگ‌کردن رو می‌گیره؛ ذخیره با راست‌کلیک هنوز ممکنه) */
 img {
   -webkit-user-drag: none;
@@ -99,7 +113,7 @@ html {
 }
 
 .text-gradient-mono {
-  background-image: linear-gradient(to left, #1c1c25, #4a5464, #1c1c25);
+  background-image: linear-gradient(to left, #1c1c25, #343b48, #1c1c25);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
