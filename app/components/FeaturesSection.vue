@@ -231,6 +231,10 @@ const features: Feature[] = [
 // مواردی که از ووکامرس منتقل می‌شن
 const migrate = ['دسته‌بندی‌ها', 'محصولات', 'تصاویر محصولات', 'مقالات سایت']
 
+
+// اگه تعداد امکانات فرد باشه، آخری وسط جدول و زیر خط وسط نشون داده می‌شه
+const pairedFeatures = features.length % 2 ? features.slice(0, -1) : features
+const lastFeature = features.length % 2 ? features[features.length - 1] : null
 </script>
 
 <template>
@@ -291,7 +295,7 @@ const migrate = ['دسته‌بندی‌ها', 'محصولات', 'تصاویر �
           <!-- خط وسط -->
           <div class="pointer-events-none absolute inset-y-0 start-1/2 hidden w-px bg-fg/10 md:block" aria-hidden="true" />
 
-          <div v-for="(f, i) in features" :key="f.title" class="reveal">
+          <div v-for="(f, i) in pairedFeatures" :key="f.title" class="reveal">
             <article class="md:px-10">
               <div class="mb-3 flex items-center gap-3" :class="i % 2 ? 'md:-ms-10 md:flex-row-reverse' : 'md:-me-10'">
                 <UIcon :name="i % 2 ? 'i-lucide-arrow-right' : 'i-lucide-arrow-left'" class="size-5 shrink-0 text-brand-ink" :class="i % 2 ? 'max-md:rotate-180' : ''" />
@@ -312,6 +316,29 @@ const migrate = ['دسته‌بندی‌ها', 'محصولات', 'تصاویر �
               >
             </article>
           </div>
+        </div>
+
+        <!-- امکان آخر (وقتی تعداد فرده): وسط جدول، زیر پایان خط وسط -->
+        <div v-if="lastFeature" class="reveal mt-12 md:mx-auto md:mt-16 md:max-w-xl md:text-center">
+          <article>
+            <div class="mb-3 flex items-center gap-3 md:justify-center">
+              <UIcon name="i-lucide-arrow-left" class="size-5 shrink-0 text-brand-ink md:hidden" />
+              <UIcon name="i-lucide-arrow-down" class="size-5 shrink-0 text-brand-ink max-md:hidden" />
+              <h3 class="text-base font-bold sm:text-lg">{{ lastFeature.title }}</h3>
+            </div>
+            <p class="mb-3 text-xs text-fg/50 sm:text-sm">{{ lastFeature.subtitle }}</p>
+            <p class="text-sm leading-8 text-fg/70 sm:text-[0.95rem]">{{ lastFeature.text }}</p>
+            <img
+              v-if="lastFeature.image"
+              :src="lastFeature.image"
+              :alt="lastFeature.title"
+              :width="lastFeature.imageSize?.[0] ?? 1045"
+              :height="lastFeature.imageSize?.[1] ?? 399"
+              loading="lazy"
+              decoding="async"
+              class="mt-5 h-auto w-full max-w-md rounded-xl md:mx-auto"
+            >
+          </article>
         </div>
       </div>
 
