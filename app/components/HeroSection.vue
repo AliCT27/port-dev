@@ -124,9 +124,9 @@ onMounted(() => {
             </p>
           </div>
           <div>
-            <p class="text-xl font-bold sm:text-2xl">۲۴/۷</p>
+            <p class="text-xl font-bold sm:text-2xl">+۱۶۰</p>
             <p class="text-xs text-fg/60 sm:text-sm">
-              پشتیبانی و پاسخگویی
+              قابلیت اختصاصی
             </p>
           </div>
         </div>
