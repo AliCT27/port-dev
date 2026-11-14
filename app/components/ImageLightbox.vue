@@ -94,6 +94,11 @@ function onMove(e: PointerEvent) {
   else if (Math.hypot(e.clientX - downPos.x, e.clientY - downPos.y) > 8) {
     moved = true
   }
+  // ماوس: با نگه‌داشتن کلیک چپ و کشیدن، تصویرِ بزرگ‌شده جابه‌جا می‌شه
+  if (e.pointerType === 'mouse' && pointers.size === 1 && e.buttons & 1 && zoom > 1.01 && box.value) {
+    box.value.scrollLeft -= e.movementX
+    box.value.scrollTop -= e.movementY
+  }
 }
 
 function onUp(e: PointerEvent) {
@@ -112,16 +117,15 @@ function onUp(e: PointerEvent) {
   }
 }
 
+// غلتک ماوس (و Ctrl+چرخ / pinch تاچ‌پد): زوم دور نقطه‌ی ماوس
 function onWheel(e: WheelEvent) {
-  if (!e.ctrlKey) return
-  e.preventDefault()
   const p = localPoint(e.clientX, e.clientY)
-  setZoom(zoom * (e.deltaY < 0 ? 1.15 : 1 / 1.15), p.x, p.y)
+  setZoom(zoom * Math.exp(-e.deltaY * (e.ctrlKey ? 0.01 : 0.0015)), p.x, p.y)
 }
 
-// کلیک روی فضای خالی دور تصویر: بستن
+// کلیک روی فضای خالی دور تصویر: بستن (بعد از کشیدن/جابه‌جایی نه)
 function onBoxClick(e: MouseEvent) {
-  if (e.target === box.value && !moved) emit('close')
+  if (e.target !== img.value && !moved) emit('close')
 }
 
 function onKey(e: KeyboardEvent) {
@@ -183,7 +187,7 @@ onBeforeUnmount(() => {
           @pointermove="onMove"
           @pointerup="onUp"
           @pointercancel="onUp"
-          @wheel="onWheel"
+          @wheel.prevent="onWheel"
         >
           <div class="flex min-h-full min-w-full">
             <img
@@ -192,7 +196,7 @@ onBeforeUnmount(() => {
               :alt="alt"
               draggable="false"
               class="m-auto block max-w-none shrink-0 select-none rounded-lg bg-white shadow-2xl"
-              :class="zoomed ? 'cursor-zoom-out' : 'cursor-zoom-in'"
+              :class="zoomed ? 'cursor-grab active:cursor-grabbing' : 'cursor-zoom-in'"
               @load="computeFit"
             >
           </div>
@@ -208,7 +212,10 @@ onBeforeUnmount(() => {
           <UIcon name="i-lucide-x" class="size-5" />
         </button>
 
-        <p class="pointer-events-none fixed bottom-4 whitespace-nowrap left-1/2 z-10 -translate-x-1/2 rounded-full bg-black/60 px-3 py-1.5 text-center text-xs text-white/80">
+        <p class="pointer-events-none fixed bottom-4 left-1/2 z-10 hidden -translate-x-1/2 whitespace-nowrap rounded-full bg-black/60 px-3 py-1.5 text-center text-xs text-white/80 pointer-fine:block">
+          با غلتک ماوس زوم کنید؛ برای بستن بیرونِ تصویر کلیک کنید
+        </p>
+        <p class="pointer-events-none fixed bottom-4 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap rounded-full bg-black/60 px-3 py-1.5 text-center text-xs text-white/80 pointer-fine:hidden">
           دو بار بزنید یا با دو انگشت زوم کنید
         </p>
       </div>
