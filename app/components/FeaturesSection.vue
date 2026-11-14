@@ -247,12 +247,12 @@ const migrate = ['دسته‌بندی‌ها', 'محصولات', 'تصاویر �
 
         <div class="space-y-4">
           <div v-for="gg in gatewayGroups" :key="gg.title" class="reveal">
-            <div class="rounded-2xl border p-5 sm:p-8 border-fg/10 bg-white shadow-sm dark:border-dashed dark:border-fg/15 dark:bg-card dark:shadow-none">
+            <div class="rounded-2xl border border-dashed p-5 sm:p-8 border-fg/15 dark:bg-card">
               <h4 class="mb-6 text-center text-sm font-bold sm:text-base">{{ gg.title }}</h4>
 
               <ul v-if="gg.items.length" class="flex flex-wrap justify-center gap-x-3 gap-y-5 sm:gap-x-5">
                 <li v-for="g in gg.items" :key="g.name" class="flex w-20 flex-col items-center gap-2 text-center sm:w-24">
-                  <span class="flex size-16 items-center justify-center rounded-xl bg-white p-2.5 sm:size-[4.5rem]">
+                  <span class="flex size-16 items-center justify-center rounded-xl bg-white p-2.5 sm:size-[4.5rem] shadow-[0_2px_10px_rgb(28_28_37/0.10)] dark:shadow-none">
                     <img
                       v-if="g.logo && !failed['gw:' + g.name]"
                       :src="g.logo"
