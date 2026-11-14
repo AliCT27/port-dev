@@ -3,8 +3,39 @@ const scrolled = ref(false)
 
 // تغییر حالت شب/روز؛ انتخاب کاربر توی مرورگرش ذخیره می‌شه (پیش‌فرض: شب)
 const colorMode = useColorMode()
-function toggleColorMode() {
-  colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark'
+async function toggleColorMode(e: MouseEvent) {
+  const next = colorMode.value === 'dark' ? 'light' : 'dark'
+  const root = document.documentElement
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+  // مرورگرِ قدیمی یا کاربری که انیمیشن رو خاموش کرده: تغییرِ ساده و فوری
+  if (!document.startViewTransition || reduce) {
+    colorMode.preference = next
+    return
+  }
+
+  // موجِ دایره‌ای از جای دکمه تا دورترین گوشه‌ی صفحه
+  const x = e.clientX
+  const y = e.clientY
+  const radius = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y))
+
+  // transitionهای خودِ صفحه موقع موج خاموش می‌شن تا رنگ‌ها وسط دایره دوباره محو نشن
+  root.classList.add('theme-switching')
+  const transition = document.startViewTransition(async () => {
+    colorMode.preference = next
+    await nextTick()
+  })
+  try {
+    await transition.ready
+    root.animate(
+      { clipPath: [`circle(0px at ${x}px ${y}px)`, `circle(${radius}px at ${x}px ${y}px)`] },
+      { duration: 650, easing: 'cubic-bezier(0.4, 0, 0.2, 1)', pseudoElement: '::view-transition-new(root)' }
+    )
+    await transition.finished
+  }
+  finally {
+    root.classList.remove('theme-switching')
+  }
 }
 
 // مکثِ کوتاه بعد از کلیک و قبل از شروعِ اسکرول: تنظیمش (روشن/خاموش و مدت) توی composables/useSectionScroll.ts هست
@@ -157,8 +188,11 @@ onBeforeUnmount(() => {
         aria-label="تغییر حالت شب و روز"
         @click="toggleColorMode"
       >
-        <UIcon name="i-lucide-sun" class="hidden size-[18px] dark:block" />
-        <UIcon name="i-lucide-moon" class="size-[18px] dark:hidden" />
+        <!-- خورشید و ماه روی هم می‌شینن و موقع تعویض می‌چرخن و محو می‌شن -->
+        <span class="relative block size-[18px]">
+          <UIcon name="i-lucide-sun" class="theme-icon absolute inset-0 size-[18px] rotate-90 scale-0 opacity-0 transition-all duration-500 ease-in-out dark:rotate-0 dark:scale-100 dark:opacity-100" />
+          <UIcon name="i-lucide-moon" class="theme-icon absolute inset-0 size-[18px] transition-all duration-500 ease-in-out dark:-rotate-90 dark:scale-0 dark:opacity-0" />
+        </span>
       </button>
     </nav>
   </div>
