@@ -247,7 +247,7 @@ const migrate = ['دسته‌بندی‌ها', 'محصولات', 'تصاویر �
 
         <div class="space-y-4">
           <div v-for="gg in gatewayGroups" :key="gg.title" class="reveal">
-            <div class="rounded-2xl border border-dashed p-5 sm:p-8 border-fg/15 bg-card">
+            <div class="rounded-2xl border p-5 sm:p-8 border-fg/10 bg-white shadow-sm dark:border-dashed dark:border-fg/15 dark:bg-card dark:shadow-none">
               <h4 class="mb-6 text-center text-sm font-bold sm:text-base">{{ gg.title }}</h4>
 
               <ul v-if="gg.items.length" class="flex flex-wrap justify-center gap-x-3 gap-y-5 sm:gap-x-5">
