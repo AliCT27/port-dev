@@ -29,7 +29,7 @@ useScrollReveal('.reveal')
       <div class="reveal reveal-delay-1 mb-4">
         <div class="group relative mx-auto inline-block overflow-hidden rounded-xl p-[2px] transition-transform duration-1000 ease-in-out will-change-transform hover:-translate-y-1">
           <div
-            class="animate-spin-glow absolute left-1/2 top-1/2 aspect-square w-[260%] -translate-x-1/2 -translate-y-1/2 bg-[conic-gradient(from_0deg,transparent_0%,transparent_50%,#FF2D95_78%,transparent_100%)]"
+            class="animate-spin-glow absolute left-1/2 top-1/2 aspect-square w-[260%] -translate-x-1/2 -translate-y-1/2 bg-[conic-gradient(from_0deg,transparent_0%,transparent_55%,#FF2D95_75%,transparent_95%)]"
           />
           <a
             href="https://t.me/msite_support"

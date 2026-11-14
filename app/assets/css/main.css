@@ -157,8 +157,7 @@ html {
   to { transform: rotate(360deg); }
 }
 .animate-spin-glow {
-  /* دنباله‌ی صورتیِ نرم که آهسته دور دکمه می‌چرخه (قبلاً قوس صورتیِ تیز و سریع بود) */
-  animation: spin-glow 7s linear infinite;
+  animation: spin-glow 3s linear infinite;
 }
 
 /* هاله‌ی زنده‌ی دور عکس پروفایل: یک قوس سبزِ کم‌رنگ خیلی آروم دور عکس می‌چرخه و هاله‌ی پایه کمی نفس می‌کشه */
