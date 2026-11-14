@@ -94,7 +94,7 @@ onMounted(() => {
           <a
             href="#features"
             @click.prevent.stop="goToSection('features')"
-            class="group inline-flex items-center gap-2 rounded-xl bg-brand px-6 py-3 text-sm font-bold text-black transition-all duration-500 ease-in-out hover:-translate-y-1 hover:shadow-2xl hover:shadow-brand/30 active:translate-y-0"
+            class="group inline-flex items-center gap-2 rounded-xl bg-brand shadow-[0_2px_10px_rgb(28_28_37/0.10)] px-6 py-3 text-sm font-bold text-black transition-all duration-500 ease-in-out hover:-translate-y-1 hover:shadow-2xl hover:shadow-brand/30 active:translate-y-0"
           >
             امکانات سایت
             <UIcon
@@ -104,7 +104,7 @@ onMounted(() => {
           </a>
           <a
             href="tel:+989019837586"
-            class="inline-flex items-center gap-2 rounded-xl bg-[#2F7DFF] px-6 py-3 text-sm font-bold text-white transition-all duration-500 ease-in-out hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#2F7DFF]/30"
+            class="inline-flex items-center gap-2 rounded-xl bg-[#2F7DFF] shadow-[0_2px_10px_rgb(28_28_37/0.10)] px-6 py-3 text-sm font-bold text-white transition-all duration-500 ease-in-out hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#2F7DFF]/30"
           >
             تماس با ما
             <UIcon
