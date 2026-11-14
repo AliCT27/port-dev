@@ -322,9 +322,11 @@ const lastFeature = features.length % 2 ? features[features.length - 1] : null
         <div v-if="lastFeature" class="reveal mt-12 md:mx-auto md:mt-16 md:max-w-xl md:text-center">
           <article>
             <div class="mb-3 flex items-center gap-3 md:justify-center">
+              <span class="hidden h-px w-24 bg-fg/10 md:block" aria-hidden="true" />
               <UIcon name="i-lucide-arrow-left" class="size-5 shrink-0 text-brand-ink md:hidden" />
               <UIcon name="i-lucide-arrow-down" class="size-5 shrink-0 text-brand-ink max-md:hidden" />
               <h3 class="text-base font-bold sm:text-lg">{{ lastFeature.title }}</h3>
+              <span class="hidden h-px w-24 bg-fg/10 md:block" aria-hidden="true" />
             </div>
             <p class="mb-3 text-xs text-fg/50 sm:text-sm">{{ lastFeature.subtitle }}</p>
             <p class="text-sm leading-8 text-fg/70 sm:text-[0.95rem]">{{ lastFeature.text }}</p>
