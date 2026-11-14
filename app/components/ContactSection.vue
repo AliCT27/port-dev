@@ -50,7 +50,7 @@ useScrollReveal('.reveal')
           :href="link.href"
           :target="link.href.startsWith('tel:') ? undefined : '_blank'"
           :rel="link.href.startsWith('tel:') ? undefined : 'noopener'"
-          class="group inline-flex items-center gap-2 rounded-xl border bg-transparent px-5 py-2.5 text-sm font-bold transition-all duration-500 ease-in-out hover:-translate-y-0.5 border-fg/15 text-fg hover:border-brand hover:text-brand-ink"
+          class="group inline-flex items-center gap-2 rounded-xl border bg-transparent px-5 py-2.5 text-sm font-bold transition-all duration-500 ease-in-out hover:-translate-y-0.5 border-fg/25 text-fg hover:border-brand hover:bg-brand/10 hover:text-brand-ink"
         >
           {{ link.label }}
           <span v-if="link.number" dir="ltr" class="text-fg/60 transition-colors duration-500 ease-in-out group-hover:text-brand-ink">{{ link.number }}</span>
