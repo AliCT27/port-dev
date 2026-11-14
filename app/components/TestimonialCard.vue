@@ -251,7 +251,7 @@ function formatTime(t: number) {
       </div>
       <div class="flex min-w-0 flex-1 flex-col">
         <div class="mb-2.5 flex items-center gap-3">
-          <div class="flex h-11 w-11 items-center justify-center overflow-hidden rounded-full border-2 text-sm font-bold border-fg bg-panel">
+          <div class="flex h-11 w-11 items-center justify-center overflow-hidden rounded-full border-2 text-sm font-bold border-fg bg-dark">
             <img v-if="item.avatar" :src="item.avatar" :alt="item.name" width="400" height="400" class="h-full w-full object-cover">
             <span v-else>{{ item.name.charAt(0) }}</span>
           </div>
