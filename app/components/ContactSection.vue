@@ -11,7 +11,7 @@ useScrollReveal('.reveal')
   <section id="contact" class="relative overflow-hidden py-12">
     <div class="grid-bg absolute inset-0 opacity-40 [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_75%)]" />
 
-    <div class="relative mx-auto max-w-3xl px-6 text-center">
+    <div class="relative mx-auto max-w-5xl px-6 text-center">
       <div class="reveal">
         <p class="mb-4 inline-flex items-center gap-2 text-sm font-bold text-brand-ink">
           <UIcon name="i-lucide-users" class="size-5" />
@@ -20,7 +20,7 @@ useScrollReveal('.reveal')
         <h2 class="mb-4 text-2xl font-bold sm:text-3xl">
           آماده‌اید <span class="text-brand-ink">فروشگاه آنلاین‌تون</span> رو راه بندازیم؟
         </h2>
-        <p class="mb-6 text-sm leading-loose sm:text-base text-fg/65">
+        <p class="mb-6 text-balance text-sm leading-loose sm:text-base text-fg/65">
           آماده‌ایم شما رو از صفر تا رسیدن به درآمد ایده‌آل همراهی کنیم. ایده‌تون هرچقدر هم کلی باشه، توی جلسه‌ی
           مشاوره باهم بررسیش می‌کنیم و راه‌اندازی سایت رو برای فروش بهتر شما و راحتی بیشتر مشتری‌هاتون شروع می‌کنیم.
           <strong class="mt-2 block font-bold text-fg">اولین قدم فقط یه پیامه؛ همین الان از راهی که براتون راحت‌تره بهمون پیام بدید.</strong>
