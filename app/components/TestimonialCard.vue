@@ -251,7 +251,8 @@ function formatTime(t: number) {
       </div>
       <div class="flex min-w-0 flex-1 flex-col">
         <div class="mb-2.5 flex items-center gap-3">
-          <div class="flex h-11 w-11 items-center justify-center overflow-hidden rounded-full border-2 text-sm font-bold border-fg bg-dark">
+          <!-- بوردر با ::after روی عکس کشیده می‌شه تا بین قاب و عکس درز روشن نیفته -->
+          <div class="relative flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-full bg-dark text-sm font-bold after:pointer-events-none after:absolute after:inset-0 after:rounded-full after:border-2 after:border-fg">
             <img v-if="item.avatar" :src="item.avatar" :alt="item.name" width="400" height="400" class="h-full w-full object-cover">
             <span v-else>{{ item.name.charAt(0) }}</span>
           </div>
