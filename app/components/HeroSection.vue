@@ -141,7 +141,7 @@ onMounted(() => {
             class="profile-glow-spin absolute -inset-2 rounded-full opacity-70 blur-lg"
           />
           <div
-            class="relative h-44 w-44 overflow-hidden rounded-full border-4 shadow-2xl ring-1 transition-transform duration-700 ease-in-out group-hover:scale-105 sm:h-56 sm:w-56 md:h-64 md:w-64 border-fg bg-page ring-fg/10"
+            class="relative h-44 w-44 overflow-hidden rounded-full border-4 shadow-2xl transition-transform duration-700 ease-in-out group-hover:scale-105 sm:h-56 sm:w-56 md:h-64 md:w-64 border-fg bg-dark"
           >
             <img
               v-if="!profileFailed"
