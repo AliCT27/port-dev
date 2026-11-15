@@ -394,12 +394,20 @@ onBeforeUnmount(() => clearTimeout(demoTimer))
 
         <!-- دسترسی دمو: بررسی پنل پیشخوان بدون نیاز به ثبت‌نام -->
         <div class="reveal mx-auto mt-12 max-w-[38rem] md:mt-16">
-          <div class="rounded-2xl border border-fg/15 bg-card px-5 py-6 text-start sm:px-8">
+          <div class="relative rounded-2xl border border-brand/50 bg-card px-5 py-6 text-start shadow-[0_8px_30px_rgb(0_220_130/0.18)] dark:shadow-[0_0_40px_rgb(0_220_130/0.14)] sm:px-8">
+            <!-- 1) نشونه‌ی «زنده» -->
+            <span class="absolute -top-3 start-6 inline-flex items-center gap-1.5 rounded-full border border-brand/50 bg-page px-3 py-0.5 text-xs font-bold text-brand-ink">
+              <span class="relative flex size-2">
+                <span class="absolute inline-flex size-full rounded-full bg-brand opacity-75 motion-safe:animate-ping" />
+                <span class="relative inline-flex size-2 rounded-full bg-brand" />
+              </span>
+              دموی زنده
+            </span>
             <a
               :href="DEMO_URL"
               target="_blank"
               rel="noopener"
-              class="mb-5 block overflow-hidden rounded-[15px] border border-fg/10"
+              class="group relative mb-5 block overflow-hidden rounded-[15px] border border-fg/10"
               aria-label="باز کردن دموی پنل در تب جدید"
               tabindex="-1"
             >
@@ -410,16 +418,22 @@ onBeforeUnmount(() => clearTimeout(demoTimer))
                 height="571"
                 loading="lazy"
                 decoding="async"
-                class="h-auto w-full"
+                class="h-auto w-full transition-transform duration-500 group-hover:scale-105"
               >
+              <span class="absolute inset-0 flex items-center justify-center bg-black/45 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                <span class="inline-flex items-center gap-2 rounded-xl bg-brand px-5 py-2.5 text-sm font-bold text-black">
+                  <UIcon name="i-lucide-arrow-up-right" class="size-4" />
+                  ورود به دمو
+                </span>
+              </span>
             </a>
             <div class="mb-4 flex items-center gap-3">
               <span class="flex size-10 shrink-0 items-center justify-center rounded-xl bg-brand/15 text-brand-ink">
                 <UIcon name="i-lucide-layout-dashboard" class="size-5" />
               </span>
               <div>
-                <h3 class="text-base font-bold sm:text-lg">پنل پیشخوان رو خودتون امتحان کنید</h3>
-                <p class="text-balance text-xs text-fg/50 sm:text-sm">امکانات رو خودتون بررسی کنید و کیفیت و سرعتش رو حس کنید.</p>
+                <h3 class="text-base font-bold sm:text-lg">قبل از تصمیم، پنل سایت رو کامل بررسی کنید</h3>
+                <p class="text-balance text-xs text-fg/50 sm:text-sm">وارد دمو بشید و امکانات، سرعت و کیفیت رو از نزدیک ببینید.</p>
               </div>
             </div>
 
