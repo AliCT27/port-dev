@@ -404,10 +404,10 @@ onBeforeUnmount(() => clearTimeout(demoTimer))
               tabindex="-1"
             >
               <img
-                src="/images/features/demo-panel.webp"
+                src="/images/features/demo-store.webp"
                 alt="نمای فروشگاه نمونه"
                 width="1152"
-                height="569"
+                height="571"
                 loading="lazy"
                 decoding="async"
                 class="h-auto w-full"
