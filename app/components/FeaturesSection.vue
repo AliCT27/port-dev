@@ -393,7 +393,7 @@ onBeforeUnmount(() => clearTimeout(demoTimer))
         </div>
 
         <!-- دسترسی دمو: بررسی پنل پیشخوان بدون نیاز به ثبت‌نام -->
-        <div class="reveal mx-auto mt-12 max-w-xl md:mt-16">
+        <div class="reveal mx-auto mt-12 max-w-[38rem] md:mt-16">
           <div class="rounded-2xl border border-fg/15 bg-card px-5 py-6 text-start sm:px-8">
             <a
               :href="DEMO_URL"
@@ -449,7 +449,7 @@ onBeforeUnmount(() => clearTimeout(demoTimer))
 
             <p class="mt-3 flex items-start gap-1.5 text-balance text-xs leading-6 text-fg/50">
               <UIcon name="i-lucide-info" class="mt-1 size-3.5 shrink-0" />
-              این دسترسی فقط برای دیدن امکانات پنله و امکان افزودن، ویرایش یا حذف اطلاعات در حالت دمو وجود نداره.
+              این دسترسی فقط برای دیدن امکانات پنل سایت هستش و در حالت دمو افزودن، ویرایش و حذف ممکن نیست.
             </p>
           </div>
         </div>
