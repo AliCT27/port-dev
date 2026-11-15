@@ -418,8 +418,8 @@ onBeforeUnmount(() => clearTimeout(demoTimer))
                 <UIcon name="i-lucide-layout-dashboard" class="size-5" />
               </span>
               <div>
-                <h3 class="text-base font-bold sm:text-lg">پنل پیشخوان رو خودتون امتحان کنید</h3>
-                <p class="text-balance text-xs text-fg/50 sm:text-sm">امکانات رو خودتون بررسی کنید و کیفیت و سرعتش رو حس کنید.</p>
+                <h3 class="text-base font-bold sm:text-lg">قبل از تصمیم، پنل سایت رو کامل بررسی کنید</h3>
+                <p class="text-balance text-xs text-fg/50 sm:text-sm">وارد دمو بشید و امکانات، سرعت و کیفیت رو از نزدیک ببینید.</p>
               </div>
             </div>
 
