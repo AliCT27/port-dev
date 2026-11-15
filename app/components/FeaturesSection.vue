@@ -395,6 +395,24 @@ onBeforeUnmount(() => clearTimeout(demoTimer))
         <!-- دسترسی دمو: بررسی پنل پیشخوان بدون نیاز به ثبت‌نام -->
         <div class="reveal mx-auto mt-12 max-w-xl md:mt-16">
           <div class="rounded-2xl border border-fg/15 bg-card px-5 py-6 text-start sm:px-8">
+            <a
+              :href="DEMO_URL"
+              target="_blank"
+              rel="noopener"
+              class="mb-5 block overflow-hidden rounded-[15px] border border-fg/10"
+              aria-label="باز کردن دموی پنل در تب جدید"
+              tabindex="-1"
+            >
+              <img
+                src="/images/features/demo-panel.webp"
+                alt="نمای فروشگاه نمونه"
+                width="1152"
+                height="569"
+                loading="lazy"
+                decoding="async"
+                class="h-auto w-full"
+              >
+            </a>
             <div class="mb-4 flex items-center gap-3">
               <span class="flex size-10 shrink-0 items-center justify-center rounded-xl bg-brand/15 text-brand-ink">
                 <UIcon name="i-lucide-layout-dashboard" class="size-5" />
