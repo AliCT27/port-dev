@@ -419,7 +419,7 @@ onBeforeUnmount(() => clearTimeout(demoTimer))
               </span>
               <div>
                 <h3 class="text-base font-bold sm:text-lg">پنل پیشخوان رو خودتون امتحان کنید</h3>
-                <p class="text-xs text-fg/50 sm:text-sm">با شماره‌ی زیر وارد دموی پنل بشید و امکانات رو از نزدیک ببینید.</p>
+                <p class="text-balance text-xs text-fg/50 sm:text-sm">امکانات رو خودتون بررسی کنید و کیفیت و سرعتش رو حس کنید.</p>
               </div>
             </div>
 
@@ -447,7 +447,7 @@ onBeforeUnmount(() => clearTimeout(demoTimer))
               ورود به پنل دمو
             </a>
 
-            <p class="mt-3 flex items-start gap-1.5 text-xs leading-6 text-fg/50">
+            <p class="mt-3 flex items-start gap-1.5 text-balance text-xs leading-6 text-fg/50">
               <UIcon name="i-lucide-info" class="mt-1 size-3.5 shrink-0" />
               این دسترسی فقط برای دیدن امکانات پنله و امکان افزودن، ویرایش یا حذف اطلاعات در حالت دمو وجود نداره.
             </p>
