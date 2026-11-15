@@ -237,6 +237,33 @@ const pairedFeatures = features.length % 2 ? features.slice(0, -1) : features
 // تصویری که توی لایت‌باکس باز شده (null = بسته)
 const lightbox = ref<{ src: string; alt: string } | null>(null)
 const lastFeature = features.length % 2 ? features[features.length - 1] : null
+
+// دسترسی دمو: بازدیدکننده با همین شماره وارد پنل می‌شه (فقط مشاهده، بدون امکان تغییر)
+const DEMO_URL = 'https://yadaki.mohandesinsite.ir/login'
+const DEMO_PHONE = '09999999999'
+const demoCopied = ref(false)
+let demoTimer: ReturnType<typeof setTimeout> | undefined
+
+async function copyDemoPhone() {
+  try {
+    await navigator.clipboard.writeText(DEMO_PHONE)
+  }
+  catch {
+    // مرورگرهای قدیمی یا بدون دسترسی به کلیپ‌بورد
+    const ta = document.createElement('textarea')
+    ta.value = DEMO_PHONE
+    ta.style.position = 'fixed'
+    ta.style.opacity = '0'
+    document.body.appendChild(ta)
+    ta.select()
+    document.execCommand('copy')
+    ta.remove()
+  }
+  demoCopied.value = true
+  clearTimeout(demoTimer)
+  demoTimer = setTimeout(() => (demoCopied.value = false), 2000)
+}
+onBeforeUnmount(() => clearTimeout(demoTimer))
 </script>
 
 <template>
@@ -363,6 +390,50 @@ const lastFeature = features.length % 2 ? features[features.length - 1] : null
               </span>
             </button>
           </article>
+        </div>
+
+        <!-- دسترسی دمو: بررسی پنل پیشخوان بدون نیاز به ثبت‌نام -->
+        <div class="reveal mx-auto mt-12 max-w-xl md:mt-16">
+          <div class="rounded-2xl border border-fg/15 bg-card px-5 py-6 text-start sm:px-8">
+            <div class="mb-4 flex items-center gap-3">
+              <span class="flex size-10 shrink-0 items-center justify-center rounded-xl bg-brand/15 text-brand-ink">
+                <UIcon name="i-lucide-layout-dashboard" class="size-5" />
+              </span>
+              <div>
+                <h3 class="text-base font-bold sm:text-lg">پنل پیشخوان رو خودتون امتحان کنید</h3>
+                <p class="text-xs text-fg/50 sm:text-sm">با شماره‌ی زیر وارد دموی پنل بشید و امکانات رو از نزدیک ببینید.</p>
+              </div>
+            </div>
+
+            <p class="mb-1.5 text-xs text-fg/60">شماره‌ی ورود</p>
+            <div class="mb-4 flex items-center justify-between gap-3 rounded-xl border border-fg/15 bg-page px-4 py-2.5">
+              <span dir="ltr" class="text-sm font-bold tracking-wider">{{ DEMO_PHONE }}</span>
+              <button
+                type="button"
+                class="inline-flex shrink-0 items-center gap-1.5 rounded-lg border border-brand/40 px-3 py-1 text-xs font-bold text-brand-ink transition-colors hover:bg-brand/10"
+                :aria-label="demoCopied ? 'شماره کپی شد' : 'کپی شماره‌ی ورود'"
+                @click="copyDemoPhone"
+              >
+                <UIcon :name="demoCopied ? 'i-lucide-check' : 'i-lucide-copy'" class="size-3.5" />
+                {{ demoCopied ? 'کپی شد' : 'کپی' }}
+              </button>
+            </div>
+
+            <a
+              :href="DEMO_URL"
+              target="_blank"
+              rel="noopener"
+              class="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-brand px-5 py-2.5 text-sm font-bold text-black transition-opacity hover:opacity-90"
+            >
+              <UIcon name="i-lucide-arrow-up-right" class="size-4" />
+              ورود به پنل دمو
+            </a>
+
+            <p class="mt-3 flex items-start gap-1.5 text-xs leading-6 text-fg/50">
+              <UIcon name="i-lucide-info" class="mt-1 size-3.5 shrink-0" />
+              این دسترسی فقط برای دیدن امکانات پنله و امکان افزودن، ویرایش یا حذف اطلاعات در حالت دمو وجود نداره.
+            </p>
+          </div>
         </div>
       </div>
 
