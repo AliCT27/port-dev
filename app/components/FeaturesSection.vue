@@ -240,8 +240,7 @@ const lastFeature = features.length % 2 ? features[features.length - 1] : null
 
 // دسترسی دمو: بازدیدکننده با همین شماره وارد پنل می‌شه (فقط مشاهده، بدون امکان تغییر)
 const DEMO_PHONE = '09999999999'
-// شماره توی آدرس هم می‌ره تا صفحه‌ی لاگین دمو بتونه فیلد رو خودکار پر کنه
-const DEMO_URL = `https://yadaki.mohandesinsite.ir/login?phone=${DEMO_PHONE}`
+const DEMO_URL = 'https://yadaki.mohandesinsite.ir/login'
 const demoCopied = ref(false)
 let demoTimer: ReturnType<typeof setTimeout> | undefined
 
