@@ -30,7 +30,7 @@ useScrollReveal('.reveal')
       <!-- اسم مشاور: مشتری بدونه با کی صحبت می‌کنه -->
       <p class="reveal mb-5 inline-flex items-center gap-1.5 text-sm font-medium text-fg/70 sm:text-base">
         <UIcon name="i-lucide-user-round" class="size-4 text-brand-ink sm:size-5" />
-        مشاورین شما: مهندس محمدنژاد و مهندس زمانی
+        مشاورین شما: مهندس زمانی و مهندس محمدنژاد
       </p>
 
       <div class="reveal reveal-delay-1 mb-4">
