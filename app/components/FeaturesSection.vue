@@ -428,11 +428,11 @@ onBeforeUnmount(() => clearTimeout(demoTimer))
               </span>
             </a>
             <div class="mb-4 flex items-center gap-3">
-              <span class="flex size-10 shrink-0 items-center justify-center rounded-xl bg-brand/15 text-brand-ink">
+              <span class="hidden size-10 shrink-0 items-center justify-center rounded-xl bg-brand/15 text-brand-ink sm:flex">
                 <UIcon name="i-lucide-layout-dashboard" class="size-5" />
               </span>
               <div>
-                <h3 class="text-base font-bold sm:text-lg">قبل از تصمیم، پنل سایت رو کامل بررسی کنید</h3>
+                <h3 class="text-balance text-base font-bold sm:text-lg">پنل سایت رو همین الان کامل بررسی کنید</h3>
                 <p class="text-balance text-xs text-fg/50 sm:text-sm">وارد دمو بشید و امکانات، سرعت و کیفیت رو از نزدیک ببینید.</p>
               </div>
             </div>
