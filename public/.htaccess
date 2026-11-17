@@ -60,6 +60,13 @@ ErrorDocument 404 /404.html
   RewriteEngine On
   RewriteRule "(^|/)\.(?!well-known)" - [F]
 
+  # www به آدرس بدون www هدایت بشه تا فقط یه آدرس ایندکس بشه (پروتکل حفظ می‌شه)
+  RewriteCond %{HTTP_HOST} ^www\.mohandesinsite\.ir$ [NC]
+  RewriteCond %{HTTPS} =on
+  RewriteRule ^ https://mohandesinsite.ir%{REQUEST_URI} [L,R=301]
+  RewriteCond %{HTTP_HOST} ^www\.mohandesinsite\.ir$ [NC]
+  RewriteRule ^ http://mohandesinsite.ir%{REQUEST_URI} [L,R=301]
+
   # بعد از فعال شدن SSL این دو خط رو از حالت کامنت دربیار تا همه به https بره:
   # RewriteCond %{HTTPS} !=on
   # RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
