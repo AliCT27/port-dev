@@ -174,31 +174,7 @@ html {
   animation: spin-glow 4s linear infinite;
 }
 
-/* دور عکس پروفایل: هاله‌ی پایه کمی نفس می‌کشه و یه نقطه روی مدار مربع‌گرد می‌چرخه */
-/* نقطه‌ی مدار: با offset-path روی خط مربع‌گرد حرکت می‌کنه (جایی که پشتیبانی نشه، نقطه نشون داده نمی‌شه و فقط خط می‌مونه) */
-.profile-orbit-dot {
-  display: none;
-}
-@supports (offset-path: inset(0 round 2rem)) {
-  .profile-orbit-dot {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 8px;
-    height: 8px;
-    border-radius: 9999px;
-    background: var(--color-brand-ink);
-    box-shadow: 0 0 8px 1px color-mix(in srgb, var(--color-brand) 70%, transparent);
-    offset-path: inset(0 round 2rem);
-    offset-rotate: 0deg;
-    animation: profile-orbit 20s linear infinite;
-  }
-}
-@keyframes profile-orbit {
-  from { offset-distance: 0%; }
-  to { offset-distance: 100%; }
-}
+/* دور عکس پروفایل: هاله‌ی پایه کمی نفس می‌کشه */
 .profile-glow-breathe {
   animation: profile-glow-breathe 7s ease-in-out infinite;
 }
@@ -207,7 +183,6 @@ html {
   50% { opacity: 0.22; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .profile-orbit-dot,
   .profile-glow-breathe { animation: none; }
 }
 
