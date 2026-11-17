@@ -137,11 +137,6 @@ onMounted(() => {
           <div
             class="profile-glow-breathe absolute -inset-1 rounded-[2.25rem] bg-brand blur-xl"
           />
-          <!-- مدار: یه خط نازکِ مربع‌گرد دور عکس -->
-          <div
-            class="pointer-events-none absolute -inset-4 rounded-[3rem] border border-brand-ink/30"
-            aria-hidden="true"
-          />
           <div
             class="relative h-44 w-44 overflow-hidden rounded-[2rem] border-4 shadow-2xl transition-transform duration-700 ease-in-out group-hover:scale-105 sm:h-56 sm:w-56 md:h-64 md:w-64 border-fg bg-dark"
           >
