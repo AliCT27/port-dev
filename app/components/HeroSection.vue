@@ -137,9 +137,13 @@ onMounted(() => {
           <div
             class="profile-glow-breathe absolute -inset-1 rounded-3xl bg-brand blur-xl"
           />
+          <!-- مدار: یه خط نازکِ مربع‌گرد دور عکس و یه نقطه‌ی کوچیک که آروم روش می‌چرخه -->
           <div
-            class="profile-glow-spin absolute -inset-2 overflow-hidden rounded-3xl opacity-70 blur-lg"
-          />
+            class="pointer-events-none absolute -inset-4 rounded-[2rem] border border-brand-ink/30"
+            aria-hidden="true"
+          >
+            <span class="profile-orbit-dot" />
+          </div>
           <div
             class="relative h-44 w-44 overflow-hidden rounded-2xl border-4 shadow-2xl transition-transform duration-700 ease-in-out group-hover:scale-105 sm:h-56 sm:w-56 md:h-64 md:w-64 border-fg bg-dark"
           >

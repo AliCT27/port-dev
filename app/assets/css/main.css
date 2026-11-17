@@ -174,24 +174,30 @@ html {
   animation: spin-glow 4s linear infinite;
 }
 
-/* هاله‌ی زنده‌ی دور عکس پروفایل: یک قوس سبزِ کم‌رنگ خیلی آروم دور عکس می‌چرخه و هاله‌ی پایه کمی نفس می‌کشه */
-/* هاله‌ی چرخان: قاب مربعی ثابت می‌مونه و فقط گرادیانِ داخلش می‌چرخه (با چرخوندن خودِ قاب، گوشه‌ها بیرون می‌زد) */
-.profile-glow-spin::before {
-  content: "";
-  position: absolute;
-  inset: -50%;
-  background: conic-gradient(
-    from 0deg,
-    transparent 0%,
-    color-mix(in srgb, var(--color-brand) 55%, transparent) 22%,
-    transparent 48%,
-    color-mix(in srgb, var(--color-brand) 25%, transparent) 72%,
-    transparent 100%
-  );
-  animation: profile-glow-spin 16s linear infinite;
+/* دور عکس پروفایل: هاله‌ی پایه کمی نفس می‌کشه و یه نقطه روی مدار مربع‌گرد می‌چرخه */
+/* نقطه‌ی مدار: با offset-path روی خط مربع‌گرد حرکت می‌کنه (جایی که پشتیبانی نشه، نقطه نشون داده نمی‌شه و فقط خط می‌مونه) */
+.profile-orbit-dot {
+  display: none;
 }
-@keyframes profile-glow-spin {
-  to { transform: rotate(360deg); }
+@supports (offset-path: inset(0 round 2rem)) {
+  .profile-orbit-dot {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 8px;
+    border-radius: 9999px;
+    background: var(--color-brand-ink);
+    box-shadow: 0 0 8px 1px color-mix(in srgb, var(--color-brand) 70%, transparent);
+    offset-path: inset(0 round 2rem);
+    offset-rotate: 0deg;
+    animation: profile-orbit 20s linear infinite;
+  }
+}
+@keyframes profile-orbit {
+  from { offset-distance: 0%; }
+  to { offset-distance: 100%; }
 }
 .profile-glow-breathe {
   animation: profile-glow-breathe 7s ease-in-out infinite;
@@ -201,7 +207,7 @@ html {
   50% { opacity: 0.22; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .profile-glow-spin::before,
+  .profile-orbit-dot,
   .profile-glow-breathe { animation: none; }
 }
 
