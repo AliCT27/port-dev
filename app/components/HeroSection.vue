@@ -137,6 +137,11 @@ onMounted(() => {
           <div
             class="profile-glow-breathe absolute -inset-1 rounded-[2.25rem] bg-brand blur-xl"
           />
+          <!-- قاب پشتی: یه خط نازکِ مربع‌گرد که کمی پایین و چپِ عکس قرار گرفته -->
+          <div
+            class="pointer-events-none absolute inset-0 -translate-x-3 translate-y-3 rounded-[2rem] border border-fg/25 sm:-translate-x-4 sm:translate-y-4"
+            aria-hidden="true"
+          />
           <div
             class="relative h-44 w-44 overflow-hidden rounded-[2rem] border-4 shadow-2xl transition-transform duration-700 ease-in-out group-hover:scale-105 sm:h-56 sm:w-56 md:h-64 md:w-64 border-fg bg-dark"
           >
@@ -156,6 +161,14 @@ onMounted(() => {
             >
               <UIcon name="i-lucide-user-round" class="size-14" />
               <span class="text-xs font-bold leading-6">تصویر<br />به‌زودی اضافه می‌شه</span>
+            </div>
+            <!-- کارت اسم (سطح ثابتِ تیره با متن سفید، تا توی هر دو تم روی عکس خوانا بمونه) -->
+            <div
+              v-if="!profileFailed"
+              class="absolute bottom-2 left-2 max-w-[calc(100%-1rem)] rounded-xl border border-white/15 bg-black/55 px-3 py-1.5 text-white backdrop-blur-md sm:bottom-3 sm:left-3 sm:px-3.5 sm:py-2"
+            >
+              <p class="text-xs font-bold sm:text-sm">مهندس علی محمدنژاد</p>
+              <p class="text-[10px] text-white/70 sm:text-xs">توسعه‌دهنده‌ی لاراول و ویو</p>
             </div>
           </div>
         </div>
