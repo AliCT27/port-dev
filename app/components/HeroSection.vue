@@ -165,10 +165,10 @@ onMounted(() => {
             <!-- کارت اسم (سطح ثابتِ تیره با متن سفید، تا توی هر دو تم روی عکس خوانا بمونه) -->
             <div
               v-if="!profileFailed"
-              class="absolute bottom-2 left-2 max-w-[calc(100%-1rem)] rounded-xl border border-white/15 bg-black/55 px-3 py-1.5 text-white backdrop-blur-md sm:bottom-3 sm:left-3 sm:px-3.5 sm:py-2"
+              class="absolute bottom-2 left-2 max-w-[calc(100%-1rem)] rounded-lg border border-white/15 bg-black/55 px-2 py-1 text-white backdrop-blur-md sm:bottom-3 sm:left-3 sm:px-2.5 sm:py-1.5"
             >
-              <p class="text-xs font-bold sm:text-sm">مهندس علی محمدنژاد</p>
-              <p class="text-[10px] text-white/70 sm:text-xs">توسعه‌دهنده‌ی لاراول و ویو</p>
+              <p class="whitespace-nowrap text-[10px] font-bold sm:text-[11px]">مهندس علی محمدنژاد</p>
+              <p class="whitespace-nowrap text-[9px] text-white/70 sm:text-[10px]">فعال سایت‌های کدنویسی‌شده</p>
             </div>
           </div>
         </div>
