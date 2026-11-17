@@ -135,13 +135,13 @@ onMounted(() => {
       <div class="hero-in reveal-delay-1 mx-auto md:mx-0">
         <div class="group relative">
           <div
-            class="profile-glow-breathe absolute -inset-1 rounded-full bg-brand blur-xl"
+            class="profile-glow-breathe absolute -inset-1 rounded-3xl bg-brand blur-xl"
           />
           <div
-            class="profile-glow-spin absolute -inset-2 rounded-full opacity-70 blur-lg"
+            class="profile-glow-spin absolute -inset-2 overflow-hidden rounded-3xl opacity-70 blur-lg"
           />
           <div
-            class="relative h-44 w-44 overflow-hidden rounded-full border-4 shadow-2xl transition-transform duration-700 ease-in-out group-hover:scale-105 sm:h-56 sm:w-56 md:h-64 md:w-64 border-fg bg-dark"
+            class="relative h-44 w-44 overflow-hidden rounded-2xl border-4 shadow-2xl transition-transform duration-700 ease-in-out group-hover:scale-105 sm:h-56 sm:w-56 md:h-64 md:w-64 border-fg bg-dark"
           >
             <img
               v-if="!profileFailed"
