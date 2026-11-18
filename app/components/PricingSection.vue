@@ -6,8 +6,8 @@ useScrollReveal('.reveal')
 interface Plan {
   id: string
   name: string
-  badge?: string
-  tagline?: string
+  label: string
+  highlight?: boolean
   price: null | { prefix?: string, amount: string, unit: string }
   features: { text: string, included: boolean }[]
   cta: string
@@ -19,8 +19,9 @@ const plans: Plan[] = [
   {
     id: 'recommended',
     name: 'پلن استاندارد',
-    badge: 'پیشنهاد ما',
-    price: { prefix: 'از', amount: '۴۲', unit: 'میلیون تومان' },
+    label: 'پیشنهادی شروع کسب‌وکارها',
+    highlight: true,
+    price: { amount: '۴۲', unit: 'میلیون تومان' },
     features: [
       { text: 'دریافت همه‌ی آپدیت‌ها', included: true },
       { text: 'ارتباط مداوم با تیم توسعه', included: true },
@@ -31,7 +32,7 @@ const plans: Plan[] = [
   {
     id: 'custom',
     name: 'پلن الماس',
-    tagline: 'مخصوص کسب‌وکارهای بزرگ',
+    label: 'مناسب کسب‌وکارهای بزرگ',
     price: { prefix: 'بالای', amount: '۱۰۰', unit: 'میلیون تومان' },
     features: [
       { text: 'قابلیت‌های اختصاصی', included: true },
@@ -63,30 +64,29 @@ const plans: Plan[] = [
           :key="plan.id"
           class="reveal h-full"
           :class="[
-            i === 0 ? 'order-first md:-my-4 md:order-none' : '',
+            i === 0 ? 'order-first md:order-none' : '',
             i === 0 ? 'reveal-delay-1' : 'reveal-delay-2',
           ]"
         >
           <div
             class="relative flex h-full flex-col rounded-2xl p-5 text-start sm:p-6"
-            :class="plan.badge
-              ? 'border-2 border-brand bg-card shadow-[0_8px_30px_rgb(0_220_130/0.18)] dark:shadow-[0_0_40px_rgb(0_220_130/0.14)] md:py-10'
+            :class="plan.highlight
+              ? 'border-2 border-brand bg-card shadow-[0_8px_30px_rgb(0_220_130/0.18)] dark:shadow-[0_0_40px_rgb(0_220_130/0.14)] '
               : 'border border-fg/15 bg-card'"
           >
             <span
-              v-if="plan.badge"
-              class="absolute -top-3 left-1/2 inline-flex -translate-x-1/2 items-center gap-1 whitespace-nowrap rounded-full bg-brand px-3 py-0.5 text-xs font-bold text-black"
+              class="absolute -top-3 left-1/2 inline-flex -translate-x-1/2 items-center gap-1 whitespace-nowrap rounded-full px-3 py-0.5 text-xs font-bold"
+              :class="plan.highlight ? 'bg-brand text-black' : 'border border-fg/20 bg-card text-fg/70'"
             >
-              <UIcon name="i-lucide-star" class="size-3.5" />
-              {{ plan.badge }}
+              <UIcon v-if="plan.highlight" name="i-lucide-star" class="size-3.5" />
+              {{ plan.label }}
             </span>
 
-            <h3 class="text-lg font-bold" :class="plan.tagline ? 'mb-1' : 'mb-4'">{{ plan.name }}</h3>
-            <p v-if="plan.tagline" class="mb-3 text-xs text-fg/60">{{ plan.tagline }}</p>
+            <h3 class="mb-4 text-lg font-bold">{{ plan.name }}</h3>
 
             <div v-if="plan.price" class="mb-5 flex flex-wrap items-baseline gap-x-1.5">
               <span v-if="plan.price.prefix" class="text-sm text-fg/60">{{ plan.price.prefix }}</span>
-              <span class="text-3xl font-bold" :class="plan.badge ? 'text-brand-ink' : ''">{{ plan.price.amount }}</span>
+              <span class="text-3xl font-bold" :class="plan.highlight ? 'text-brand-ink' : ''">{{ plan.price.amount }}</span>
               <span class="text-sm text-fg/60">{{ plan.price.unit }}</span>
             </div>
             <div
@@ -118,7 +118,7 @@ const plans: Plan[] = [
               target="_blank"
               rel="noopener"
               class="mt-auto inline-flex items-center justify-center gap-2 rounded-xl px-5 py-2.5 text-sm font-bold transition-colors duration-300"
-              :class="plan.badge
+              :class="plan.highlight
                 ? 'bg-brand text-black shadow-[0_4px_14px_rgb(0_220_130/0.40)] hover:opacity-90 dark:shadow-[0_0_12px_rgb(0_220_130/0.35)]'
                 : 'border border-fg/25 hover:border-brand hover:bg-brand/10 hover:text-brand-ink'"
             >
