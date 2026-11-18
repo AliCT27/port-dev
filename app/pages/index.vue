@@ -36,6 +36,7 @@ useSchemaOrg([
     <HeroSection />
     <TestimonialsSection />
     <FeaturesSection />
+    <PricingSection />
     <TechStack />
     <FaqSection />
     <ContactSection />
