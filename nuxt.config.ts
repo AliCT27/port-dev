@@ -1,3 +1,7 @@
+// dokme-ye shab/rooz too header: true = site pish-farz shab hast va karbar mitune ba dokme be rooz bere (halat-e alan)
+// false = dokme bardashte mishe va site hamishe shab hast (entekhab-e qabli-ye karbar ham nadide gerefte mishe)
+const THEME_TOGGLE = true
+
 export default defineNuxtConfig({
   compatibilityDate: '2026-01-01',
   devtools: { enabled: true },
@@ -58,9 +62,15 @@ export default defineNuxtConfig({
     }
   },
 
+  // vaqti dokme nist, key-e zakhire avaz mishe ta entekhab-e qadimi-ye karbar (rooz) estefade nashe
   colorMode: {
     preference: 'dark',
-    fallback: 'dark'
+    fallback: 'dark',
+    storageKey: THEME_TOGGLE ? 'nuxt-color-mode' : 'nuxt-color-mode-locked'
+  },
+
+  runtimeConfig: {
+    public: { themeToggle: THEME_TOGGLE }
   },
 
   css: ['~/assets/css/main.css', 'lenis/dist/lenis.css'],

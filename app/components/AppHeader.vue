@@ -3,6 +3,7 @@ const scrolled = ref(false)
 
 // taghir-e halat-e shab/rooz; entekhab-e karbar too morurgarash zakhire mishe (pish-farz: shab)
 const colorMode = useColorMode()
+const { themeToggle } = useRuntimeConfig().public
 async function toggleColorMode(e: MouseEvent) {
   const next = colorMode.value === 'dark' ? 'light' : 'dark'
   const root = document.documentElement
@@ -183,6 +184,7 @@ onBeforeUnmount(() => {
 
       <!-- dokme-ye shab/rooz: har do icon too HTML hastan va ba class-e .dark yekishun dide mishe, pas bein-e SSG va client ekhtelafi (hydration) pish nemiad -->
       <button
+        v-if="themeToggle"
         type="button"
         class="ms-1 flex size-9 shrink-0 items-center justify-center rounded-lg text-fg/70 transition-all duration-500 ease-in-out hover:bg-fg/15 hover:text-fg"
         aria-label="تغییر حالت شب و روز"
