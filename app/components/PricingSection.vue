@@ -7,6 +7,7 @@ interface Plan {
   id: string
   name: string
   badge?: string
+  tagline?: string
   price: null | { prefix?: string, amount: string, unit: string }
   features: string[]
   cta: string
@@ -17,14 +18,14 @@ const TELEGRAM_URL = 'https://t.me/msite_support'
 const plans: Plan[] = [
   {
     id: 'first',
-    name: 'پلن اول',
+    name: 'پلن پایه',
     price: null,
     features: [],
     cta: 'مشاوره‌ی رایگان'
   },
   {
     id: 'recommended',
-    name: 'پلن دوم',
+    name: 'پلن استاندارد',
     badge: 'پیشنهاد ما',
     price: { prefix: 'از', amount: '۴۲', unit: 'میلیون تومان' },
     features: [],
@@ -32,7 +33,8 @@ const plans: Plan[] = [
   },
   {
     id: 'custom',
-    name: 'پلن اختصاصی',
+    name: 'پلن الماس',
+    tagline: 'مخصوص کسب‌وکارهای بزرگ',
     price: { prefix: 'بالای', amount: '۱۰۰', unit: 'میلیون تومان' },
     features: ['قابلیت‌های اختصاصی', 'توسعه‌ی رابط کاربری اختصاصی'],
     cta: 'مشاوره‌ی رایگان'
@@ -79,7 +81,8 @@ const plans: Plan[] = [
               {{ plan.badge }}
             </span>
 
-            <h3 class="mb-4 text-lg font-bold">{{ plan.name }}</h3>
+            <h3 class="text-lg font-bold" :class="plan.tagline ? 'mb-1' : 'mb-4'">{{ plan.name }}</h3>
+            <p v-if="plan.tagline" class="mb-3 text-xs text-fg/60">{{ plan.tagline }}</p>
 
             <div v-if="plan.price" class="mb-5 flex flex-wrap items-baseline gap-x-1.5">
               <span v-if="plan.price.prefix" class="text-sm text-fg/60">{{ plan.price.prefix }}</span>
