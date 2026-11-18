@@ -14,12 +14,12 @@ export default defineNuxtConfig({
     description: 'طراحی سایت فروشگاهی سریع و مدرن با لاراول و ووجی‌اس. تیم مهندسین سایت؛ انتقال از ووکامرس، پنل مدیریت ساده، درگاه پرداخت و پشتیبانی. مشاوره رایگان.',
     defaultLocale: 'fa',
 
-    // برای اجازه‌دادن به گوگل و بقیه‌ی ربات‌ها برای ایندکس‌کردن سایت: true
-    // برای مخفی‌کردن کامل سایت از نتایج جستجو (مثلاً تا وقتی هنوز آماده نیست): false
+    // baraye ejaze-dadan be Google va baqiye-ye robot-ha baraye index-kardan-e site: true
+    // baraye makhfi-kardan-e kamel-e site az natayej-e jostejoo (masalan ta vaqti hanuz amade nist): false
     indexable: false
   },
 
-  // Service Worker و polling نسخه برای سایت استاتیک لازم نیست (روی هاست معمولی فقط ۴۰۴ می‌گیرفت)
+  // Service Worker va polling-e version baraye site-e static lazem nist (rooye host-e ma'muli faqat 404 migereft)
   skewProtection: false,
 
   ssr: true,
@@ -36,17 +36,17 @@ export default defineNuxtConfig({
     }
   },
 
-  // آیکن‌ها داخل خودِ سایت بسته‌بندی می‌شن و از سرور iconify.design (خارجی؛ توی ایران ممکنه کند یا فیلتر باشه) گرفته نمی‌شن
+  // icon-ha dakhel-e khod-e site baste-bandi mishan va az server-e iconify.design (khareji; too Iran momkene kond ya filter bashe) gerefte nemishan
   icon: {
     mode: 'svg',
     clientBundle: {
-      // composables هم اسکن بشن (آیکن‌های لوگوی تکنولوژی‌ها داخل useTechStack.ts نوشته شدن)
+      // composables ham scan beshan (icon-haye logo-ye technology-ha dakhel-e useTechStack.ts neveshte shodan)
       scan: { globInclude: ['app/**/*.{vue,ts}'] }
     },
     fallbackToApi: false
   },
 
-  // فونت‌های سایت (یکان‌بخ و اراد) لوکال هستن؛ پس فراهم‌کننده‌های آنلاینِ فونت رو خاموش می‌کنیم تا ماژول fonts سراغ اینترنت (که ممکنه بسته یا کند باشه) نره
+  // font-haye site (YekanBakh va Arad) local hastan; pas faraham-konande-haye online-e font ro khamush mikonim ta module-e fonts soraghe internet (ke momkene baste ya kond bashe) nare
   fonts: {
     providers: {
       adobe: false,
@@ -65,7 +65,7 @@ export default defineNuxtConfig({
 
   css: ['~/assets/css/main.css', 'lenis/dist/lenis.css'],
 
-  // فقط برای حالت dev: lenis از قبل بسته‌بندی میشه تا اولین بارگذاریِ صفحه ری‌لود نشه
+  // faqat baraye halat-e dev: lenis az qabl baste-bandi mishe ta avvalin bargozari-ye safhe reload nashe
   vite: {
     optimizeDeps: {
       include: ['lenis']

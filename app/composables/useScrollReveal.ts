@@ -1,4 +1,4 @@
-// یک observer مشترک برای کل صفحه؛ هر کامپوننت فقط المان‌های .reveal خودش رو بهش می‌ده
+// yek observer-e moshtarak baraye kol-e safhe; har component faqat element-haye .reveal-e khodesh ro behesh mide
 let observer: IntersectionObserver | null = null
 
 export function useScrollReveal(selector = '.reveal') {

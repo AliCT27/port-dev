@@ -4,24 +4,24 @@ const emit = defineEmits<{ open: [] }>()
 
 const fa = (n: number) => n.toLocaleString('fa-IR')
 
-// ---- بخش‌هایی که هنوز آماده نیستن (ویدیو، متن نظر، تصاویر) به‌جاشون یه کادرِ «به‌زودی» نشون داده میشه ----
-// متنِ نظر: بدنه‌ی فایل md خالی باشه یعنی هنوز نوشته نشده
+// ---- bakhsh-hayi ke hanuz amade nistan (video, matn-e nazar, tasavir) be-jashun ye kadr-e «be-zudi» neshun dade mishe ----
+// matn-e nazar: bedane-ye file-e md khali bashe yani hanuz neveshte nashode
 const hasText = computed(() => (props.item.body?.value?.length ?? 0) > 0)
-// فایلِ ویدیو یا تصویر تو فرانت‌مَتر نوشته شده ولی هنوز تو پوشه‌ی public گذاشته نشده؛ به‌جای لینکِ شکسته همون کادرِ «به‌زودی» نشون داده میشه
+// file-e video ya tasvir too frontmatter neveshte shode vali hanuz too pooshe-ye public gozashte nashode; be-jaye link-e shekaste hamun kadr-e «be-zudi» neshun dade mishe
 const videoFailed = ref(false)
 const shotFailed = ref(false)
 const showVideo = computed(() => !!props.item.video && !videoFailed.value)
 const showShot = computed(() => !!props.item.images?.length && !shotFailed.value)
 
-// خطِ زیرِ اسم: نقش و شرکت، هرکدوم که بود
+// khat-e zir-e esm: naqsh va sherkat, harkodum ke bud
 const subtitle = computed(() => [props.item.role, props.item.company].filter(Boolean).join(' · '))
 
-// ---- پیمایشِ خودکارِ تصویر سایت موقع هاور (از بالا تا انتهای تصویر) ----
-// سرعت حرکت رو به پایین (پیکسل بر ثانیه)؛ کمترش کنی نرم‌تر و کندتر میشه
+// ---- peymayesh-e khodkar-e tasvir-e site moqe-e hover (az bala ta entehaye tasvir) ----
+// sor'at-e harekat be paein (pixel bar saniye); kamtaresh koni narm-tar va kond-tar mishe
 const PAN_PX_PER_S = 220
 const PAN_MIN_S = 1.2
 const PAN_MAX_S = 8
-// سرعت برگشت به بالا (بعد از برداشتن موس)؛ این هم متناسب با فاصله‌ایه که تا بالا مونده
+// sor'at-e bargasht be bala (ba'd az bardashtan-e mouse); in ham motenaseb ba fasele-i-e ke ta bala munde
 const RESET_PX_PER_S = 300
 const RESET_MIN_S = 0.9
 const RESET_MAX_S = 6
@@ -29,7 +29,7 @@ const RESET_MAX_S = 6
 const shotBox = ref<HTMLElement | null>(null)
 const shotImg = ref<HTMLImageElement | null>(null)
 
-// تصویر همین الان چقدر (به پیکسل) به سمت بالا رفته؛ حتی وسطِ انیمیشن
+// tasvir hamin alan chand (be pixel) be samt-e bala rafte; hata vasat-e animation
 function currentOffset() {
   const img = shotImg.value
   if (!img) return 0
@@ -38,16 +38,16 @@ function currentOffset() {
   return Math.abs(new DOMMatrix(t).m42)
 }
 
-// حرکت تصویر به offset دلخواه با مدت و منحنی مشخص.
-// اول تصویر رو روی نقطه‌ی فعلی «ثابت» می‌کنیم؛ وگرنه وقتی ترنزیشن نیمه‌کاره برعکس بشه،
-// مرورگر مدت رو به اندازه‌ی مسیر طی‌شده کوتاه می‌کنه و برگشتِ جزئی خیلی سریع‌تر از برگشتِ کامل میشه
+// harekat-e tasvir be offset-e delkhah ba moddat va monhani-ye moshakhas.
+// aval tasvir ro rooye noqte-ye fe'li «sabet» mikonim; vagarna vaqti transition nime-kare barakhs beshe,
+// morurgar moddat ro be andaze-ye masir-e tey-shode kutah mikone va bargasht-e joz'i kheili sari'-tar az bargasht-e kamel mishe
 function panTo(targetPx: number, seconds: number, easing: string) {
   const img = shotImg.value
   if (!img) return
   const now = currentOffset()
   img.style.transitionDuration = '0s'
   img.style.transform = `translateY(-${now}px)`
-  void img.offsetHeight // اجبار به اعمال استایل ثابت قبل از شروع حرکت جدید
+  void img.offsetHeight // ejbar be e'mal-e style-e sabet qabl az shoru-e harekat-e jadid
   img.style.transitionTimingFunction = easing
   img.style.transitionDuration = `${seconds}s`
   img.style.transform = `translateY(-${targetPx}px)`
@@ -59,11 +59,11 @@ function panStart() {
   if (!box || !img) return
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
-  // چقدر از تصویر بیرون کادر مونده (تصویر بلندتر از کادره)
+  // chaqadar az tasvir biroon-e kadr munde (tasvir boland-tar az kadr-e)
   const overflow = img.offsetHeight - box.clientHeight
   if (overflow <= 4) return
 
-  // مدت رو از فاصله‌ی باقی‌مونده حساب می‌کنیم (اگه وسط برگشت دوباره موس اومد)
+  // moddat ro az fasele-ye baqi-munde hesab mikonim (age vasat-e bargasht dobare mouse omad)
   const remaining = Math.max(0, overflow - currentOffset())
   const seconds = Math.min(PAN_MAX_S, Math.max(PAN_MIN_S, remaining / PAN_PX_PER_S))
   panTo(overflow, seconds, 'ease-in-out')
@@ -80,10 +80,10 @@ function panReset() {
   panTo(0, seconds, 'ease-in-out')
 }
 
-// ---- لمس (موبایل): نگه‌داشتن انگشت روی تصویر = همون پیمایشِ هاور؛ برداشتن انگشت = برگشت به بالا ----
-// اگه انگشت قبل از این مدت برداشته بشه، فقط یه "تپ" حساب میشه و گالری باز میشه
+// ---- lams (mobile): negah-dashtan-e angosht rooye tasvir = hamun peymayesh-e hover; bardashtan-e angosht = bargasht be bala ----
+// age angosht qabl az in moddat bardashte beshe, faqat ye "tap" hesab mishe va gallery baz mishe
 const TOUCH_HOLD_MS = 180
-// اگه انگشت بیشتر از این (پیکسل) جابه‌جا بشه، یعنی کاربر داره صفحه رو اسکرول می‌کنه نه نگه‌داشتن
+// age angosht bishtar az in (pixel) jabeja beshe, yani karbar dare safhe ro scroll mikone na negah-dashtan
 const TOUCH_MOVE_TOLERANCE = 10
 let touchTimer: ReturnType<typeof setTimeout> | null = null
 let touchStartX = 0
@@ -127,7 +127,7 @@ function onTouchEnd() {
   if (heldByTouch) panReset()
 }
 
-// بعد از نگه‌داشتن (برای دیدن تصویر)، برداشتن انگشت نباید گالری رو باز کنه؛ فقط تپِ کوتاه باز می‌کنه
+// ba'd az negah-dashtan (baraye didan-e tasvir), bardashtan-e angosht nabayad gallery ro baz kone; faqat tap-e kutah baz mikone
 function onShotClick() {
   if (heldByTouch) {
     heldByTouch = false
@@ -139,7 +139,7 @@ function onShotClick() {
 onBeforeUnmount(clearTouchTimer)
 
 const videoEl = ref<HTMLVideoElement | null>(null)
-// ویدیوهای عمودی (استوری) تو کادر ۱۶:۹ نوار سیاه دارن؛ پس برای عمودی‌ها کادر و چیدمان جدا داریم (پیش‌فرض عمودی)
+// video-haye amudi (story) too kadr-e 16:9 navar-e siyah daran; pas baraye amudi-ha kadr va chideman-e joda darim (pish-farz amudi)
 const portrait = ref(true)
 const playing = ref(false)
 const muted = ref(false)
@@ -172,7 +172,7 @@ function toggleFullscreen() {
   videoEl.value?.requestFullscreen?.()
 }
 onMounted(() => {
-  // اگه خطا قبل از آماده‌شدنِ صفحه (hydration) اتفاق افتاده باشه رویدادش از دست رفته؛ اینجا دوباره چک میشه
+  // age khata qabl az amade-shodan-e safhe (hydration) ettefaq oftade bashe ruydadash az dast rafte; inja dobare check mishe
   const img = shotImg.value
   if (img && img.complete && img.naturalWidth === 0) shotFailed.value = true
   const v = videoEl.value
@@ -251,7 +251,7 @@ function formatTime(t: number) {
       </div>
       <div class="flex min-w-0 flex-1 flex-col">
         <div class="mb-2.5 flex items-center gap-3">
-          <!-- بوردر با ::after روی عکس کشیده می‌شه تا بین قاب و عکس درز روشن نیفته -->
+          <!-- border ba ::after rooye aks keshide mishe ta bein-e qab va aks dorz-e roshan nayofte -->
           <div class="relative flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-full bg-dark text-sm font-bold after:pointer-events-none after:absolute after:inset-0 after:rounded-full after:border-2 after:border-fg">
             <img v-if="item.avatar" :src="item.avatar" :alt="item.name" width="400" height="400" class="h-full w-full object-cover">
             <span v-else>{{ item.name.charAt(0) }}</span>
@@ -308,7 +308,7 @@ function formatTime(t: number) {
         <UIcon name="i-lucide-zoom-in" class="size-4 text-brand-ink" />
       </span>
     </button>
-    <!-- کادرِ «به‌زودی»: نه نوارِ پایین داره نه ذره‌بین؛ ولی ارتفاعش دقیقاً هم‌اندازه‌ی کارتِ تصویره (نوارِ نامرئی فقط ارتفاع رو نگه می‌داره) تا کارت‌ها یکدست بمونن -->
+    <!-- kadr-e «be-zudi»: na navar-e paein dare na zarrebin; vali ertefa'esh daqiqan ham-andaze-ye kart-e tasvir-e (navar-e namarei faqat ertefa' ro negah midare) ta kart-ha yekdast bemunan -->
     <div
       v-else
       class="relative mt-4 block w-full select-none overflow-hidden rounded-xl border border-dashed border-fg/15 bg-card text-fg/40"

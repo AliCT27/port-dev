@@ -31,7 +31,7 @@ function handleError() {
       <div class="grid-bg absolute inset-0 opacity-40 [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_70%)]" />
 
       <div class="relative">
-        <!-- ۴۰۴: صفرِ وسط یه باکسه که بالا و پایین میره -->
+        <!-- 404: sefr-e vasat ye box-e ke bala va paein mire -->
         <p
           v-if="isNotFound"
           class="mb-6 flex items-center justify-center gap-3 text-8xl font-bold leading-none text-fg sm:gap-4 sm:text-9xl"

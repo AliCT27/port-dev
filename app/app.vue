@@ -1,6 +1,6 @@
 <script setup lang="ts">
-// فونت‌های بالای صفحه از همون اول لود می‌شن تا بعد از لود، متن جابه‌جا نشه (CLS) و فونت پیش‌فرض چشمک نزنه.
-// اگه --font-sans توی main.css رو به YekanBakh عوض کردی، آدرس‌ها رو هم همین‌جا عوض کن.
+// font-haye bala-ye safhe az hamun aval load mishan ta ba'd az load, matn jabeja nashe (CLS) va font pish-farz cheshmak nazane.
+// age --font-sans too main.css ro be YekanBakh avaz kardi, address-ha ro ham hamin ja avaz kon.
 useHead({
   link: [
     { rel: 'preload', as: 'font', type: 'font/woff2', href: '/fonts/arad/AradFD-Regular.woff2', crossorigin: 'anonymous' },

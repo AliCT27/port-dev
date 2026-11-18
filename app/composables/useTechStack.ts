@@ -1,4 +1,4 @@
-// ترتیب نمایش از چپ به راست (کانتینر dir="ltr" داره): اول لاراول، بعد مهم‌ترین‌ها
+// tartib-e namayesh az chap be rast (container dir="ltr" dare): aval Laravel, ba'd mohem-tarin-ha
 export const useTechStack = () => {
   return [
     { name: 'Laravel', icon: 'i-simple-icons-laravel', color: '#FF2D20' },

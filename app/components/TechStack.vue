@@ -2,11 +2,11 @@
 const technologies = useTechStack()
 useScrollReveal('.reveal')
 
-// هر گروهِ نوار، فهرستِ تکنولوژی‌ها رو چند بار پشت‌سرهم داره تا همیشه پهن‌تر از قابِ نمایش باشه و هیچ‌وقت جای خالی ته نوار دیده نشه
+// har goroh-e navar, fehrest-e technology-ha ro chand bar posht-e sar-e ham dare ta hamishe pahn-tar az qab-e namayesh bashe va hichvaqt jaye khali tah-e navar dide nashe
 const REPEATS = 2
 const items = Array.from({ length: REPEATS }, () => technologies).flat()
 
-// سرعت حرکت: زمانِ عبورِ هر کارت (ثانیه)؛ عدد بیشتر = کندتر
+// sor'at-e harekat: zaman-e obur-e har kart (saniye); adad-e bishtar = kond-tar
 const SECONDS_PER_ITEM = 4
 const duration = `${items.length * SECONDS_PER_ITEM}s`
 </script>
@@ -19,7 +19,7 @@ const duration = `${items.length * SECONDS_PER_ITEM}s`
       </div>
     </div>
 
-    <!-- نوار بی‌پایان: یک خط، دو طرفش محو، همیشه در حال حرکت (با هاور هم نمی‌ایسته) -->
+    <!-- navar-e bi-payan: yek khat, do tarafesh mahv, hamishe dar hal-e harekat (ba hover ham nemiyaste) -->
     <div dir="ltr" class="reveal reveal-delay-1 marquee mx-auto max-w-6xl py-3" :style="{ '--marquee-duration': duration }">
       <div class="marquee-track">
         <div
@@ -54,7 +54,7 @@ const duration = `${items.length * SECONDS_PER_ITEM}s`
 <style scoped>
 .marquee {
   overflow: hidden;
-  /* محو شدن دو طرفِ قاب (قاب هم‌عرضِ بقیه‌ی بخش‌هاست، نه کل صفحه) */
+  /* mahv shodan-e do taraf-e qab (qab ham-arz-e baqiye-ye bakhsh-hast, na kol-e safhe) */
   -webkit-mask-image: linear-gradient(to right, transparent 0, #000 18%, #000 82%, transparent 100%);
   mask-image: linear-gradient(to right, transparent 0, #000 18%, #000 82%, transparent 100%);
 }
@@ -66,7 +66,7 @@ const duration = `${items.length * SECONDS_PER_ITEM}s`
   will-change: transform;
 }
 
-/* فاصله‌ی انتهایِ هر گروه هم‌اندازه‌ی فاصله‌ی بین کارت‌هاست، تا حلقه بدون پرش بسته بشه */
+/* fasele-ye entehaye har goroh ham-andaze-ye fasele-ye bein-e kart-hast, ta halqe bedun-e parash baste beshe */
 .marquee-group {
   display: flex;
   flex-shrink: 0;
@@ -79,7 +79,7 @@ const duration = `${items.length * SECONDS_PER_ITEM}s`
   to { transform: translateX(-50%); }
 }
 
-/* کاهش حرکت: نوار ثابت می‌مونه و با اسکرول افقی قابل دیدنه */
+/* kahesh-e harekat: navar sabet mimune va ba scroll-e ofoqi qabel-e didan-e */
 @media (prefers-reduced-motion: reduce) {
   .marquee { overflow-x: auto; }
   .marquee-track { animation: none; }

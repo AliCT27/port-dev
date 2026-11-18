@@ -4,7 +4,7 @@ export default defineNuxtPlugin(() => {
   const lenis = new Lenis({
     autoRaf: true,
     anchors: true,
-    // سرعت اسکرول با چرخ موس (پیش‌فرض ۱). عدد بیشتر = با هر چرخش، صفحه بیشتر جابه‌جا میشه
+    // sor'at-e scroll ba charkh-e mouse (pish-farz 1). adad-e bishtar = ba har charkhesh, safhe bishtar jabeja mishe
     wheelMultiplier: 1.5
   })
 

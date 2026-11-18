@@ -1,15 +1,15 @@
 # ─────────────────────────────────────────────────────────────
-# تنظیمات هاست لینوکسی (Apache / LiteSpeed، مثل هاست PHP نت‌افراز)
-# این فایل موقع «pnpm generate» خودش کنار index.html توی .output/public کپی می‌شه
-# و باید توی ریشه‌ی سایت (public_html) آپلود بشه.
+# tanzimat-e host-e Linuxi (Apache / LiteSpeed, mesle host-e PHP-e Netafraz)
+# in file moqe-e «pnpm generate» khodash kenar-e index.html too .output/public copy mishe
+# va bayad too risheh-ye site (public_html) upload beshe.
 # ─────────────────────────────────────────────────────────────
 
 Options -Indexes
 
-# صفحه‌ی ۴۰۴ سایت
+# safhe-ye 404-e site
 ErrorDocument 404 /404.html
 
-# ── هدرهای امنیتی ──
+# ── headerhaye amniyati ──
 <IfModule mod_headers.c>
   Header always set X-Content-Type-Options "nosniff"
   Header always set X-Frame-Options "SAMEORIGIN"
@@ -17,17 +17,17 @@ ErrorDocument 404 /404.html
   Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
   Header always set Cross-Origin-Opener-Policy "same-origin"
 
-  # CSP: فقط از خودِ سایت. 'unsafe-inline' برای اسکریپت و استایل لازمه چون Nuxt توی HTML
-  # اسکریپت و استایل inline می‌ذاره؛ 'wasm-unsafe-eval' و worker برای دیتابیس محتوا (Nuxt Content).
-  # اگه یه روز اسکریپت یا فونت بیرونی (مثل آنالیتیکس) اضافه کردی، دامنه‌اش رو همین‌جا اضافه کن.
+  # CSP: faqat az khod-e site. 'unsafe-inline' baraye script va style lazeme chon Nuxt too HTML
+  # script va style-e inline mizare; 'wasm-unsafe-eval' va worker baraye database-e mohtava (Nuxt Content).
+  # age ye rooz script ya font-e biruni (mesle analytics) ezafe kardi, domain-esh ro hamin ja ezafe kon.
   Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob:; font-src 'self' data:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'"
 
-  # HSTS: بعد از این‌که SSL روی دامنه فعال و درست کار کرد، این خط رو از حالت کامنت دربیار
+  # HSTS: ba'd az inke SSL rooye domain fa'al va dorost kar kard, in khat ro az halat-e comment dar biar
   # Header always set Strict-Transport-Security "max-age=15552000"
 </IfModule>
 
-# ── کش مرورگر ──
-# فایل‌های داخل _nuxt اسمشون با محتوا عوض می‌شه، پس تا یک سال کش می‌شن
+# ── cache-e morurgar ──
+# file-haye dakhel-e _nuxt esmeshun ba mohtava avaz mishe, pas ta yek sal cache mishan
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresDefault "access plus 0 seconds"
@@ -40,34 +40,34 @@ ErrorDocument 404 /404.html
   ExpiresByType text/css "access plus 1 year"
   ExpiresByType text/javascript "access plus 1 year"
   ExpiresByType application/javascript "access plus 1 year"
-  # صفحه‌ها همیشه تازه (تا بعد از آپدیت سایت، کاربر نسخه‌ی قدیمی نبینه)
+  # safhe-ha hamishe taze (ta ba'd az update-e site, karbar nosxe-ye qadimi nabine)
   ExpiresByType text/html "access plus 0 seconds"
 </IfModule>
 
-# ── فشرده‌سازی ──
+# ── feshorde-sazi ──
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html text/plain text/css text/javascript application/javascript application/json application/xml image/svg+xml
 </IfModule>
 
-# ── فونت و WebP روی هاست‌هایی که این نوع‌ها رو نمی‌شناسن ──
+# ── font va WebP rooye host-haei ke in noe-ha ro nemishnasan ──
 <IfModule mod_mime.c>
   AddType font/woff2 .woff2
   AddType image/webp .webp
 </IfModule>
 
-# ── فایل‌های مخفی (به‌جز .well-known) نباید از بیرون خونده بشن ──
+# ── file-haye makhfi (be-joz .well-known) nabayad az biroon khande beshan ──
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteRule "(^|/)\.(?!well-known)" - [F]
 
-  # www به آدرس بدون www هدایت بشه تا فقط یه آدرس ایندکس بشه (پروتکل حفظ می‌شه)
+  # www be address-e bedun-e www hedayat beshe ta faqat ye address index beshe (protocol hefz mishe)
   RewriteCond %{HTTP_HOST} ^www\.mohandesinsite\.ir$ [NC]
   RewriteCond %{HTTPS} =on
   RewriteRule ^ https://mohandesinsite.ir%{REQUEST_URI} [L,R=301]
   RewriteCond %{HTTP_HOST} ^www\.mohandesinsite\.ir$ [NC]
   RewriteRule ^ http://mohandesinsite.ir%{REQUEST_URI} [L,R=301]
 
-  # بعد از فعال شدن SSL این دو خط رو از حالت کامنت دربیار تا همه به https بره:
+  # ba'd az fa'al shodan-e SSL in do khat ro az halat-e comment dar biar ta hame be https bere:
   # RewriteCond %{HTTPS} !=on
   # RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 </IfModule>

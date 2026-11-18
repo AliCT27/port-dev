@@ -12,7 +12,7 @@ export default defineContentConfig({
         avatar: z.string().optional(),
         video: z.string().optional(),
         website: z.string().optional(),
-        // اسکرین‌شات‌های سایت کارفرما؛ اولی کاورِ کارته و بقیه تو گالریِ مودال نشون داده میشن
+        // screenshot-haye site-e karfarma; avali cover-e kart-e va baqi too gallery-ye modal neshun dade mishan
         images: z.array(z.string()).default([]),
         visible: z.boolean().default(true)
       })
