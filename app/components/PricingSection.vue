@@ -46,16 +46,11 @@ const plans: Plan[] = [
 <template>
   <section id="pricing" class="py-12 sm:py-16">
     <div class="mx-auto max-w-3xl px-6">
-      <div class="reveal mx-auto mb-10 max-w-2xl text-center sm:mb-12">
+      <div class="reveal mx-auto mb-12 max-w-2xl text-center sm:mb-14">
         <h2 class="mb-3 text-2xl font-bold sm:text-3xl">هزینه‌ها رو از همین الان ببینید</h2>
         <p class="text-balance text-sm leading-loose text-fg/70 sm:text-base">
           قیمت دقیق هر پروژه به امکانات موردنیاز شما بستگی داره؛ این دو پلن، تصویر کلی از هزینه‌ها رو نشون می‌ده.
         </p>
-      </div>
-
-      <!-- mavared-e moshtarak-e hame-ye pelan-ha (hanuz az taraf-e saheb-e site nayomade) -->
-      <div class="reveal mb-8 flex min-h-16 items-center justify-center rounded-xl border border-dashed border-fg/20 bg-panel px-4 py-3 text-center text-xs font-bold leading-6 text-fg/45 sm:text-sm">
-        مواردی که همه‌ی پلن‌ها شامل می‌شن به‌زودی اضافه می‌شه
       </div>
 
       <div class="grid gap-4 md:grid-cols-2 md:items-stretch md:gap-5">
