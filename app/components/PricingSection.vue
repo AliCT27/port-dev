@@ -9,7 +9,7 @@ interface Plan {
   badge?: string
   tagline?: string
   price: null | { prefix?: string, amount: string, unit: string }
-  features: string[]
+  features: { text: string, included: boolean }[]
   cta: string
 }
 
@@ -19,8 +19,13 @@ const plans: Plan[] = [
   {
     id: 'first',
     name: 'پلن پایه',
-    price: null,
-    features: [],
+    // qeymat-e paye: «30 va khorde-i» goftan; adad-e daqiq ra saheb-e site moshakhas konad
+    price: { prefix: 'حدود', amount: '۳۰', unit: 'میلیون تومان' },
+    features: [
+      { text: 'دریافت آپدیت‌های بعدی', included: false },
+      { text: 'ارتباط مداوم با تیم توسعه', included: false },
+      { text: 'اولویت در قابلیت‌ها و پروژه‌های موردنیاز', included: false }
+    ],
     cta: 'مشاوره‌ی رایگان'
   },
   {
@@ -28,7 +33,11 @@ const plans: Plan[] = [
     name: 'پلن استاندارد',
     badge: 'پیشنهاد ما',
     price: { prefix: 'از', amount: '۴۲', unit: 'میلیون تومان' },
-    features: [],
+    features: [
+      { text: 'دریافت همه‌ی آپدیت‌ها', included: true },
+      { text: 'ارتباط مداوم با تیم توسعه', included: true },
+      { text: 'اولویت در قابلیت‌ها و پروژه‌های موردنیاز شما', included: true }
+    ],
     cta: 'شروع مشاوره‌ی رایگان'
   },
   {
@@ -36,7 +45,10 @@ const plans: Plan[] = [
     name: 'پلن الماس',
     tagline: 'مخصوص کسب‌وکارهای بزرگ',
     price: { prefix: 'بالای', amount: '۱۰۰', unit: 'میلیون تومان' },
-    features: ['قابلیت‌های اختصاصی', 'توسعه‌ی رابط کاربری اختصاصی'],
+    features: [
+      { text: 'قابلیت‌های اختصاصی', included: true },
+      { text: 'توسعه‌ی رابط کاربری اختصاصی', included: true }
+    ],
     cta: 'مشاوره‌ی رایگان'
   }
 ]
@@ -97,9 +109,13 @@ const plans: Plan[] = [
             </div>
 
             <ul v-if="plan.features.length" class="mb-6 min-h-36 space-y-3 text-sm leading-6">
-              <li v-for="f in plan.features" :key="f" class="flex items-start gap-2">
-                <UIcon name="i-lucide-check" class="mt-1 size-4 shrink-0 text-brand-ink" />
-                <span>{{ f }}</span>
+              <li v-for="f in plan.features" :key="f.text" class="flex items-start gap-2" :class="f.included ? '' : 'text-fg/45'">
+                <UIcon
+                  :name="f.included ? 'i-lucide-check' : 'i-lucide-x'"
+                  class="mt-1 size-4 shrink-0"
+                  :class="f.included ? 'text-brand-ink' : 'text-fg/40'"
+                />
+                <span>{{ f.text }}</span>
               </li>
             </ul>
             <div
