@@ -49,7 +49,7 @@ const plans: Plan[] = [
       { text: 'طراحی UI/UX اختصاصی؛ ظاهری که مورد پسند خودتان باشد', included: true },
       { text: 'سایتی متفاوت که شبیه هیچ فروشگاه دیگه‌ای نیست', included: true }
     ],
-    cta: 'مشاوره‌ی رایگان'
+    cta: 'شروع مشاوره‌ی رایگان'
   }
 ]
 </script>
@@ -81,10 +81,9 @@ const plans: Plan[] = [
               : plan.green ? 'border-2 border-brand bg-card' : 'border border-fg/15 bg-card'"
           >
             <span
-              class="absolute -top-3 left-1/2 inline-flex -translate-x-1/2 items-center gap-1 whitespace-nowrap rounded-full px-3 py-0.5 text-xs font-bold"
-              :class="plan.highlight ? 'bg-brand text-black' : 'border border-fg/20 bg-panel text-fg/70'"
+              class="absolute -top-3 left-1/2 inline-flex -translate-x-1/2 items-center gap-1 whitespace-nowrap rounded-full bg-brand px-3 py-0.5 text-xs font-bold text-black"
             >
-              <UIcon v-if="plan.highlight" name="i-lucide-star" class="size-3.5" />
+              <UIcon name="i-lucide-star" class="size-3.5" />
               {{ plan.label }}
             </span>
 
@@ -123,10 +122,7 @@ const plans: Plan[] = [
               :href="TELEGRAM_URL"
               target="_blank"
               rel="noopener"
-              class="mt-auto inline-flex items-center justify-center gap-2 rounded-xl px-5 py-2.5 text-sm font-bold transition-colors duration-300"
-              :class="plan.highlight
-                ? 'bg-brand text-black shadow-[0_4px_14px_rgb(0_220_130/0.40)] hover:opacity-90 dark:shadow-[0_0_12px_rgb(0_220_130/0.35)]'
-                : 'border border-brand hover:bg-brand/10 hover:text-brand-ink'"
+              class="mt-auto inline-flex items-center justify-center gap-2 rounded-xl px-5 py-2.5 text-sm font-bold bg-brand text-black shadow-[0_4px_14px_rgb(0_220_130/0.40)] transition-opacity duration-300 hover:opacity-90 dark:shadow-[0_0_12px_rgb(0_220_130/0.35)]"
             >
               {{ plan.cta }}
               <UIcon name="i-lucide-arrow-left" class="size-4" />
