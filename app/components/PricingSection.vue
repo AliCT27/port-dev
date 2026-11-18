@@ -17,18 +17,6 @@ const TELEGRAM_URL = 'https://t.me/msite_support'
 
 const plans: Plan[] = [
   {
-    id: 'first',
-    name: 'پلن پایه',
-    // qeymat-e paye: «30 va khorde-i» goftan; adad-e daqiq ra saheb-e site moshakhas konad
-    price: { prefix: 'حدود', amount: '۳۰', unit: 'میلیون تومان' },
-    features: [
-      { text: 'دریافت آپدیت‌های بعدی', included: false },
-      { text: 'ارتباط مداوم با تیم توسعه', included: false },
-      { text: 'اولویت در قابلیت‌ها و پروژه‌های موردنیاز', included: false }
-    ],
-    cta: 'مشاوره‌ی رایگان'
-  },
-  {
     id: 'recommended',
     name: 'پلن استاندارد',
     badge: 'پیشنهاد ما',
@@ -56,11 +44,11 @@ const plans: Plan[] = [
 
 <template>
   <section id="pricing" class="py-12 sm:py-16">
-    <div class="mx-auto max-w-5xl px-6">
+    <div class="mx-auto max-w-3xl px-6">
       <div class="reveal mx-auto mb-10 max-w-2xl text-center sm:mb-12">
         <h2 class="mb-3 text-2xl font-bold sm:text-3xl">هزینه‌ها رو از همین الان ببینید</h2>
         <p class="text-balance text-sm leading-loose text-fg/70 sm:text-base">
-          قیمت دقیق هر پروژه به امکانات موردنیاز شما بستگی داره؛ این سه پلن، تصویر کلی از هزینه‌ها رو نشون می‌ده.
+          قیمت دقیق هر پروژه به امکانات موردنیاز شما بستگی داره؛ این دو پلن، تصویر کلی از هزینه‌ها رو نشون می‌ده.
         </p>
       </div>
 
@@ -69,14 +57,14 @@ const plans: Plan[] = [
         مواردی که همه‌ی پلن‌ها شامل می‌شن به‌زودی اضافه می‌شه
       </div>
 
-      <div class="grid gap-4 md:grid-cols-3 md:items-stretch md:gap-5">
+      <div class="grid gap-4 md:grid-cols-2 md:items-stretch md:gap-5">
         <div
           v-for="(plan, i) in plans"
           :key="plan.id"
           class="reveal h-full"
           :class="[
-            i === 1 ? 'order-first md:-my-4 md:order-none' : '',
-            i === 0 ? 'reveal-delay-1' : i === 1 ? 'reveal-delay-2' : 'reveal-delay-3',
+            i === 0 ? 'order-first md:-my-4 md:order-none' : '',
+            i === 0 ? 'reveal-delay-1' : 'reveal-delay-2',
           ]"
         >
           <div
