@@ -5,7 +5,7 @@ const { data: allTestimonials } = await useAsyncData('testimonials', () =>
 
 const testimonials = computed(() => allTestimonials.value?.filter((item) => item.visible !== false))
 
-// پروژه‌ای که الان تو مودالِ تصاویر بازه (null = بسته)
+// proje-i ke alan too modal-e tasavir baze (null = baste)
 const active = ref<{ title: string; url?: string; images: string[] } | null>(null)
 
 function openGallery(item: any) {

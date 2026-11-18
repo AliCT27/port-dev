@@ -27,7 +27,7 @@ useScrollReveal('.reveal')
         </p>
       </div>
 
-      <!-- اسم مشاور: مشتری بدونه با کی صحبت می‌کنه -->
+      <!-- esm-e moshaver: moshtari bedune ba ki sohbat mikone -->
       <p class="reveal mb-5 inline-flex items-center gap-1.5 text-sm font-medium text-fg/70 sm:text-base">
         <UIcon name="i-lucide-user-round" class="size-4 text-brand-ink sm:size-5" />
         مشاورین شما: مهندس زمانی و مهندس محمدنژاد

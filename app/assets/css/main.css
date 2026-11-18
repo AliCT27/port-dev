@@ -5,26 +5,26 @@
 
 @theme {
   --color-brand: #00DC82;
-  --color-dark: #0A0A0A; /* neutral-950 مثل nuxt.com */
+  --color-dark: #0A0A0A; /* neutral-950 mesle nuxt.com */
 
-  /* رنگ‌های معنایی: مقدارِ پیش‌فرض (حالت روز) از پالت ویماشاپ گرفته شده؛ حالت شب پایین‌تر با .dark جایگزین می‌شه */
-  --color-page: #ecf2ff;      /* پس‌زمینه‌ی صفحه */
-  --color-fg: #1c1c25;        /* متن و بوردرها (با /10، /70 و ... کم‌رنگ می‌شن) */
-  --color-card: #ffffff;      /* کارت و بخش‌های کمی جداشده */
-  --color-panel: #ffffff;     /* جای خالیِ عکس‌ها و آواتارها */
-  --color-brand-ink: #00804d; /* سبزِ برند وقتی به‌عنوان رنگِ متن روی پس‌زمینه‌ی روشن می‌شینه */
+  /* rang-haye ma'nayi: meqdar-e pish-farz (halat-e rooz) az palet-e vimashop gerefte shode; halat-e shab paein-tar ba .dark jaygozin mishe */
+  --color-page: #ecf2ff;      /* pas-zamine-ye safhe */
+  --color-fg: #1c1c25;        /* matn va border-ha (ba /10, /70 va ... kam-rang mishan) */
+  --color-card: #ffffff;      /* kart va bakhsh-haye kami joda-shode */
+  --color-panel: #ffffff;     /* jaye khali-ye aks-ha va avatar-ha */
+  --color-brand-ink: #00804d; /* sabz-e brand vaqti be onvan-e rang-e matn rooye pas-zamine-ye roshan minshine */
 
-  /* فونت پیش‌فرضِ Tailwind و Nuxt UI رو فونت محلی سایت می‌کنیم؛ وگرنه Nuxt UI به‌صورت پیش‌فرض Public Sans می‌خواد و ماژول fonts می‌ره از اینترنت دنبالش */
-  /* ↓↓ برای سوییچ فونت فقط همین خط: 'YekanBakh' یا 'Arad' */
+  /* font-e pish-farz-e Tailwind va Nuxt UI ro font-e mahalli-ye site mikonim; vagarna Nuxt UI be soorat-e pish-farz Public Sans mikhad va module-e fonts mire az internet donbalesh */
+  /* ↓↓ baraye switch-e font faqat hamin khat: 'YekanBakh' ya 'Arad' */
   --font-sans: 'Arad', Tahoma, sans-serif;
 
-  /* گردیِ گوشه‌ها: ملایم و پله‌ای (عناصر کوچک‌تر کمتر، کارت‌های بزرگ‌تر کمی بیشتر). دایره‌ها و آواتارها rounded-full می‌مونن */
+  /* gerdi-ye gushe-ha: molayem va pelleyi (onsor-e kuchektar kamtar, kart-haye bozorgtar kami bishtar). dayere-ha va avatar-ha rounded-full mimunan */
   --radius-lg: 8px;
   --radius-xl: 10px;
   --radius-2xl: 12px;
 }
 
-/* حالت شب: همون رنگ‌های معنایی با مقدارهای تیره */
+/* halat-e shab: hamun rang-haye ma'nayi ba meqdar-haye tire */
 .dark {
   --color-page: #0a0a0a;
   --color-fg: #ffffff;
@@ -33,7 +33,7 @@
   --color-brand-ink: #00dc82;
 }
 
-/* حالت روز: متن کم‌رنگِ نیمه‌شفاف روی پس‌زمینه‌ی روشن کم‌جان و نازک دیده می‌شد؛ اینجا به رنگ‌های جامدِ پالت ویما (#4a5464 و #728197) می‌رسه */
+/* halat-e rooz: matn-e kam-rang-e nime-sheffaf rooye pas-zamine-ye roshan kam-jan va nazok dide mishod; inja be rang-haye jamed-e palet-e vima (#4a5464 va #728197) mirese */
 :root:not(.dark) {
   --muted-1: #6b778a;
   --muted-2: #556073;
@@ -47,7 +47,7 @@
 :root:not(.dark) .hover\:text-fg:hover { color: var(--color-fg); }
 :root:not(.dark) body { font-weight: 500; }
 
-/* موج دایره‌ای تغییر حالت شب/روز (View Transitions): عکسِ قدیمی زیره و عکسِ جدید با clip-path از جای دکمه باز می‌شه (حرکتش توی AppHeader.vue هست) */
+/* moj-e dayere-i-ye taghir-e halat-e shab/rooz (View Transitions): aks-e qadimi zire va aks-e jadid ba clip-path az jaye dokme baz mishe (harekatesh too AppHeader.vue hast) */
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation: none;
@@ -61,13 +61,13 @@ html.theme-switching *:not(.theme-icon)::after {
   transition: none !important;
 }
 
-/* عکس‌ها با کلیک و کشیدن از صفحه جدا نشن (فقط جلوی درگ‌کردن رو می‌گیره؛ ذخیره با راست‌کلیک هنوز ممکنه) */
+/* aks-ha ba click va keshidan az safhe joda nashan (faqat jelo-ye drag-kardan ro migire; zakhire ba rast-click hanuz momkene) */
 img {
   -webkit-user-drag: none;
   user-select: none;
 }
 
-/* دو فونت تعریف شده؛ مرورگر فقط فونتی که در --font-sans انتخاب شده را دانلود می‌کند */
+/* do font ta'rif shode; morurgar faqat fonti ke dar --font-sans entekhab shode ro download mikone */
 @font-face {
   font-family: 'YekanBakh';
   src: url('/fonts/yekanbakh/YekanBakhFaNum-Regular.woff2') format('woff2');
@@ -149,7 +149,7 @@ html {
 .reveal-delay-4 { transition-delay: 0.2s; animation-delay: 0.2s; }
 .reveal-delay-5 { transition-delay: 0.25s; animation-delay: 0.25s; }
 
-/* بخش بالای صفحه با خودِ CSS ظاهر می‌شه (بدون صبر برای JS)، تا اولین چیزی که کاربر می‌بینه دیر نیاد */
+/* bakhsh-e bala-ye safhe ba khod-e CSS zaher mishe (bedun-e sabr baraye JS), ta avvalin chizi ke karbar mibine dir nayad */
 .hero-in {
   animation: reveal-fade 0.7s ease-out both;
 }
@@ -158,7 +158,7 @@ html {
   to { opacity: 1; }
 }
 
-/* اگه JS خاموش باشه یا کاربر انیمیشن کم رو انتخاب کرده باشه، همه‌چیز از اول دیده می‌شه */
+/* age JS khamush bashe ya karbar animation-e kam ro entekhab karde bashe, hame chiz az aval dide mishe */
 @media (scripting: none) {
   .reveal { opacity: 1; }
 }
@@ -174,7 +174,7 @@ html {
   animation: spin-glow 4s linear infinite;
 }
 
-/* دور عکس پروفایل: هاله‌ی پایه کمی نفس می‌کشه */
+/* dore aks-e profile: halale-ye paye kami nafas mikeshe */
 .profile-glow-breathe {
   animation: profile-glow-breathe 7s ease-in-out infinite;
 }
@@ -200,7 +200,7 @@ html {
   animation: phone-ring 1.8s ease-in-out infinite;
 }
 
-/* صفحه‌ی ۴۰۴: باکسِ صفر آروم بالا و پایین میره */
+/* safhe-ye 404: box-e sefr aroom bala va paein mire */
 @keyframes not-found-bob {
   0%, 100% { transform: translateY(-3%); }
   50% { transform: translateY(3%); }
@@ -214,7 +214,7 @@ html {
   .not-found-bob { animation: none; }
 }
 
-/* دکمه‌ی صفحه‌ی ۴۰۴: فلش آروم عقب و جلو میره */
+/* dokme-ye safhe-ye 404: fesh aroom aqab va jelo mire */
 @keyframes not-found-arrow {
   0%, 100% { transform: translateX(1px); }
   50% { transform: translateX(-3px); }

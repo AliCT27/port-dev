@@ -1,11 +1,11 @@
 <script setup lang="ts">
 const { goToSection } = useSectionScroll();
 
-// اگه عکس پروفایل پیدا نشد (یا هنوز نگذاشتید)، به‌جاش جای خالی «به‌زودی» نمایش داده میشه
+// age aks-e profile peyda nashod (ya hanuz nagozashtid), be-jash jaye khali-ye «be-zudi» namayesh dade mishe
 const profileFailed = ref(false);
 const profileImg = ref<HTMLImageElement | null>(null);
 onMounted(() => {
-  // اگه خطا قبل از hydration اتفاق افتاده باشه، @error دیگه صدا زده نمیشه؛ پس دوباره چک می‌کنیم
+  // age khata qabl az hydration ettefaq oftade bashe, @error dige seda zade nemishe; pas dobare check mikonim
   const img = profileImg.value;
   if (img && img.complete && img.naturalWidth === 0) profileFailed.value = true;
 });
@@ -68,7 +68,7 @@ onMounted(() => {
               style="color: #4fc08d"
             />
           </span>
-          <!-- زیر ۸۶۰ پیکسل ردیف به شکل ۳ + ۲ بشکنه تا یک آیتم تنها نیفته -->
+          <!-- zir-e 860 pixel radif be shekl-e 3 + 2 beshkane ta yek item tanha nayofte -->
           <span aria-hidden="true" class="h-0 basis-full min-[860px]:hidden" />
           <span class="inline-flex items-center gap-1.5">
             Nuxt
@@ -137,7 +137,7 @@ onMounted(() => {
           <div
             class="profile-glow-breathe absolute -inset-1 rounded-[2.25rem] bg-brand blur-xl"
           />
-          <!-- قاب پشتی: یه خط نازکِ مربع‌گرد که کمی پایین و چپِ عکس قرار گرفته -->
+          <!-- qab-e poshti: ye khat-e nazok-e morabba'-gerd ke kami paein va chap-e aks qarar gerefte -->
           <div
             class="pointer-events-none absolute inset-0 -translate-x-3 translate-y-3 rounded-[2rem] border border-fg/25 sm:-translate-x-4 sm:translate-y-4"
             aria-hidden="true"
@@ -162,7 +162,7 @@ onMounted(() => {
               <UIcon name="i-lucide-user-round" class="size-14" />
               <span class="text-xs font-bold leading-6">تصویر<br />به‌زودی اضافه می‌شه</span>
             </div>
-            <!-- کارت اسم (سطح ثابتِ تیره با متن سفید، تا توی هر دو تم روی عکس خوانا بمونه) -->
+            <!-- kart-e esm (sath-e sabet-e tire ba matn-e sefid, ta too har do theme rooye aks khana bemune) -->
             <div
               v-if="!profileFailed"
               class="absolute bottom-2 left-2 max-w-[calc(100%-1rem)] rounded-lg border border-white/15 bg-black/55 px-2 py-1 text-white backdrop-blur-md sm:bottom-3 sm:left-3 sm:px-2.5 sm:py-1.5"

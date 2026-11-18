@@ -9,7 +9,7 @@ function toggle(i: number) {
   openIndex.value = openIndex.value === i ? null : i
 }
 
-// شماره‌ی سوال با رقم فارسی و دو رقمی (۰۱، ۰۲، ...)
+// shomare-ye soal ba raqam-e farsi va do raqami (01, 02, ...)
 const toFa = (n: number) =>
   String(n).replace(/\d/g, d => '۰۱۲۳۴۵۶۷۸۹'[Number(d)]!)
 
@@ -24,8 +24,8 @@ useScrollReveal('.reveal')
       </div>
 
       <div class="space-y-3">
-        <!-- .reveal فقط opacity را انیمیت می‌کند و transition کارت را بازنویسی می‌کرد؛
-             پس جدا شد تا استروک هاور نرم تغییر کند -->
+        <!-- .reveal faqat opacity ra animate mikard va transition-e kart ra baznevisi mikard;
+             pas joda shod ta stroke-e hover narm taghir kone -->
         <div v-for="(item, i) in faqs" :key="item.path" class="reveal">
         <div
           class="rounded-2xl border transition-colors duration-500 ease-in-out md:hover:border-brand bg-page"
@@ -58,7 +58,7 @@ useScrollReveal('.reveal')
             class="grid transition-[grid-template-rows] duration-500 ease-in-out"
             :class="openIndex === i ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'"
           >
-            <!-- inert: وقتی بسته‌ست، محتوای مخفی با Tab قابل رسیدن نباشه -->
+            <!-- inert: vaqti baste-st, mohtava-ye makhfi ba Tab qabel-e residan nabashe -->
             <div :id="`faq-answer-${i}`" class="overflow-hidden" :inert="openIndex !== i">
               <ContentRenderer
                 :value="item"

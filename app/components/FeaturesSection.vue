@@ -1,21 +1,21 @@
 <script setup lang="ts">
 useScrollReveal('.reveal')
 
-// عکسی که پیدا نشود (یا هنوز نگذاشته باشید) → جای خالی «به‌زودی» نمایش داده می‌شود
+// aksi ke peyda nashe (ya hanuz nagozashte bashid) → jaye khali-ye «be-zudi» namayesh dade mishe
 const failed = ref<Record<string, boolean>>({})
 const root = ref<HTMLElement | null>(null)
 
 onMounted(() => {
-  // اگر عکس قبل از hydration خطا داده بود، دوباره بررسی می‌کنیم
+  // agar aks qabl az hydration khata dade bud, dobare barresi mikonim
   root.value?.querySelectorAll<HTMLImageElement>('img[data-feature]').forEach((img) => {
     if (img.complete && img.naturalWidth === 0) failed.value[img.dataset.feature!] = true
   })
 })
 
-// درگاه‌های پرداخت و پنل‌های پیامکی پشتیبانی‌شده. برای اضافه کردن، یک مورد به آرایه بدید:
-//   { name: 'زرین‌پال', logo: '/images/gateways/zarinpal.webp' }
-// لوگو مربع (ترجیحاً ۲۵۶×۲۵۶ با زمینه‌ی شفاف، WebP/PNG/SVG) توی public/images/gateways/
-// تا وقتی آرایه خالیه، جای‌نگهدار «به‌زودی» نمایش داده میشه.
+// dargah-haye pardakht va panel-haye payamaki pishtibani-shode. baraye ezafe kardan, yek mored be array bedid:
+//   { name: 'zarinpal', logo: '/images/gateways/zarinpal.webp' }
+// logo morabba' (tarjihan 256×256 ba zamine-ye shaffaf, WebP/PNG/SVG) too public/images/gateways/
+// ta vaqti array khalie, ja-negahdar «be-zudi» namayesh dade mishe.
 interface Gateway { name: string, logo?: string }
 
 const gatewayGroups: { title: string, items: Gateway[] }[] = [
@@ -58,8 +58,8 @@ const gatewayGroups: { title: string, items: Gateway[] }[] = [
   },
 ]
 
-// قابلیت‌ها. برای اضافه/حذف کردن فقط همین آرایه را ویرایش کنید.
-// image اختیاریه (فایل توی public/images/features/)؛ بدون عکس فقط متن نمایش داده می‌شه.
+// qabeliat-ha. baraye ezafe/hazf kardan faqat hamin array ra virayesh konid.
+// image ekhtiyarie (file too public/images/features/); bedun-e aks faqat matn namayesh dade mishe.
 interface Feature { title: string, subtitle: string, text: string, image?: string, imageSize?: [number, number] }
 
 const features: Feature[] = [
@@ -228,17 +228,17 @@ const features: Feature[] = [
   },
 ]
 
-// مواردی که از ووکامرس منتقل می‌شن
+// mavaredi ke az WooCommerce montaqel mishan
 const migrate = ['دسته‌بندی‌ها', 'محصولات', 'تصاویر محصولات', 'مقالات سایت']
 
 
-// اگه تعداد امکانات فرد باشه، آخری وسط جدول و زیر خط وسط نشون داده می‌شه
+// age ta'dad-e emkanat fard bashe, akhari vasat-e jadval va zire khat-e vasat neshun dade mishe
 const pairedFeatures = features.length % 2 ? features.slice(0, -1) : features
-// تصویری که توی لایت‌باکس باز شده (null = بسته)
+// tasviri ke too lightbox baz shode (null = baste)
 const lightbox = ref<{ src: string; alt: string } | null>(null)
 const lastFeature = features.length % 2 ? features[features.length - 1] : null
 
-// دسترسی دمو: بازدیدکننده با همین شماره وارد پنل می‌شه (فقط مشاهده، بدون امکان تغییر)
+// dastresi-ye demo: bazdidkonande ba hamin shomare vared-e panel mishe (faqat moshahede, bedun-e emkan-e taghir)
 const DEMO_PHONE = '09999999999'
 const DEMO_URL = 'https://yadaki.mohandesinsite.ir/login'
 const demoCopied = ref(false)
@@ -249,7 +249,7 @@ async function copyDemoPhone() {
     await navigator.clipboard.writeText(DEMO_PHONE)
   }
   catch {
-    // مرورگرهای قدیمی یا بدون دسترسی به کلیپ‌بورد
+    // morurgar-haye qadimi ya bedun-e dastresi be clipboard
     const ta = document.createElement('textarea')
     ta.value = DEMO_PHONE
     ta.style.position = 'fixed'
@@ -269,7 +269,7 @@ onBeforeUnmount(() => clearTimeout(demoTimer))
 <template>
   <section id="features" ref="root" class="py-12 sm:py-16">
     <div class="mx-auto max-w-6xl px-6">
-      <!-- درگاه‌های پرداخت و پنل‌های پیامکی پشتیبانی‌شده -->
+      <!-- dargah-haye pardakht va panel-haye payamaki pishtibani-shode -->
       <div class="mx-auto mb-12 max-w-4xl sm:mb-14">
         <div class="reveal mb-6 text-center">
           <h3 class="mb-2 text-xl font-bold sm:text-2xl">درگاه‌ها و پنل‌های پشتیبانی‌شده</h3>
@@ -311,7 +311,7 @@ onBeforeUnmount(() => clearTimeout(demoTimer))
         </div>
       </div>
 
-      <!-- قابلیت‌ها؛ دسکتاپ: دو ستون با خط وسط، موبایل: یک ستون -->
+      <!-- qabeliat-ha; desktop: do sotun ba khat-e vasat, mobile: yek sotun -->
       <div class="mb-12 sm:mb-14">
         <div class="reveal mb-10 text-center">
           <h2 class="mb-2 text-2xl font-bold sm:text-3xl">امکانات و قابلیت‌ها</h2>
@@ -321,7 +321,7 @@ onBeforeUnmount(() => clearTimeout(demoTimer))
         </div>
 
         <div class="relative grid gap-y-12 md:grid-cols-2 md:gap-y-16">
-          <!-- خط وسط -->
+          <!-- khat-e vasat -->
           <div class="pointer-events-none absolute inset-y-0 start-1/2 hidden w-px bg-fg/10 md:block" aria-hidden="true" />
 
           <div v-for="(f, i) in pairedFeatures" :key="f.title" class="reveal">
@@ -357,7 +357,7 @@ onBeforeUnmount(() => clearTimeout(demoTimer))
           </div>
         </div>
 
-        <!-- امکان آخر (وقتی تعداد فرده): وسط جدول، زیر پایان خط وسط -->
+        <!-- emkan-e akhar (vaqti ta'dad fard-e): vasat-e jadval, zire payan-e khat-e vasat -->
         <div v-if="lastFeature" class="reveal mt-12 md:mx-auto md:mt-16 md:max-w-xl md:text-center">
           <article>
             <div class="mb-3 flex items-center gap-3 md:justify-center">
@@ -392,10 +392,10 @@ onBeforeUnmount(() => clearTimeout(demoTimer))
           </article>
         </div>
 
-        <!-- دسترسی دمو: بررسی پنل پیشخوان بدون نیاز به ثبت‌نام -->
+        <!-- dastresi-ye demo: barresi-ye panel-e pishkhan bedun-e niaz be sabt-nam -->
         <div class="reveal mx-auto mt-12 max-w-[38rem] md:mt-16">
           <div class="relative rounded-2xl border border-brand/50 bg-card px-5 py-6 text-start shadow-[0_8px_30px_rgb(0_220_130/0.18)] dark:shadow-[0_0_40px_rgb(0_220_130/0.14)] sm:px-8">
-            <!-- 1) نشونه‌ی «زنده» -->
+            <!-- 1) neshune-ye «zende» -->
             <span class="absolute -top-3 left-1/2 inline-flex -translate-x-1/2 items-center gap-1.5 rounded-full border border-brand/50 bg-page px-3 py-0.5 text-xs font-bold text-brand-ink">
               <span class="relative flex size-2">
                 <span class="absolute inline-flex size-full rounded-full bg-brand opacity-75 motion-safe:animate-ping" />
@@ -469,9 +469,9 @@ onBeforeUnmount(() => clearTimeout(demoTimer))
         </div>
       </div>
 
-      <!-- دو کارت پایین بخش امکانات؛ توی دسکتاپ کنار هم، توی موبایل زیر هم -->
+      <!-- do kart-e paein-e bakhsh-e emkanat; too desktop kenar-e ham, too mobile zir-e ham -->
       <div class="mt-4 grid gap-4 md:grid-cols-2">
-      <!-- قابلیت‌های دیگه که در جلسه‌ی مشاوره بررسی می‌شن -->
+      <!-- qabeliat-haye dige ke dar jalase-ye moshavere barresi mishan -->
       <div class="reveal">
         <div
           class="flex h-full flex-col items-start justify-start gap-2 rounded-2xl border border-dashed px-5 py-6 text-start sm:px-8 border-fg/15 bg-card"
@@ -487,7 +487,7 @@ onBeforeUnmount(() => clearTimeout(demoTimer))
         </div>
       </div>
 
-      <!-- مهاجرت از ووکامرس -->
+      <!-- mohajerat az WooCommerce -->
       <div class="reveal">
         <div
           class="flex h-full flex-col items-start justify-start gap-2 rounded-2xl border border-dashed px-5 py-6 text-start sm:px-8 border-fg/15 bg-card"

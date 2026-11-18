@@ -8,7 +8,7 @@ useSeoMeta({
   ogLocale: 'fa_IR'
 })
 
-// معرفی تیم به گوگل (Organization) همراه با لوگوی مربعی ۵۱۲×۵۱۲
+// mo'arefi-ye team be Google (Organization) hamrah ba logo-ye morabba'-ye 512×512
 useSchemaOrg([
   defineOrganization({
     name: 'مهندسین سایت',

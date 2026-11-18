@@ -1,5 +1,5 @@
 <script setup lang="ts">
-// نمایش تمام‌صفحه‌ی یک تصویر با زوم: دو انگشت (pinch)، دابل‌تپ/دابل‌کلیک، و Ctrl+چرخ ماوس
+// namayesh-e tamam-safhe-ye yek tasvir ba zoom: do angosht (pinch), double-tap/double-click, va Ctrl+charkh-e mouse
 const props = defineProps<{ src: string | null; alt?: string }>()
 const emit = defineEmits<{ close: [] }>()
 
@@ -7,7 +7,7 @@ const nuxtApp = useNuxtApp()
 const MAX_ZOOM = 4
 const DOUBLE_ZOOM = 2.5
 
-// آخرین تصویر رو نگه می‌داریم تا موقع انیمیشن بسته‌شدن، محتوا نپره
+// akharin tasvir ro negah midarim ta moqe-e animation-e baste-shodan, mohtava napare
 const current = ref<string | null>(props.src)
 const alt = computed(() => props.alt ?? '')
 const box = ref<HTMLElement | null>(null)
@@ -15,7 +15,7 @@ const img = ref<HTMLImageElement | null>(null)
 const closeBtn = ref<HTMLButtonElement | null>(null)
 let lastFocused: HTMLElement | null = null
 
-// عرضِ تصویر در حالت «جا شدن در صفحه» و ضریب زوم فعلی
+// arz-e tasvir dar halat-e «ja shodan dar safhe» va zarib-e zoom-e fe'li
 let fitW = 0
 let zoom = 1
 const zoomed = ref(false)
@@ -37,7 +37,7 @@ function computeFit() {
   applyWidth()
 }
 
-// زوم دور نقطه‌ی (fx, fy) نسبت به قاب، طوری که همون نقطه زیرِ انگشت بمونه
+// zoom dore noqte-ye (fx, fy) nesbat be qab, tori ke hamun noqte zir-e angosht bemune
 function setZoom(next: number, fx: number, fy: number) {
   const el = box.value
   if (!el) return
@@ -56,7 +56,7 @@ function localPoint(x: number, y: number) {
   return { x: x - r.left, y: y - r.top }
 }
 
-// --- pinch و دابل‌تپ با Pointer Events ---
+// --- pinch va double-tap ba Pointer Events ---
 const pointers = new Map<number, { x: number; y: number }>()
 let pinchStartDist = 0
 let pinchStartZoom = 1
@@ -94,7 +94,7 @@ function onMove(e: PointerEvent) {
   else if (Math.hypot(e.clientX - downPos.x, e.clientY - downPos.y) > 8) {
     moved = true
   }
-  // ماوس: با نگه‌داشتن کلیک چپ و کشیدن، تصویرِ بزرگ‌شده جابه‌جا می‌شه
+  // mouse: ba negah-dashtan-e click-e chap va keshidan, tasvir-e bozorg-shode jabeja mishe
   if (e.pointerType === 'mouse' && pointers.size === 1 && e.buttons & 1 && zoom > 1.01 && box.value) {
     box.value.scrollLeft -= e.movementX
     box.value.scrollTop -= e.movementY
@@ -105,7 +105,7 @@ function onUp(e: PointerEvent) {
   const wasSingle = pointers.size === 1
   pointers.delete(e.pointerId)
   if (pointers.size < 2) pinchStartDist = 0
-  // دابل‌تپ روی تصویر: بین «جا شدن» و «بزرگ‌نمایی» جابه‌جا می‌شه
+  // double-tap rooye tasvir: bein-e «ja shodan» va «bozorg-namayi» jabeja mishe
   if (wasSingle && !moved && Date.now() - downAt < 300 && (e.target as HTMLElement) === img.value) {
     const now = Date.now()
     if (now - lastTap < 350) {
@@ -117,13 +117,13 @@ function onUp(e: PointerEvent) {
   }
 }
 
-// غلتک ماوس (و Ctrl+چرخ / pinch تاچ‌پد): زوم دور نقطه‌ی ماوس
+// qeltak-e mouse (va Ctrl+charkh / pinch-e touchpad): zoom dore noqte-ye mouse
 function onWheel(e: WheelEvent) {
   const p = localPoint(e.clientX, e.clientY)
   setZoom(zoom * Math.exp(-e.deltaY * (e.ctrlKey ? 0.01 : 0.0015)), p.x, p.y)
 }
 
-// کلیک روی فضای خالی دور تصویر: بستن (بعد از کشیدن/جابه‌جایی نه)
+// click rooye faza-ye khali dore tasvir: bastan (ba'd az keshidan/jabejayi na)
 function onBoxClick(e: MouseEvent) {
   if (e.target !== img.value && !moved) emit('close')
 }
@@ -175,7 +175,7 @@ onBeforeUnmount(() => {
         aria-modal="true"
         :aria-label="alt || 'نمایش تصویر'"
       >
-        <!-- قاب اسکرول‌شونده: dir=ltr تا مختصات اسکرول با زوم درست حساب بشه؛ touch-action جلوی زوم خودِ مرورگر رو می‌گیره تا pinch فقط روی تصویر کار کنه -->
+        <!-- qab-e scroll-shavande: dir=ltr ta mokhtasat-e scroll ba zoom dorost hesab beshe; touch-action jelo-ye zoom-e khod-e morurgar ro migire ta pinch faqat rooye tasvir kar kone -->
         <div
           ref="box"
           dir="ltr"

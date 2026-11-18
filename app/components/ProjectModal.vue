@@ -10,7 +10,7 @@ const emit = defineEmits<{ close: [] }>()
 
 const nuxtApp = useNuxtApp()
 
-// آخرین پروژه رو نگه می‌داریم تا موقع انیمیشن بسته‌شدن، محتوا نپره
+// akharin proje ro negah midarim ta moqe-e animation-e baste-shodan, mohtava napare
 const current = ref<Project | null>(props.project)
 const index = ref(0)
 const bodyEl = ref<HTMLElement | null>(null)
@@ -27,13 +27,13 @@ function go(step: number) {
   index.value = (index.value + step + total.value) % total.value
 }
 
-// ---- سوایپ لمسی (موبایل): کشیدن انگشت به چپ/راست = تصویر بعدی/قبلی؛ کشیدن عمودی همون اسکرول داخلی تصویر میمونه ----
-// حداقل جابه‌جایی افقی (پیکسل) برای اینکه با کشیدن آروم هم سوایپ حساب بشه
+// ---- swipe-e lamsi (mobile): keshidan-e angosht be chap/rast = tasvir-e ba'di/qabli; keshidan-e amudi hamun scroll-e dakheli-ye tasvir mimune ----
+// hadaqal-e jabejayi-ye ofoqi (pixel) baraye inke ba keshidan-e aroom ham swipe hesab beshe
 const SWIPE_THRESHOLD = 70
-// یا اگه تند و کوتاه کشیده شد (فلیک): حداقل سرعت (پیکسل بر میلی‌ثانیه) و حداقل جابه‌جایی
+// ya age tond va kutah keshide shod (flick): hadaqal-e sor'at (pixel bar milisaniye) va hadaqal-e jabejayi
 const FLICK_SPEED = 0.45
 const FLICK_MIN_DISTANCE = 25
-// مدت و شتابِ حرکتِ اسلاید بین تصاویر (هرچی بیشتر، آرام‌تر)
+// moddat va shetab-e harekat-e slide bein-e tasavir (harchi bishtar, aroom-tar)
 const SLIDE_MS = 450
 const SLIDE_EASING = 'cubic-bezier(0.25, 0.8, 0.25, 1)'
 
@@ -45,7 +45,7 @@ let startTime = 0
 let activePointer: number | null = null
 let axis: '' | 'x' | 'y' = ''
 
-// کشیدن با انگشت (موبایل) یا موس (دسکتاپ) — هر دو با pointer events
+// keshidan ba angosht (mobile) ya mouse (desktop) — har do ba pointer events
 function onPointerDown(e: PointerEvent) {
   if (e.pointerType === 'mouse' && e.button !== 0) return
   activePointer = e.pointerId
@@ -59,15 +59,15 @@ function onPointerMove(e: PointerEvent) {
   if (e.pointerId !== activePointer || axis === 'y') return
   const dx = e.clientX - startX
   const dy = e.clientY - startY
-  // جهت حرکت رو یک‌بار تشخیص میدیم تا اسکرول عمودی و سوایپ افقی با هم قاطی نشن
+  // jahat-e harekat ro yek-bar tashkhis midim ta scroll-e amudi va swipe-e ofoqi ba ham qati nashan
   if (!axis && (Math.abs(dx) > 8 || Math.abs(dy) > 8)) {
     axis = Math.abs(dx) > Math.abs(dy) * 1.2 ? 'x' : 'y'
-    // تا انگشت/موس از کادر بیرون هم رفت، کشیدن ادامه پیدا کنه
+    // ta angosht/mouse az kadr biroon ham raft, keshidan edame peyda kone
     if (axis === 'x') bodyEl.value?.setPointerCapture(e.pointerId)
   }
   if (axis !== 'x') return
   dragging.value = true
-  // اول و آخر گالری (یا فقط یه تصویر): کشیدن مقاومت داره و جایی نمیره
+  // avval va akhar-e gallery (ya faqat ye tasvir): keshidan moqavemat dare va jayi nemire
   const atEdge = total.value < 2 || (index.value === 0 && dx > 0) || (index.value === total.value - 1 && dx < 0)
   dragX.value = atEdge ? dx * 0.25 : dx
 }
@@ -78,7 +78,7 @@ function onPointerEnd(e: PointerEvent) {
     const dx = dragX.value
     const speed = Math.abs(dx) / Math.max(1, performance.now() - startTime)
     const passed = Math.abs(dx) > SWIPE_THRESHOLD || (speed > FLICK_SPEED && Math.abs(dx) > FLICK_MIN_DISTANCE)
-    // کشیدن به چپ = تصویر بعدی، به راست = تصویر قبلی (روی اول/آخر رد نمیشه)
+    // keshidan be chap = tasvir-e ba'di, be rast = tasvir-e qabli (rooye avval/akhar rad nemishe)
     if (passed && dx < 0 && index.value < total.value - 1) index.value++
     else if (passed && dx > 0 && index.value > 0) index.value--
   }
@@ -89,13 +89,13 @@ function onPointerEnd(e: PointerEvent) {
   activePointer = null
 }
 
-// اسکرول افقی تاچ‌پد (دو انگشت چپ/راست) یا موس افقی: یک اسلاید به ازای هر حرکت
+// scroll-e ofoqi-ye touchpad (do angosht chap/rast) ya mouse-e ofoqi: yek slide be azaye har harekat
 const WHEEL_THRESHOLD = 40
 const WHEEL_COOLDOWN_MS = 500
 let wheelLockedUntil = 0
 
 function onWheel(e: WheelEvent) {
-  // فقط وقتی حرکت افقی غالبه؛ اسکرول عمودی تصویر دست‌نخورده می‌مونه
+  // faqat vaqti harekat-e ofoqi qalebe; scroll-e amudi-ye tasvir dast-nakhorde mimune
   if (Math.abs(e.deltaX) <= Math.abs(e.deltaY) || total.value < 2) return
   e.preventDefault()
   const now = performance.now()
@@ -107,14 +107,14 @@ function onWheel(e: WheelEvent) {
 
 function onKey(e: KeyboardEvent) {
   if (e.key === 'Escape') emit('close')
-  // گالری چپ‌به‌راسته (dir="ltr")، پس فلش راست = بعدی
+  // gallery chap-be-rast-e (dir="ltr"), pas feshe-ye rast = ba'di
   else if (e.key === 'ArrowRight') go(1)
   else if (e.key === 'ArrowLeft') go(-1)
 }
 
 function lock() {
   lastFocused = document.activeElement as HTMLElement | null
-  // اسکرول صفحه‌ی پشت مودال متوقف میشه (Lenis)؛ داخل مودال با data-lenis-prevent اسکرول آزاده
+  // scroll-e safhe-ye posht-e modal motevaqef mishe (Lenis); dakhel-e modal ba data-lenis-prevent scroll azade
   ;(nuxtApp as any).$lenis?.stop()
   window.addEventListener('keydown', onKey)
   nextTick(() => closeBtn.value?.focus())
@@ -140,7 +140,7 @@ watch(
   }
 )
 
-// با عوض‌شدن تصویر، اسکرول داخلی برگرده بالا و تصویر بعدی از قبل لود بشه
+// ba avaz-shodan-e tasvir, scroll-e dakheli bargarde bala va tasvir-e ba'di az qabl load beshe
 watch(index, () => {
   bodyEl.value?.scrollTo({ top: 0 })
   if (!current.value || total.value < 2) return
@@ -216,7 +216,7 @@ onBeforeUnmount(() => {
               @pointercancel="onPointerEnd"
               @wheel="onWheel"
             >
-              <!-- نوار اسلاید: همه‌ی تصاویر کنار هم، با جابه‌جایی نرم و دنبال‌کردن انگشت -->
+              <!-- navar-e slide: hame-ye tasavir kenar-e ham, ba jabejayi-ye narm va donbal-kardan-e angosht -->
               <div
                 class="flex w-full items-start"
                 :style="{

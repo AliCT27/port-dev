@@ -1,6 +1,6 @@
-// اسکرولِ نرم به یک بخش با مکثِ کوتاه بعد از کلیک.
-// مکثِ کلیک (هم دکمه‌های هدر، هم دکمه‌های بقیه‌ی بخش‌ها) فقط از همین‌جا تنظیم میشه:
-//   CLICK_PAUSE_ENABLED = true  → با مکث | false → اسکرول بلافاصله بعد از کلیک
+// scroll-e narm be yek bakhsh ba maks-e kutah ba'd az click.
+// maks-e click (ham dokme-haye header, ham dokme-haye baqiye-ye bakhsh-ha) faqat az hamin ja tanzim mishe:
+//   CLICK_PAUSE_ENABLED = true  → ba maks | false → scroll belafasele ba'd az click
 export const CLICK_PAUSE_ENABLED = false
 export const CLICK_PAUSE_MS = 400
 export const clickPause = () => (CLICK_PAUSE_ENABLED ? CLICK_PAUSE_MS : 0)
@@ -17,7 +17,7 @@ export function useSectionScroll() {
   let timer: ReturnType<typeof setTimeout> | null = null
 
   function goToSection(id: string) {
-    // اگه کلیک پشت‌سرهم بود، فقط آخرین کلیک اعتبار داره
+    // age click-ha posht-e sar-e ham bud, faqat akharin click e'tebar dare
     if (timer) clearTimeout(timer)
 
     timer = setTimeout(() => {

@@ -1,25 +1,25 @@
 <script setup lang="ts">
 const scrolled = ref(false)
 
-// تغییر حالت شب/روز؛ انتخاب کاربر توی مرورگرش ذخیره می‌شه (پیش‌فرض: شب)
+// taghir-e halat-e shab/rooz; entekhab-e karbar too morurgarash zakhire mishe (pish-farz: shab)
 const colorMode = useColorMode()
 async function toggleColorMode(e: MouseEvent) {
   const next = colorMode.value === 'dark' ? 'light' : 'dark'
   const root = document.documentElement
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
-  // مرورگرِ قدیمی یا کاربری که انیمیشن رو خاموش کرده: تغییرِ ساده و فوری
+  // morurgar-e qadimi ya karbari ke animation ro khamush karde: taghir-e sade va fori
   if (!document.startViewTransition || reduce) {
     colorMode.preference = next
     return
   }
 
-  // موجِ دایره‌ای از جای دکمه تا دورترین گوشه‌ی صفحه
+  // moj-e dayere-i az jaye dokme ta durtarin gushe-ye safhe
   const x = e.clientX
   const y = e.clientY
   const radius = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y))
 
-  // transitionهای خودِ صفحه موقع موج خاموش می‌شن تا رنگ‌ها وسط دایره دوباره محو نشن
+  // transition-haye khod-e safhe moqe-e moj khamush mishan ta rang-ha vasat-e dayere dobare mahv nashan
   root.classList.add('theme-switching')
   const transition = document.startViewTransition(async () => {
     colorMode.preference = next
@@ -38,10 +38,10 @@ async function toggleColorMode(e: MouseEvent) {
   }
 }
 
-// مکثِ کوتاه بعد از کلیک و قبل از شروعِ اسکرول: تنظیمش (روشن/خاموش و مدت) توی composables/useSectionScroll.ts هست
-// و برای هدر و بقیه‌ی دکمه‌های صفحه مشترکه
-// مدتِ حرکتِ اسکرول دکمه‌های هدر متناسب با فاصله حساب میشه (با easeInOutCubic):
-// مدت = پایه + فاصله ÷ سرعت، و بعد بین کمینه و بیشینه محدود میشه (ثانیه)
+// maks-e kutah ba'd az click va qabl az shoru-e scroll: tanzimesh (roshan/khamush va moddat) too composables/useSectionScroll.ts hast
+// va baraye header va baqiye-ye dokme-haye safhe moshtarake
+// moddat-e harekat-e scroll-e dokme-haye header motenaseb ba fasele hesab mishe (ba easeInOutCubic):
+// moddat = paye + fasele ÷ sor'at, va ba'd bein-e kamine va bishine mahdud mishe (saniye)
 const SCROLL_BASE_S = 0.6
 const SCROLL_PX_PER_S = 2500
 const SCROLL_MIN_S = 0.8
@@ -56,7 +56,7 @@ let navTimer: ReturnType<typeof setTimeout> | null = null
 
 const navItems = [
   { href: '/#hero', label: 'خانه' },
-  // short: متنِ کوتاه‌تر برای موبایل، تا همه‌ی آیتم‌ها بدون اسکرول افقی جا بشن
+  // short: matn-e kutah-tar baraye mobile, ta hame-ye item-ha bedun-e scroll-e ofoqi ja beshan
   { href: '/#testimonials', label: 'نمونه‌کار و نظرات', short: 'نظرات' },
   { href: '/#features', label: 'امکانات' },
   { href: '/#faq', label: 'سوالات' },
@@ -67,18 +67,18 @@ const activeId = ref('hero')
 
 const lastSectionId = navItems[navItems.length - 1]!.href.split('#')[1]!
 
-// ته صفحه‌ایم؟ (۴ پیکسل تلورانس برای اعشار و رُند‌شدن مرورگر)
+// ta-ye safhe-im? (4 pixel tolerance baraye ashar va round shodan-e morurgar)
 function isAtBottom() {
   return window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4
 }
 
-// بخش فعال = آخرین بخشی که بالاش از «خط مرجع» رد شده. خط مرجع یه جایی بین بالا و وسط صفحه‌ست (کسری از ارتفاع صفحه‌نمایش)؛
-// این‌جوری طول بخش‌ها اهمیتی نداره و بخش‌های کوتاه (مثل درباره‌ی ما) هم سر وقت فعال میشن. عدد کمتر = زودتر فعال میشه
+// bakhsh-e fa'al = akharin bakhshi ke balash az «khat-e marja'» rad shode. khat-e marja' ye jayi bein-e bala va vasat-e safhe-st (kasri az ertefa'-e safhe-namayesh);
+// injuri tul-e bakhsh-ha ahamiyati nadare va bakhsh-haye kutah (mesle darbare-ye ma) ham sar-e vaqt fa'al mishan. adad-e kamtar = zudtar fa'al mishe
 const ACTIVE_LINE_RATIO = 0.4
 const sectionIds = navItems.map((item) => item.href.split('#')[1]!)
 
 function pickActive() {
-  // بخش آخر (تماس) کوتاه‌تر از صفحه‌ست و هیچ‌وقت بالای صفحه نمیاد؛ پس وقتی به ته رسیدیم، اون برنده‌ست
+  // bakhsh-e akhar (tamas) kutah-tar az safhe-st va hichvaqt bala-ye safhe nemiad; pas vaqti be ta residim, un barande-st
   if (isAtBottom()) {
     activeId.value = lastSectionId
     return
@@ -128,7 +128,7 @@ function goToSection(href: string) {
   const id = href.split('#')[1]
   if (!id) return
 
-  // اگه کلیک پشت‌سرهم بود، فقط آخرین کلیک اعتبار داره
+  // age click-ha posht-e sar-e ham bud, faqat akharin click e'tebar dare
   if (navTimer) clearTimeout(navTimer)
 
   navTimer = setTimeout(() => {
@@ -181,14 +181,14 @@ onBeforeUnmount(() => {
         <template v-else>{{ item.label }}</template>
       </a>
 
-      <!-- دکمه‌ی شب/روز: هر دو آیکن توی HTML هستن و با کلاس .dark یکی‌شون دیده می‌شه، پس بین SSG و کلاینت اختلافی (hydration) پیش نمیاد -->
+      <!-- dokme-ye shab/rooz: har do icon too HTML hastan va ba class-e .dark yekishun dide mishe, pas bein-e SSG va client ekhtelafi (hydration) pish nemiad -->
       <button
         type="button"
         class="ms-1 flex size-9 shrink-0 items-center justify-center rounded-lg text-fg/70 transition-all duration-500 ease-in-out hover:bg-fg/15 hover:text-fg"
         aria-label="تغییر حالت شب و روز"
         @click="toggleColorMode"
       >
-        <!-- خورشید و ماه روی هم می‌شینن و موقع تعویض می‌چرخن و محو می‌شن -->
+        <!-- khorshid va mah rooye ham minshinan va moqe-e ta'viz mi-charkhan va mahv mishan -->
         <span class="relative block size-[18px]">
           <UIcon name="i-lucide-sun" class="theme-icon absolute inset-0 size-[18px] rotate-90 scale-0 opacity-0 transition-all duration-500 ease-in-out dark:rotate-0 dark:scale-100 dark:opacity-100" />
           <UIcon name="i-lucide-moon" class="theme-icon absolute inset-0 size-[18px] transition-all duration-500 ease-in-out dark:-rotate-90 dark:scale-0 dark:opacity-0" />
