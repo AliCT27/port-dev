@@ -8,8 +8,10 @@ interface Plan {
   name: string
   label: string
   highlight?: boolean
+  // pelan-e almas ham ghab-e sabz migire vali bedun-e glow va dokme-ye por
+  green?: boolean
   price: null | { prefix?: string, amount: string, unit: string }
-  features: { text: string, included: boolean }[]
+  features: { text: string, included: boolean, strong?: boolean }[]
   cta: string
 }
 
@@ -23,6 +25,12 @@ const plans: Plan[] = [
     highlight: true,
     price: { amount: '۴۲', unit: 'میلیون تومان' },
     features: [
+      { text: 'تمام امکانات فروشگاهی ما', included: true, strong: true },
+      { text: 'تک‌فروشی و چندفروشندگی', included: true },
+      { text: 'درگاه‌های پرداخت و پنل‌های پیامکی ایرانی', included: true },
+      { text: 'انبارداری، باشگاه مشتریان و کیف پول', included: true },
+      { text: 'تخفیف‌های متنوع و همکاری در فروش', included: true },
+      { text: 'صفحه‌ساز اختصاصی و سئوی حرفه‌ای', included: true },
       { text: 'دریافت همه‌ی آپدیت‌ها', included: true },
       { text: 'ارتباط مداوم با تیم توسعه', included: true },
       { text: 'اولویت در قابلیت‌ها و پروژه‌های موردنیاز شما', included: true }
@@ -34,9 +42,12 @@ const plans: Plan[] = [
     name: 'پلن الماس',
     label: 'مناسب کسب‌وکارهای بزرگ',
     price: { prefix: 'بالای', amount: '۱۰۰', unit: 'میلیون تومان' },
+    green: true,
     features: [
-      { text: 'قابلیت‌های اختصاصی', included: true },
-      { text: 'توسعه‌ی رابط کاربری اختصاصی', included: true }
+      { text: 'تمام امکانات پایه‌ی سیستم فروشگاهی ما', included: true, strong: true },
+      { text: 'قابلیت‌های خاص، دقیقاً مطابق کسب‌وکار شما', included: true },
+      { text: 'طراحی UI/UX اختصاصی؛ ظاهری که مورد پسند خودتان باشد', included: true },
+      { text: 'سایتی متفاوت که شبیه هیچ فروشگاه دیگه‌ای نیست', included: true }
     ],
     cta: 'مشاوره‌ی رایگان'
   }
@@ -66,8 +77,8 @@ const plans: Plan[] = [
           <div
             class="relative flex h-full flex-col rounded-2xl p-5 text-start sm:p-6"
             :class="plan.highlight
-              ? 'border-2 border-brand bg-card shadow-[0_8px_30px_rgb(0_220_130/0.18)] dark:shadow-[0_0_40px_rgb(0_220_130/0.14)] '
-              : 'border border-fg/15 bg-card'"
+              ? 'border-2 border-brand bg-card shadow-[0_8px_30px_rgb(0_220_130/0.18)] dark:shadow-[0_0_40px_rgb(0_220_130/0.14)]'
+              : plan.green ? 'border-2 border-brand bg-card' : 'border border-fg/15 bg-card'"
           >
             <span
               class="absolute -top-3 left-1/2 inline-flex -translate-x-1/2 items-center gap-1 whitespace-nowrap rounded-full px-3 py-0.5 text-xs font-bold"
@@ -81,7 +92,7 @@ const plans: Plan[] = [
 
             <div v-if="plan.price" class="mb-5 flex flex-wrap items-baseline gap-x-1.5">
               <span v-if="plan.price.prefix" class="text-sm text-fg/60">{{ plan.price.prefix }}</span>
-              <span class="text-3xl font-bold" :class="plan.highlight ? 'text-brand-ink' : ''">{{ plan.price.amount }}</span>
+              <span class="text-3xl font-bold" :class="plan.highlight || plan.green ? 'text-brand-ink' : ''">{{ plan.price.amount }}</span>
               <span class="text-sm text-fg/60">{{ plan.price.unit }}</span>
             </div>
             <div
@@ -91,14 +102,14 @@ const plans: Plan[] = [
               قیمت به‌زودی
             </div>
 
-            <ul v-if="plan.features.length" class="mb-6 min-h-36 space-y-3 text-sm leading-6">
+            <ul v-if="plan.features.length" class="mb-6 min-h-36 flex-1 space-y-3 text-sm leading-6">
               <li v-for="f in plan.features" :key="f.text" class="flex items-start gap-2" :class="f.included ? '' : 'text-fg/45'">
                 <UIcon
                   :name="f.included ? 'i-lucide-check' : 'i-lucide-x'"
                   class="mt-1 size-4 shrink-0"
                   :class="f.included ? 'text-brand-ink' : 'text-fg/40'"
                 />
-                <span>{{ f.text }}</span>
+                <span :class="f.strong ? 'font-bold' : ''">{{ f.text }}</span>
               </li>
             </ul>
             <div
@@ -115,7 +126,7 @@ const plans: Plan[] = [
               class="mt-auto inline-flex items-center justify-center gap-2 rounded-xl px-5 py-2.5 text-sm font-bold transition-colors duration-300"
               :class="plan.highlight
                 ? 'bg-brand text-black shadow-[0_4px_14px_rgb(0_220_130/0.40)] hover:opacity-90 dark:shadow-[0_0_12px_rgb(0_220_130/0.35)]'
-                : 'border border-fg/25 hover:border-brand hover:bg-brand/10 hover:text-brand-ink'"
+                : 'border border-brand hover:bg-brand/10 hover:text-brand-ink'"
             >
               {{ plan.cta }}
               <UIcon name="i-lucide-arrow-left" class="size-4" />
@@ -124,8 +135,9 @@ const plans: Plan[] = [
         </div>
       </div>
 
-      <p class="reveal mt-8 text-center text-xs leading-6 text-fg/50 sm:text-sm">
-        قیمت نهایی بعد از بررسی نیازها به‌صورت شفاف اعلام می‌شه؛ نصف مبلغ موقع بستن قرارداد و نصف دیگه موقع تحویل سایت دریافت می‌شه.
+      <p class="reveal mt-8 flex items-start justify-center gap-2 text-xs leading-6 text-fg/60 sm:text-sm md:items-center md:whitespace-nowrap">
+        <UIcon name="i-lucide-info" class="mt-1 size-4 shrink-0 md:mt-0" />
+        <span>قیمت نهایی بعد از بررسی نیازها شفاف اعلام می‌شه؛ نصف مبلغ موقع قرارداد و نصف دیگه موقع تحویل سایت.</span>
       </p>
     </div>
   </section>
