@@ -82,7 +82,7 @@ const plans: Plan[] = [
           >
             <span
               class="absolute -top-3 left-1/2 inline-flex -translate-x-1/2 items-center gap-1 whitespace-nowrap rounded-full px-3 py-0.5 text-xs font-bold"
-              :class="plan.highlight ? 'bg-brand text-black' : 'border border-fg/20 bg-card text-fg/70'"
+              :class="plan.highlight ? 'bg-brand text-black' : 'border border-fg/20 bg-panel text-fg/70'"
             >
               <UIcon v-if="plan.highlight" name="i-lucide-star" class="size-3.5" />
               {{ plan.label }}
