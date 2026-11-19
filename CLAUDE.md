@@ -33,6 +33,7 @@ Portfolio / landing site for **مهندسین سایت** (a Laravel + Vue web te
 - **Icons** are bundled locally (`icon.clientBundle` scans `app/**/*.{vue,ts}`) and `fallbackToApi` is off. Use full literal names like `i-lucide-phone` so the scanner finds them. Never rely on the Iconify API at runtime.
 - **Placeholders:** missing media (profile photo, feature images, testimonial videos) shows a dashed "coming soon" box. Keep placeholders the same size as the real media so the layout does not jump.
 - **Hosting:** Netafraz Linux PHP shared hosting (Apache/LiteSpeed). Upload the contents of `.output/public` to `public_html`. `public/.htaccess` carries the security headers (including a CSP), caching, compression and the 404 page; it is copied into the build automatically. If a new third-party script, font or embed is ever added, its domain must be added to the CSP in that file.
+- **Contact form:** `app/components/LeadForm.vue` posts to `public/api/lead.php`, which forwards the lead to a Bale bot. The bot token and chat id live only in `lead-config.php` on the host, one level above `public_html` (template: `server/lead-config.sample.php`). Never commit the real file. The form does not work under `pnpm dev` (no PHP); test it with `php -S` on the built output.
 - No Nuxt Studio, no `og-image` module (the OG image is the static `/images/og-image.webp`).
 
 ## Working agreements
