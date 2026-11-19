@@ -463,7 +463,7 @@ onBeforeUnmount(() => clearTimeout(demoTimer))
 
             <p class="mt-3 flex items-start gap-1.5 text-balance text-xs leading-6 text-fg/50">
               <UIcon name="i-lucide-info" class="mt-1 size-3.5 shrink-0" />
-              این دسترسی فقط برای دیدن امکانات پنل سایت هستش و در حالت دمو افزودن، ویرایش و حذف ممکن نیست.
+              این دسترسی فقط برای دیدن امکانات پنل سایت هستش و امکان ویرایش ندارد.
             </p>
           </div>
         </div>
