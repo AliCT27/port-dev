@@ -81,7 +81,7 @@ const inputClass = 'w-full rounded-xl border border-fg/20 bg-card px-4 py-2.5 te
       >
         <UIcon v-if="status === 'sending'" name="i-lucide-loader-circle" class="size-4 animate-spin" />
         <UIcon v-else name="i-lucide-send" class="size-4" />
-        {{ status === 'sending' ? 'در حال ارسال...' : 'درخواست مشاوره' }}
+        {{ status === 'sending' ? 'در حال ارسال...' : 'درخواست بررسی پروژه' }}
       </button>
     </form>
   </div>
