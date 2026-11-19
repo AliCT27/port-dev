@@ -393,7 +393,7 @@ onBeforeUnmount(() => clearTimeout(demoTimer))
         </div>
 
         <!-- dastresi-ye demo: barresi-ye panel-e pishkhan bedun-e niaz be sabt-nam -->
-        <div class="reveal mx-auto mt-12 max-w-[38rem] md:mt-16">
+        <div class="reveal mx-auto mt-12 max-w-[32rem] md:mt-16">
           <div class="relative rounded-2xl border border-brand/50 bg-card px-5 py-6 text-start shadow-[0_8px_30px_rgb(0_220_130/0.18)] dark:shadow-[0_0_40px_rgb(0_220_130/0.14)] sm:px-8">
             <!-- 1) neshune-ye «zende» -->
             <span class="absolute -top-3 left-1/2 inline-flex -translate-x-1/2 items-center gap-1.5 rounded-full border border-brand/50 bg-page px-3 py-0.5 text-xs font-bold text-brand-ink">
