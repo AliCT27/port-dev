@@ -68,7 +68,7 @@ const plans: Plan[] = [
       <div class="reveal mx-auto mb-12 max-w-2xl text-center sm:mb-14">
         <h2 class="mb-3 text-2xl font-bold sm:text-3xl">هزینه‌ی سایت فروشگاهی‌تون چقدره؟</h2>
         <p class="text-balance text-sm leading-loose text-fg/70 sm:text-base">
-          همه‌ی پلن‌ها روی همان سیستم فروشگاهی ما ساخته می‌شن؛ تفاوت در همراهی ما بعد از تحویله.
+          سیستم فروشگاهی ما پایه‌ی هر دو پلنه. اکثر کسب‌وکارها با پلن استاندارد کامل می‌شن و اگه سایتی کاملاً خاص می‌خواید، پلن الماس رو داریم.
         </p>
       </div>
 
