@@ -83,7 +83,7 @@ if (mb_strlen($name) < 3 || $business === '' || !preg_match('/^(\+98|0098|98|0)?
 }
 
 $time = (new DateTime('now', new DateTimeZone('Asia/Tehran')))->format('Y-m-d H:i');
-$text = "درخواست مشاوره‌ی جدید از سایت\n\n"
+$text = "درخواست بررسی پروژه‌ی جدید از سایت\n\n"
     . "نام و نام خانوادگی: $name\n"
     . "شماره تماس: $phone\n"
     . "نوع کسب‌وکار: $business\n\n"
