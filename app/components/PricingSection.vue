@@ -146,11 +146,6 @@ const plans: Plan[] = [
           </div>
         </div>
       </div>
-
-      <p class="reveal mt-8 flex items-start justify-center gap-2 text-xs leading-6 text-fg/60 sm:text-sm md:items-center md:whitespace-nowrap">
-        <UIcon name="i-lucide-info" class="mt-1 size-4 shrink-0 md:mt-0" />
-        <span>قیمت نهایی بعد از بررسی نیازها شفاف اعلام می‌شه؛ نصف مبلغ موقع قرارداد و نصف دیگه موقع تحویل سایت.</span>
-      </p>
     </div>
   </section>
 </template>
