@@ -149,7 +149,7 @@ const plans: Plan[] = [
 
       <p class="reveal mt-8 flex items-start justify-center gap-2 text-xs leading-6 text-fg/60 sm:text-sm md:items-center">
         <UIcon name="i-lucide-info" class="mt-1 size-4 shrink-0 md:mt-0" />
-        <span>نصف مبلغ پروژه رو موقع شروع کار و نصف دیگه رو موقع تحویل سایت می‌گیریم</span>
+        <span>نصف مبلغ پروژه موقع استارت پروژه و نصف باقی‌مانده موقع تحویل سایت از شما دریافت می‌شه</span>
       </p>
     </div>
   </section>
