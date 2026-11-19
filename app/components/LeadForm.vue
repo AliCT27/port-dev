@@ -48,7 +48,7 @@ const inputClass = 'w-full rounded-xl border border-fg/20 bg-card px-4 py-2.5 te
       <UIcon name="i-lucide-circle-check" class="size-9 text-brand-ink" />
       <p class="font-bold">اطلاعاتتون ثبت شد</p>
       <p class="text-sm leading-7 text-fg/70">به‌زودی تیم ما باهاتون تماس می‌گیره.</p>
-      <p class="text-sm leading-7 text-fg/70">ممنونیم که به ما اطمینان کردید و برای رشد کسب‌وکارتون قدم برمی‌دارید.</p>
+      <p class="text-sm leading-7 text-fg/70">ممنونیم که به ما اطمینان کردید و برای رشد کسب‌وکارتون اقدام کردید.</p>
     </div>
 
     <form v-else novalidate class="flex flex-col gap-3" @submit.prevent="submit">
