@@ -58,8 +58,8 @@ const inputClass = 'w-full rounded-xl border border-fg/20 bg-card px-4 py-2.5 te
       </div>
 
       <input v-model="form.name" type="text" name="name" autocomplete="name" maxlength="80" placeholder="نام و نام خانوادگی" :class="inputClass">
-      <!-- dir="rtl": type=tel be sorat-e pish-farz chap-chin mishe va placeholder miraft samt-e chap -->
-      <input v-model="form.phone" type="tel" dir="rtl" name="phone" autocomplete="tel" inputmode="tel" maxlength="20" placeholder="شماره تماس" :class="inputClass">
+      <!-- shomare: dir="ltr" ta alamat-e + va tartib-e adad-ha dorost bemune (dir="rtl" «+98» ra be «98+» tabdil mikard), text-right ta placeholder va adad samt-e rast bashan -->
+      <input v-model="form.phone" type="tel" dir="ltr" name="phone" autocomplete="tel" inputmode="tel" maxlength="20" placeholder="شماره تماس" :class="[inputClass, 'text-right']">
       <input v-model="form.business" type="text" name="business" maxlength="120" placeholder="نوع کسب‌وکار (مثلاً لوازم یدکی، پوشاک...)" :class="inputClass">
 
       <!-- honeypot: fild-e makhfi baraye ta'min-e robot-ha; kasi ke adam-e por nemikone -->
