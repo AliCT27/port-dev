@@ -59,7 +59,7 @@ const navItems = [
   { href: '/#hero', label: 'خانه' },
   // short: matn-e kutah-tar baraye mobile, ta hame-ye item-ha bedun-e scroll-e ofoqi ja beshan
   { href: '/#testimonials', label: 'نمونه‌کار و نظرات', short: 'نظرات' },
-  { href: '/#features', label: 'امکانات' },
+  { href: '/#features', label: 'امکانات و پلن‌ها', short: 'پلن‌ها' },
   { href: '/#faq', label: 'سوالات' },
   { href: '/#contact', label: 'تماس' }
 ]
@@ -76,7 +76,8 @@ function isAtBottom() {
 // bakhsh-e fa'al = akharin bakhshi ke balash az «khat-e marja'» rad shode. khat-e marja' ye jayi bein-e bala va vasat-e safhe-st (kasri az ertefa'-e safhe-namayesh);
 // injuri tul-e bakhsh-ha ahamiyati nadare va bakhsh-haye kutah (mesle darbare-ye ma) ham sar-e vaqt fa'al mishan. adad-e kamtar = zudtar fa'al mishe
 const ACTIVE_LINE_RATIO = 0.4
-const sectionIds = navItems.map((item) => item.href.split('#')[1]!)
+// bakhsh-e pricing item-e joda nadare va jozv-e «امکانات و پلن‌ها» hesab mishe; pas bayad too-ye list-e tashkhis bashe va ba'd be features tabdil beshe
+const sectionIds = ['hero', 'testimonials', 'features', 'pricing', 'faq', 'contact']
 
 function pickActive() {
   // bakhsh-e akhar (tamas) kutah-tar az safhe-st va hichvaqt bala-ye safhe nemiad; pas vaqti be ta residim, un barande-st
@@ -91,7 +92,7 @@ function pickActive() {
     const el = document.getElementById(id)
     if (el && el.getBoundingClientRect().top <= line) current = id
   }
-  activeId.value = current
+  activeId.value = current === 'pricing' ? 'features' : current
 }
 
 function handleScroll() {
