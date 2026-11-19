@@ -65,6 +65,11 @@ useScrollReveal('.reveal')
         </a>
       </div>
 
+      <!-- form-e darkhast-e tamas: baraye kasani ke pesh nemidan payam bedan ya tamas begiran -->
+      <div class="reveal mt-8">
+        <LeadForm />
+      </div>
+
       <p class="reveal reveal-delay-3 mt-5 inline-flex items-center gap-1.5 text-xs text-fg/50 sm:text-sm">
         <UIcon name="i-lucide-headset" class="size-4" />
         پشتیبانی و پاسخگویی ۲۴/۷
