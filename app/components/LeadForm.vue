@@ -57,7 +57,8 @@ const inputClass = 'w-full rounded-xl border border-fg/20 bg-card px-4 py-2.5 te
       </div>
 
       <input v-model="form.name" type="text" name="name" autocomplete="name" maxlength="80" placeholder="نام و نام خانوادگی" :class="inputClass">
-      <input v-model="form.phone" type="tel" name="phone" autocomplete="tel" inputmode="tel" maxlength="20" placeholder="شماره تماس" :class="inputClass">
+      <!-- dir="rtl": type=tel be sorat-e pish-farz chap-chin mishe va placeholder miraft samt-e chap -->
+      <input v-model="form.phone" type="tel" dir="rtl" name="phone" autocomplete="tel" inputmode="tel" maxlength="20" placeholder="شماره تماس" :class="inputClass">
       <input v-model="form.business" type="text" name="business" maxlength="120" placeholder="نوع کسب‌وکار (مثلاً لوازم یدکی، پوشاک...)" :class="inputClass">
 
       <!-- honeypot: fild-e makhfi baraye ta'min-e robot-ha; kasi ke adam-e por nemikone -->
@@ -79,7 +80,7 @@ const inputClass = 'w-full rounded-xl border border-fg/20 bg-card px-4 py-2.5 te
       >
         <UIcon v-if="status === 'sending'" name="i-lucide-loader-circle" class="size-4 animate-spin" />
         <UIcon v-else name="i-lucide-send" class="size-4" />
-        {{ status === 'sending' ? 'در حال ارسال...' : 'درخواست تماس' }}
+        {{ status === 'sending' ? 'در حال ارسال...' : 'درخواست مشاوره' }}
       </button>
     </form>
   </div>
