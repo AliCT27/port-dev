@@ -10,6 +10,8 @@ interface Plan {
   highlight?: boolean
   // pelan-e almas ham ghab-e sabz migire vali bedun-e glow va dokme-ye por
   green?: boolean
+  // jomle-ye tamayoz-e pelan (bala-ye dokme)
+  note?: string
   price: null | { prefix?: string, amount: string, unit: string }
   features: { text: string, included: boolean, strong?: boolean }[]
   cta: string
@@ -35,19 +37,25 @@ const plans: Plan[] = [
       { text: 'ارتباط مداوم با تیم توسعه', included: true },
       { text: 'اولویت در قابلیت‌ها و پروژه‌های موردنیاز شما', included: true }
     ],
+    note: 'اکثر کسب‌وکارها به این پلن نیاز دارن',
     cta: 'شروع مشاوره‌ی رایگان'
   },
   {
     id: 'custom',
     name: 'پلن الماس',
     label: 'مناسب کسب‌وکارهای بزرگ',
-    price: { prefix: 'بالای', amount: '۱۰۰', unit: 'میلیون تومان' },
+    price: { prefix: 'از', amount: '۱۲۰', unit: 'میلیون تومان' },
     green: true,
     features: [
       { text: 'تمام امکانات پایه‌ی سیستم فروشگاهی ما', included: true, strong: true },
       { text: 'قابلیت‌های خاص، دقیقاً مطابق کسب‌وکار شما', included: true },
       { text: 'طراحی UI/UX اختصاصی؛ ظاهری که مورد پسند خودتان باشد', included: true },
-      { text: 'سایتی متفاوت که شبیه هیچ فروشگاه دیگه‌ای نیست', included: true }
+      { text: 'سایتی متفاوت که شبیه هیچ فروشگاه دیگه‌ای نیست', included: true },
+      { text: 'هماهنگی کامل ظاهر سایت با برند و هویت بصری شما', included: true },
+      { text: 'پیاده‌سازی نیازهای خاص و پیچیده‌ی کسب‌وکارهای بزرگ', included: true },
+      { text: 'دریافت همه‌ی آپدیت‌ها', included: true },
+      { text: 'ارتباط مداوم با تیم توسعه', included: true },
+      { text: 'اولویت در قابلیت‌ها و پروژه‌های موردنیاز شما', included: true }
     ],
     cta: 'شروع مشاوره‌ی رایگان'
   }
@@ -117,6 +125,14 @@ const plans: Plan[] = [
             >
               امکانات این پلن<br>به‌زودی اضافه می‌شه
             </div>
+
+            <p
+              v-if="plan.note"
+              class="mb-3 flex items-center justify-center gap-1.5 rounded-lg bg-brand/10 px-3 py-2 text-center text-xs font-bold text-brand-ink"
+            >
+              <UIcon name="i-lucide-users" class="size-4 shrink-0" />
+              {{ plan.note }}
+            </p>
 
             <a
               :href="TELEGRAM_URL"
