@@ -39,11 +39,11 @@ async function submit() {
   }
 }
 
-const inputClass = 'w-full rounded-xl border border-fg/20 bg-card px-4 py-2.5 text-sm outline-none transition-colors duration-300 placeholder:text-fg/40 focus:border-brand'
+const inputClass = 'w-full rounded-xl border border-fg/20 bg-page px-4 py-2.5 text-sm outline-none transition-colors duration-300 placeholder:text-fg/40 focus:border-brand'
 </script>
 
 <template>
-  <div class="mx-auto w-full max-w-md rounded-2xl border border-fg/15 bg-card p-5 text-start sm:p-6">
+  <div class="mx-auto w-full max-w-md rounded-2xl border border-fg/15 bg-panel p-5 text-start sm:p-6">
     <div v-if="status === 'done'" class="flex flex-col items-center gap-2 py-4 text-center">
       <UIcon name="i-lucide-circle-check" class="size-9 text-brand-ink" />
       <p class="font-bold">اطلاعاتتون ثبت شد</p>
