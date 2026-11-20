@@ -54,7 +54,7 @@ const inputClass = 'w-full rounded-xl border border-fg/20 bg-page px-4 py-2.5 te
     <form v-else novalidate class="flex flex-col gap-3" @submit.prevent="submit">
       <div class="mb-1 text-center">
         <p class="font-bold">ترجیح می‌دید ما باهاتون تماس بگیریم؟</p>
-        <p class="mt-1 text-xs leading-6 text-fg/60 sm:text-sm">اطلاعاتتون رو بذارید تا مشاور ما شخصاً باهاتون تماس بگیره.</p>
+        <p class="mt-1 text-xs leading-6 text-fg/60 sm:text-sm">اطلاعاتتون رو بذارید تا مشاورین ما شخصاً باهاتون تماس بگیرن.</p>
       </div>
 
       <input v-model="form.name" type="text" name="name" autocomplete="name" maxlength="80" placeholder="نام و نام خانوادگی" :class="inputClass">
